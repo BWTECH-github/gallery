@@ -6,6 +6,7 @@
  * later. See the COPYING file.
  *
  * @author Olivier Paroz <galleryapps@oparoz.com>
+ * Modified by BW-Tech GmbH for owncloud.online (PHP 8.4).
  *
  * @copyright Olivier Paroz 2016
  */
@@ -32,9 +33,9 @@ trait Base64Encode {
 	 */
 	protected function encode($previewData) {
 		if ($previewData instanceof \OC_Image) {
-			$previewData = (string)$previewData;
+			$previewData = \base64_encode($previewData->data() ?? '');
 		} else {
-			$previewData = \base64_encode($previewData);
+			$previewData = \base64_encode((string)$previewData);
 		}
 
 		return $previewData;

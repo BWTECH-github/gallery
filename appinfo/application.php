@@ -6,6 +6,7 @@
  * later. See the COPYING file.
  *
  * @author Olivier Paroz <galleryapps@oparoz.com>
+ * Modified by BW-Tech GmbH for owncloud.online (PHP 8.4).
  *
  * @copyright Olivier Paroz 2014-2016
  */
@@ -248,10 +249,33 @@ class Application extends App {
 			}
 		);
 		$container->registerService(
+			'CurrentUserId',
+			function (IContainer $c) {
+				$userId = $c->query('UserId');
+				if ($userId === null) {
+					$user = $c->query('OCP\IUserSession')->getUser();
+					$userId = $user !== null ? $user->getUID() : null;
+				}
+				if ($userId === null) {
+					$requestUser = $c->query('Request')->server['PHP_AUTH_USER'] ?? null;
+					if ($requestUser !== null && $c->query('OCP\IUserManager')->userExists($requestUser)) {
+						$userId = $requestUser;
+					}
+				}
+
+				return $userId;
+			}
+		);
+		$container->registerService(
 			'UserFolder',
 			function (IAppContainer $c) {
+				$userId = $c->query('CurrentUserId');
+				if ($userId === null) {
+					return null;
+				}
+
 				return $c->getServer()
-					 ->getUserFolder($c->query('UserId'));
+					 ->getUserFolder($userId);
 			}
 		);
 
@@ -279,7 +303,7 @@ class Application extends App {
 			function (IContainer $c) {
 				return new Environment(
 					$c->query('AppName'),
-					$c->query('UserId'),
+					$c->query('CurrentUserId'),
 					$c->query('UserFolder'),
 					$c->query('OCP\IUserManager'),
 					$c->query('OCP\Files\IRootFolder'),

@@ -2,9 +2,10 @@
     "_readme": [
         "This file locks the dependencies of your project to a known state",
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Modified by BW-Tech GmbH for owncloud.online (PHP 8.4).",
         "This file is @generated automatically"
     ],
-    "content-hash": "55acd4110624022f8f1868a9bd637b95",
+    "content-hash": "3cddcfcd57bdc7784f3002b1ee4044d4",
     "packages": [
         {
             "name": "symfony/polyfill-ctype",
@@ -4292,12 +4293,14 @@
     "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
+    "platform": {
+        "php": ">=8.4"
+    },
     "platform-dev": {
         "composer-plugin-api": "^2.0"
     },
     "platform-overrides": {
-        "php": "7.3"
+        "php": "8.4"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }

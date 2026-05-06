@@ -8,6 +8,7 @@
  * @author Olivier Paroz <galleryapps@oparoz.com>
  * @author Bernhard Posselt <dev@bernhard-posselt.com>
  * @author Authors of \OCA\Files_Sharing\Helper
+ * Modified by BW-Tech GmbH for owncloud.online (PHP 8.4).
  *
  * @copyright Olivier Paroz 2014-2016
  * @copyright Bernhard Posselt 2012-2015
@@ -152,9 +153,6 @@ class EnvCheckMiddleware extends CheckMiddleware {
 	 * @return IShare
 	 */
 	private function getShare($token) {
-		// Allows a logged in user to access public links
-		\OC_User::setIncognitoMode(true);
-
 		try {
 			$share = $this->shareManager->getShareByToken($token);
 		} catch (ShareNotFound $e) {

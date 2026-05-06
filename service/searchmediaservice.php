@@ -6,6 +6,7 @@
  * later. See the COPYING file.
  *
  * @author Olivier Paroz <galleryapps@oparoz.com>
+ * Modified by BW-Tech GmbH for owncloud.online (PHP 8.4).
  *
  * @copyright Olivier Paroz 2014-2016
  */
@@ -27,7 +28,7 @@ class SearchMediaService extends FilesService {
 	/** @var null|array<string,string|int> */
 	private $albums = [];
 	/** @var string[] */
-	private $supportedMediaTypes;
+	private $supportedMediaTypes = [];
 
 	/**
 	 * This returns the list of all media files which can be shown starting from the given folder
@@ -39,8 +40,8 @@ class SearchMediaService extends FilesService {
 	 * @return array<null|array<string,string|int>> all the images we could find
 	 */
 	public function getMediaFiles($folderNode, $supportedMediaTypes, $features) {
-		$this->supportedMediaTypes = $supportedMediaTypes;
-		$this->features = $features;
+		$this->supportedMediaTypes = (array)$supportedMediaTypes;
+		$this->features = (array)$features;
 		$this->searchFolder($folderNode);
 
 		return [$this->images, $this->albums];
@@ -177,7 +178,7 @@ class SearchMediaService extends FilesService {
 	private function isPreviewAvailable($file) {
 		try {
 			$mimeType = $file->getMimeType();
-			if (\in_array($mimeType, $this->supportedMediaTypes)) {
+			if (\in_array($mimeType, $this->supportedMediaTypes, true)) {
 				$this->addFileToImagesArray($mimeType, $file);
 
 				return true;

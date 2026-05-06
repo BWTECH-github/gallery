@@ -1,11 +1,12 @@
-# Gallery 
+# Gallery
+<!-- Modified by BW-Tech GmbH for owncloud.online (PHP 8.4). -->
 [![Build Status](https://drone.owncloud.com/api/badges/owncloud/gallery/status.svg?branch=master)](https://drone.owncloud.com/owncloud/gallery)
 
 Media gallery for ownCloud which includes previews for all media types supported by your installation.
 
 Provides a dedicated view of all images in a grid, adds image viewing capabilities to the files app and adds a gallery view to public links.
 
-**This version is for ownCloud 10.0. If you need the same app for older versions of ownCloud. Use [Gallery+](https://github.com/interfasys/galleryplus) from their respective app stores.**
+**This fork is maintained by BW-Tech GmbH for owncloud.online and targets PHP 8.4 / ownCloud 11. It keeps the original ownCloud Gallery feature set.**
 
 ![Screenshot](https://raw.githubusercontent.com/owncloud/gallery/master/build/screenshots/Gallery.jpg)
 ## Featuring

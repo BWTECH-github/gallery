@@ -6,6 +6,7 @@
  * later. See the COPYING file.
  *
  * @author Olivier Paroz <galleryapps@oparoz.com>
+ * Modified by BW-Tech GmbH for owncloud.online (PHP 8.4).
  *
  * @copyright Olivier Paroz 2014-2016
  */
@@ -27,7 +28,7 @@ abstract class FilesService extends Service {
 	/** @var int */
 	protected $virtualRootLevel = null;
 	/** @var string[] */
-	protected $features;
+	protected $features = [];
 	/** @var string */
 	protected $ignoreAlbum = '.nomedia';
 
@@ -246,7 +247,7 @@ abstract class FilesService extends Service {
 		$rootFolder = $this->environment->getVirtualRootFolder();
 
 		return ($this->isExternalShare($rootFolder)
-				|| \in_array('external_shares', $this->features));
+				|| \in_array('external_shares', (array)$this->features, true));
 	}
 
 	/**

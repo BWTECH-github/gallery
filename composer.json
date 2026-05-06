@@ -1,9 +1,10 @@
 {
-  "name": "owncloud/gallery",
+  "name": "bwtech/gallery",
   "type": "project",
-  "description": "Media gallery for ownCloud which includes previews for all media types supported by your ownCloud installation.",
-  "license": "AGPL-3.0",
-  "homepage": "https://github.com/owncloud/gallery",
+  "description": "Media gallery for owncloud.online. Modified by BW-Tech GmbH (PHP 8.4 fork of owncloud/gallery).",
+  "license": "AGPL-3.0-only",
+  "homepage": "https://github.com/GrossLukas/gallery",
+  "modified-by": "BW-Tech GmbH",
   "authors": [
     {
       "name": "Olivier Paroz",
@@ -20,7 +21,7 @@
   ],
   "config" : {
     "platform": {
-      "php": "7.3"
+      "php": "8.4"
     },
     "allow-plugins": {
       "bamarni/composer-bin-plugin": true,
@@ -28,11 +29,12 @@
     }
   },
   "support": {
-    "issues": "https://github.com/owncloud/gallery/issues",
+    "issues": "https://github.com/GrossLukas/gallery/issues",
     "wiki": "https://github.com/owncloud/gallery/wiki",
-    "source": "https://github.com/owncloud/gallery"
+    "source": "https://github.com/GrossLukas/gallery"
   },
   "require": {
+    "php": ">=8.4",
     "symfony/yaml": "~2.6"
   },
   "require-dev": {

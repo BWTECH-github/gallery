@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!-- Modified by BW-Tech GmbH for owncloud.online (PHP 8.4). -->
 <info>
 	<id>gallery</id>
 	<name>Gallery</name>
@@ -17,9 +18,11 @@ Media gallery that adds image viewing capabilities to files view and public link
 - Seamlessly jump between the gallery and files view
 - Ignore folders containing a ".nomedia" file
 - Native SVG support
-- Mobile support</description>
+- Mobile support
+
+This is a PHP 8.4 fork maintained by BW-Tech GmbH for owncloud.online.</description>
 	<licence>AGPL</licence>
-	<author>Olivier Paroz, Robin Appelman, Thomas Müller</author>
+	<author>ownCloud contributors, modified by BW-Tech GmbH</author>
 	<version>16.1.2</version>
 	<namespace>Gallery</namespace>
 	<documentation>
@@ -29,11 +32,12 @@ Media gallery that adds image viewing capabilities to files view and public link
 	</documentation>
 	<category>multimedia</category>
 	<screenshot>https://raw.githubusercontent.com/owncloud/screenshots/0e38639046884e863afc654c5529c8014f7d42fb/gallery/gallery.png</screenshot>
-	<website>https://github.com/owncloud/gallery</website>
-	<bugs>https://github.com/owncloud/gallery/issues</bugs>
-	<repository type="git">https://github.com/owncloud/gallery.git</repository>
+	<website>https://bw.tech</website>
+	<bugs>https://github.com/GrossLukas/gallery/issues</bugs>
+	<repository type="git">https://github.com/GrossLukas/gallery.git</repository>
 	<dependencies>
-		<owncloud min-version="10.8" max-version="10"/>
+		<owncloud min-version="11" max-version="11.99"/>
+		<php min-version="8.4"/>
 	</dependencies>
 	<default_enable />
 </info>

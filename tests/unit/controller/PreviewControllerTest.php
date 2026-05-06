@@ -6,6 +6,7 @@
  * later. See the COPYING file.
  *
  * @author Olivier Paroz <galleryapps@oparoz.com>
+ * Modified by BW-Tech GmbH for owncloud.online (PHP 8.4).
  *
  * @copyright Olivier Paroz 2016
  */
@@ -470,7 +471,7 @@ class PreviewControllerTest extends \Test\GalleryUnitTest {
 	 */
 	private function mockBase64PreviewData($file) {
 		$preview = [
-			'preview'  => \base64_encode($file->getContent()),
+			'preview'  => \base64_encode((string)$file->getContent()),
 			// Not a real preview, but it's not important
 			'mimetype' => 'image/png', //Most previews are PNGs
 		];
