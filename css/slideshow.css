@@ -76,9 +76,20 @@
 }
 
 #slideshow > input:hover,
+#slideshow > input:focus,
 #slideshow > .menu input:hover,
+#slideshow > .menu input:focus,
 #slideshow.inactive > .name:hover {
 	opacity: .75;
+}
+
+/* Sichtbarer Tastatur-Fokus fuer die Slideshow-Steuerelemente (WCAG 2.4.7) */
+#slideshow > input:focus,
+#slideshow > input:focus-visible {
+	opacity: 1;
+	outline: 2px solid #fff;
+	outline-offset: 2px;
+	box-shadow: 0 0 0 2px #000;
 }
 
 #slideshow > .next, #slideshow > .previous {
@@ -139,6 +150,18 @@
 	background-repeat: no-repeat;
 	background-color: transparent;
 	margin-right: 10px;
+}
+
+/* Sichtbarer Tastatur-Fokus fuer die Slideshow-Menu-Buttons (WCAG 2.4.7) */
+#slideshow .menu .menuItem:hover,
+#slideshow .menu .menuItem:focus {
+	opacity: 1;
+}
+
+#slideshow .menu .menuItem:focus,
+#slideshow .menu .menuItem:focus-visible {
+	outline: 2px solid #fff;
+	outline-offset: 2px;
 }
 
 #slideshow > .name {

@@ -52,7 +52,7 @@ style(
 <header>
 	<div id="header">
 		<a href="<?php print_unescaped(link_to('', 'index.php')); ?>"
-		   title="" id="owncloud">
+		   title="<?php p($l->t('Home')); ?>" aria-label="<?php p($l->t('Home')); ?>" id="owncloud">
 			<div class="logo-icon svg">
 			</div>
 		</a>
@@ -83,9 +83,12 @@ style(
 					) ?></button>
 									<form class="save-form hidden" action="#">
 										<input type="text" id="remote_address"
+											   aria-label="<?php p($l->t('Remote address')); ?>"
 											   placeholder="example.com/owncloud"/>
 										<button id="save-button-confirm"
-												class="icon-confirm svg" disabled></button>
+												class="icon-confirm svg"
+												aria-label="<?php p($l->t('Add to your ownCloud')); ?>"
+												title="<?php p($l->t('Add to your ownCloud')); ?>" disabled></button>
 									</form>
 								</span>
 				<?php
@@ -109,7 +112,8 @@ style(
 				<div id="breadcrumbs"></div>
 				<!-- sorting buttons -->
 				<div class="left">
-					<div id="sort-date-button" class="button sorting right-switch-button">
+					<div id="sort-date-button" class="button sorting right-switch-button"
+						 role="button" tabindex="0" aria-label="<?php p($l->t('Sort by date')); ?>">
 						<div class="flipper">
 							<img class="svg asc front" src="<?php print_unescaped(
 						image_path($_['appName'], 'dateasc.svg')
@@ -119,7 +123,8 @@ style(
 					); ?>" alt="<?php p($l->t('Sort by date')); ?>"/>
 						</div>
 					</div>
-					<div id="sort-name-button" class="button sorting left-switch-button">
+					<div id="sort-name-button" class="button sorting left-switch-button"
+						 role="button" tabindex="0" aria-label="<?php p($l->t('Sort by name')); ?>">
 						<div class="flipper">
 							<img class="svg asc front" src="<?php print_unescaped(
 						image_path($_['appName'], 'nameasc.svg')
@@ -131,7 +136,8 @@ style(
 					</div>
 				</div>
 				<span class="right">
-					<div id="album-info-button" class="button">
+					<div id="album-info-button" class="button"
+						 role="button" tabindex="0" aria-label="<?php p($l->t('Album information')); ?>">
 						<span class="ribbon black"></span>
 						<img class="svg" src="<?php print_unescaped(
 						image_path('core', 'actions/info.svg')
@@ -142,7 +148,8 @@ style(
 						<div class="album-info-content markdown-body"></div>
 					</div>
 					<!-- toggle for opening the current album as file list -->
-					<div id="filelist-button" class="button view-switcher gallery">
+					<div id="filelist-button" class="button view-switcher gallery"
+						 role="button" tabindex="0" aria-label="<?php p($l->t('Picture view')); ?>">
 						<div id="button-loading"></div>
 						<img class="svg" src="<?php print_unescaped(
 						image_path('core', 'actions/toggle-filelist.svg')

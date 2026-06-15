@@ -69,7 +69,8 @@ style(
 	<div id='breadcrumbs'></div>
 	<div class="left">
 		<!-- sorting buttons -->
-		<div id="sort-date-button" class="button sorting right-switch-button">
+		<div id="sort-date-button" class="button sorting right-switch-button"
+			 role="button" tabindex="0" aria-label="<?php p($l->t('Sort by date')); ?>">
 			<div class="flipper">
 				<img class="svg asc front" src="<?php print_unescaped(
 	image_path($_['appName'], 'dateasc.svg')
@@ -79,7 +80,8 @@ style(
 ); ?>" alt="<?php p($l->t('Sort by date')); ?>"/>
 			</div>
 		</div>
-		<div id="sort-name-button" class="button sorting left-switch-button">
+		<div id="sort-name-button" class="button sorting left-switch-button"
+			 role="button" tabindex="0" aria-label="<?php p($l->t('Sort by name')); ?>">
 			<div class="flipper">
 				<img class="svg asc front" src="<?php print_unescaped(
 	image_path($_['appName'], 'nameasc.svg')
@@ -103,7 +105,8 @@ style(
 	<div id="file_action_panel"></div>
 	<span class="right">
 		<!-- sharing button -->
-		<div id="share-button" class="button">
+		<div id="share-button" class="button"
+			 role="button" tabindex="0" aria-label="<?php p($l->t('Share')); ?>">
 			<img class="svg" src="<?php print_unescaped(
 	image_path('core', 'actions/share.svg')
 ); ?>" alt="<?php p($l->t("Share")); ?>"/>
@@ -112,7 +115,8 @@ style(
 		   title="<?php p($l->t("Share")); ?>"
 		   data-possible-permissions="31"></a>
 		<!-- info button -->
-		<div id="album-info-button" class="button">
+		<div id="album-info-button" class="button"
+			 role="button" tabindex="0" aria-label="<?php p($l->t('Album information')); ?>">
 			<span class="ribbon black"></span>
 			<img class="svg" src="<?php print_unescaped(
 	image_path('core', 'actions/info.svg')
@@ -123,7 +127,8 @@ style(
 			<div class="album-info-content markdown-body"></div>
 		</div>
 		<!-- button for opening the current album as file list -->
-		<div id="filelist-button" class="button view-switcher gallery">
+		<div id="filelist-button" class="button view-switcher gallery"
+			 role="button" tabindex="0" aria-label="<?php p($l->t('File list')); ?>">
 			<div id="button-loading"></div>
 			<img class="svg" src="<?php print_unescaped(
 	image_path('core', 'actions/toggle-filelist.svg')

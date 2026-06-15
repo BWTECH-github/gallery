@@ -346,6 +346,15 @@
 			$('#sort-date-button').click(Gallery.sorter);
 			$('#save #save-button').click(Gallery.showSaveForm);
 			$('.save-form').submit(Gallery.saveForm);
+			// Tastaturbedienung fuer die als div umgesetzten Buttons (role="button"):
+			// Enter/Leertaste loesen denselben Click-Handler aus (WCAG 2.1.1)
+			$('#share-button, #album-info-button, #filelist-button, ' +
+				'#sort-name-button, #sort-date-button').on('keydown', function (event) {
+				if (event.which === 13 || event.which === 32) {
+					event.preventDefault();
+					$(this).click();
+				}
+			});
 			this._renderNewButton();
 			// Trigger cancelling of file upload
 			$('#uploadprogresswrapper .stop').on('click', function () {
