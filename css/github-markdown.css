@@ -325,7 +325,7 @@
 
 .markdown-body h6 {
   font-size: 1em;
-  color: #777;
+  color: #6a6a6a;
 }
 
 .markdown-body h6 .anchor {
@@ -387,7 +387,7 @@
 
 .markdown-body blockquote {
   padding: 0 15px;
-  color: #777;
+  color: #6a6a6a;
   border-left: 4px solid #bbb;
 }
 

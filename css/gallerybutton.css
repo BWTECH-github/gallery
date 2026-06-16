@@ -14,7 +14,7 @@
 }
 
 #controls .button.view-switcher img{
-	opacity: .3;
+	opacity: .7;
 }
 
 #controls .button.view-switcher.gallery {
@@ -25,7 +25,7 @@
 }
 
 #controls .button.view-switcher.gallery img{
-	opacity: .5;
+	opacity: .8;
 }
 
 #controls .button.sorting {
@@ -57,7 +57,7 @@
 .button.left-switch-button img,
 .button.right-switch-button img {
 	vertical-align: -3px;
-	opacity: 0.6;
+	opacity: 0.8;
 }
 
 #controls .disabled-button {

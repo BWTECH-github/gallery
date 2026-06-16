@@ -9,7 +9,7 @@
 		'		<a href="{{link}}">' +
 		'		{{#if img}}' +
 		'			{{#with img}}' +
-		'			<img title="{{title}}" src="{{imageSrc}}">' +
+		'			<img alt="{{title}}" title="{{title}}" src="{{imageSrc}}">' +
 		'			{{/with}}' +
 		'		{{else}}' +
 		'			{{name}}' +
