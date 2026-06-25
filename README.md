@@ -28,7 +28,6 @@ Checkout the [full changelog](CHANGELOG.md) for more.
 
 ### Current
 
-
 ### Alumni
 
 * [Olivier Paroz](https://github.com/oparoz)
