@@ -23,7 +23,7 @@ Media gallery that adds image viewing capabilities to files view and public link
 This is a PHP 8.4 fork maintained by BW-Tech GmbH for owncloud.online.</description>
 	<licence>AGPL</licence>
 	<author>ownCloud contributors, modified by BW-Tech GmbH</author>
-	<version>16.1.2</version>
+	<version>16.1.3</version>
 	<namespace>Gallery</namespace>
 	<documentation>
 		<user>https://doc.owncloud.com/server/latest/user_manual/files/gallery_app.html</user>
