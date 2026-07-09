@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased] - xxxx-xx-xx
 
+## [16.1.4] - 2026-07-09
+
+### Fixed
+
+- Slideshow showed a black screen with an endless spinner instead of the enlarged image: the slideshow template used a self-closing `<div/>` which modern jQuery (>= 3.5) no longer expands, so the image container ended up inside a hidden progress element. Clicking an image now opens the zoomable fullscreen view again; downloads only happen via the download button.
+
 ## [16.1.2] - 2021-10-05
 
 ### Fixed

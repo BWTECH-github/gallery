@@ -16,7 +16,10 @@
 			   <input id="rot" type="button"
 			   class="menuItem svg rotationCup icon-rotate hidden">
 	</div>
-	<div class="progress icon-view-pause"/>
+	<?php /* Kein self-closing <div/>: jQuery >= 3.5 expandiert das nicht mehr,
+	         der Browser parst es als offenes Tag und .bigshotContainer wuerde
+	         Kind des versteckten .progress-Elements (schwarze Slideshow). */ ?>
+	<div class="progress icon-view-pause"></div>
 	<div class="name">
 		<div class="title"></div>
 	</div>
