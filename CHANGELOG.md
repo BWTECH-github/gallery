@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased] - xxxx-xx-xx
 
+## [16.1.5] - 2026-07-09
+
+### Fixed
+
+- The 16.1.4 market package was missing the bundled frontend libraries under `js/vendor/` (bigshot, commonmark, dompurify, eventsource polyfill), so opening an image failed with "bigshot is not defined" and the slideshow never loaded. Packaging is fixed; no code changes.
+
 ## [16.1.4] - 2026-07-09
 
 ### Fixed
