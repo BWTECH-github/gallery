@@ -26,13 +26,12 @@ This is a PHP 8.4 fork maintained by BW-Tech GmbH for owncloud.online.</descript
 	<version>16.1.5</version>
 	<namespace>Gallery</namespace>
 	<documentation>
-		<user>https://doc.owncloud.com/server/latest/user_manual/files/gallery_app.html</user>
-		<admin>https://doc.owncloud.com/server/latest/user_manual/files/gallery_app.html</admin>
-		<developer>https://github.com/owncloud/gallery/blob/master/README.md</developer>
+		<user>https://github.com/BWTECH-github/gallery#readme</user>
+		<admin>https://github.com/BWTECH-github/gallery#readme</admin>
+		<developer>https://github.com/BWTECH-github/gallery#readme</developer>
 	</documentation>
 	<category>multimedia</category>
-	<screenshot>https://raw.githubusercontent.com/owncloud/screenshots/0e38639046884e863afc654c5529c8014f7d42fb/gallery/gallery.png</screenshot>
-	<website>https://bw.tech</website>
+	<website>https://owncloud.online</website>
 	<bugs>https://github.com/BWTECH-github/gallery/issues</bugs>
 	<repository type="git">https://github.com/BWTECH-github/gallery.git</repository>
 	<dependencies>

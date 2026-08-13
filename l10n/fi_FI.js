@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Jaa käyttäjien tai ryhmien kanssa…",
     "Share with users, groups or remote users …" : "Jaa käyttäjien, ryhmien tai etäkäyttäjien kanssa…",
     "Share" : "Jaa",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Jaa toisia ownCloud-järjestelmiä käyttävien kesken käyttäen syntaksia käyttäjätunnus@esimerkki.fi/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Jaa toisia owncloud.online-järjestelmiä käyttävien kesken käyttäen syntaksia käyttäjätunnus@esimerkki.fi/owncloud",
     "Share link" : "Jaa linkki",
     "The public link will expire no later than {days} days after it is created" : "Julkinen linkki vanhenee {days} päivän jälkeen sen luomisesta",
     "Link" : "Linkki",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "tiedosto on rikkoutunut",
     "the encryption key is missing" : "salausavain puuttuu",
     "Here is the error message returned by the server: " : "Tässä palvelimen palauttama virheviesti:",
-    "For more information, please contact your friendly ownCloud administrator." : "Lisätietoja on saatavilla ownCloud-istunnon ylläpitäjältä.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Lisätietoja on saatavilla owncloud.online-istunnon ylläpitäjältä.",
     "Sorry, but the server could not fulfill your request." : "Valitettavasti palvelin ei voinut toteuttaa pyyntöäsi.",
     "Possible reasons for the problem:" : "Ongelman mahdollisia syitä:",
     "a conflicting app was installed" : "ristiriidan aiheuttava sovellus on asennettu",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "linkki on vanhentunut",
     "sharing is disabled" : "jakaminen on poistettu käytöstä",
     "For more information, please ask the person who has sent you this link." : "Kysy lisätietoja linkin lähettäneeltä taholta.",
-    "Add to your ownCloud" : "Lisää ownCloudiisi",
+    "Add to your owncloud.online" : "Lisää owncloud.onlineiisi",
     "Picture view" : "Kuvanäkymä"
 },
 "nplurals=2; plural=(n != 1);");

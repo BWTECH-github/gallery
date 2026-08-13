@@ -52,7 +52,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Share with users or groups …",
     "Share with users, groups or remote users …" : "Share with users, groups or remote users …",
     "Share" : "Share",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Share with people on other ownClouds using the syntax username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Share with people on other Servern using the syntax username@example.com/owncloud",
     "Share link" : "Share link",
     "The public link will expire no later than {days} days after it is created" : "The public link will expire no later than {days} days after it is created",
     "Link" : "Link",
@@ -99,7 +99,7 @@ OC.L10N.register(
     "the file is corrupt" : "the file is corrupt",
     "the encryption key is missing" : "the encryption key is missing",
     "Here is the error message returned by the server: " : "Here is the error message returned by the server: ",
-    "For more information, please contact your friendly ownCloud administrator." : "For more information, please contact your friendly ownCloud administrator.",
+    "For more information, please contact your friendly owncloud.online administrator." : "For more information, please contact your friendly owncloud.online administrator.",
     "Sorry, but the server could not fulfill your request." : "Sorry, but the server could not fulfill your request.",
     "Possible reasons for the problem:" : "Possible reasons for the problem:",
     "a conflicting app was installed" : "a conflicting app was installed",
@@ -110,7 +110,7 @@ OC.L10N.register(
     "the link has expired" : "the link has expired",
     "sharing is disabled" : "sharing is disabled",
     "For more information, please ask the person who has sent you this link." : "For more information, please ask the person who has sent you this link.",
-    "Add to your ownCloud" : "Add to your ownCloud",
+    "Add to your owncloud.online" : "Add to your owncloud.online",
     "Picture view" : "Picture view"
 },
 "nplurals=2; plural=(n != 1);");

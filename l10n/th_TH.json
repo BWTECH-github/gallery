@@ -50,7 +50,7 @@
     "Share with users or groups …" : "แชร์กับผู้ใช้หรือกลุ่ม ...",
     "Share with users, groups or remote users …" : "แชร์กับผู้ใช้หรือกลุ่มหรือผู้ใช้โดยการรีโมท ...",
     "Share" : "แชร์",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "แชร์กับคนใน ownClouds อื่นๆ ที่ใช้ไวยากรณ์ username@example.com/owncloud ",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "แชร์กับคนใน Servern อื่นๆ ที่ใช้ไวยากรณ์ username@example.com/owncloud ",
     "Share link" : "แชร์ลิงก์",
     "The public link will expire no later than {days} days after it is created" : "ลิงก์สาธารณะจะหมดอายุภายใน {days} วัน หลังจากที่มันถูกสร้างขึ้น",
     "Link" : "ลิงก์",
@@ -97,7 +97,7 @@
     "the file is corrupt" : "ไฟล์เสียหาย",
     "the encryption key is missing" : "คีย์การเข้ารหัสหายไป",
     "Here is the error message returned by the server: " : "นี่คือข้อความผิดพลาดที่ส่งกลับโดยเซิร์ฟเวอร์:",
-    "For more information, please contact your friendly ownCloud administrator." : "สำหรับข้อมูลเพิ่มเติมโปรดติดต่อผู้ดูแลระบบ ownCloud ของคุณ",
+    "For more information, please contact your friendly owncloud.online administrator." : "สำหรับข้อมูลเพิ่มเติมโปรดติดต่อผู้ดูแลระบบ owncloud.online ของคุณ",
     "Sorry, but the server could not fulfill your request." : "ขออภัย แต่เซิร์ฟเวอร์ไม่สามารถตอบสนองการร้องขอของคุณ",
     "Possible reasons for the problem:" : "เหตุผลที่เป็นไปได้สำหรับปัญหา:",
     "a conflicting app was installed" : "แอพฯตรวจสอบปัญหาได้ถูกติดตั้งแล้ว",
@@ -108,7 +108,7 @@
     "the link has expired" : "ลิงก์หมดอายุ",
     "sharing is disabled" : "การแชร์ถูกปิดใช้งาน",
     "For more information, please ask the person who has sent you this link." : "สำหรับข้อมูลเพิ่มเติม โปรดถามคนที่ส่งลิงก์นี้ให้คุณ",
-    "Add to your ownCloud" : "เพิ่มลงใน ownCloud ของคุณ",
+    "Add to your owncloud.online" : "เพิ่มลงใน owncloud.online ของคุณ",
     "Picture view" : "ดูรูปภาพ"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

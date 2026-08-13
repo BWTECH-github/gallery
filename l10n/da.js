@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Del med brugere eller grupper",
     "Share with users, groups or remote users …" : "Del med brugere, grupper eller eksterne brugere...",
     "Share" : "Del",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Del med andre på ownCloud ved hjælp af syntaxen username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Del med andre på owncloud.online ved hjælp af syntaxen username@example.com/owncloud",
     "Share link" : "Del link",
     "The public link will expire no later than {days} days after it is created" : "Det offentlige link udløber senest {days} dage efter det blev oprettet",
     "Link" : "Link",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "filen er beskadiget",
     "the encryption key is missing" : "krypteringsnøglen mangler",
     "Here is the error message returned by the server: " : "Her er fejlbeskeden som serveren sendte:",
-    "For more information, please contact your friendly ownCloud administrator." : "For mere information, så kontakt din venlige ownCloud-administrator.",
+    "For more information, please contact your friendly owncloud.online administrator." : "For mere information, så kontakt din venlige owncloud.online-administrator.",
     "Sorry, but the server could not fulfill your request." : "Beklager, men serveren kunne ikke opfylde din anmodning.",
     "Possible reasons for the problem:" : "Mulige årsager til problemet:",
     "a conflicting app was installed" : "en app med konflikter blev installeret",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "linket er udløbet",
     "sharing is disabled" : "deling er deaktiveret",
     "For more information, please ask the person who has sent you this link." : "For mere information, så spørg personen som sendte dig dette link.",
-    "Add to your ownCloud" : "Tilføj til din ownCload",
+    "Add to your owncloud.online" : "Tilføj til din ownCload",
     "Picture view" : "Billedvisning"
 },
 "nplurals=2; plural=(n != 1);");

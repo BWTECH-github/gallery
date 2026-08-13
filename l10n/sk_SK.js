@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Zdieľať s používateľmi alebo skupinami ...",
     "Share with users, groups or remote users …" : "Zdieľať s používateľmi, skupinami alebo vzdialenými používateľmi ...",
     "Share" : "Zdieľať",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Zdieľať s ľuďmi na iných serveroch ownClouds pomocou syntaxe používateľ@doména.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Zdieľať s ľuďmi na iných serveroch Servern pomocou syntaxe používateľ@doména.com/owncloud",
     "Share link" : "Zdieľať linku",
     "The public link will expire no later than {days} days after it is created" : "Verejný odkaz nevyprší skôr než za {days} dní po vytvorení",
     "Link" : "Odkaz",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "súbor je narušený",
     "the encryption key is missing" : "chýba šifrovací kľúč",
     "Here is the error message returned by the server: " : "Server vrátil nasledujúcu chybovú správu:",
-    "For more information, please contact your friendly ownCloud administrator." : "Viac informácií získate od vášho priateľského ownCloud správcu.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Viac informácií získate od vášho priateľského owncloud.online správcu.",
     "Sorry, but the server could not fulfill your request." : "Ľutujem, server nedokáže splniť vašu požiadavku.",
     "Possible reasons for the problem:" : "Možné príčiny problému:",
     "a conflicting app was installed" : "inštalovaná konfliktná aplikácia",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "linka vypršala",
     "sharing is disabled" : "zdieľanie je zakázané",
     "For more information, please ask the person who has sent you this link." : "Viac informácií vám poskytne osoba, ktorá vám tento link poslala.",
-    "Add to your ownCloud" : "Pridať do svojho ownCloudu",
+    "Add to your owncloud.online" : "Pridať do svojho owncloud.onlineu",
     "Picture view" : "Zobrazenie obrázka"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

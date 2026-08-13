@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Compartir con usuarios o grupos",
     "Share with users, groups or remote users …" : "Compartir con usuarios, grupos o usuarios remotos",
     "Share" : "Compartir",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Compartir con xente d'otros ownClouds usando la sintaxis usuariu@exemplu.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Compartir con xente d'otros Servern usando la sintaxis usuariu@exemplu.com/owncloud",
     "Share link" : "Compartir enllaz",
     "The public link will expire no later than {days} days after it is created" : "L'enllaz públicu va caducar enantes de {days} díes dende la so creación",
     "Link" : "Enllaz",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "el ficheru ta toriáu",
     "the encryption key is missing" : "la clave de cifráu nun s'atopa",
     "Here is the error message returned by the server: " : "Equí ta'l mensaxe d'erru devueltu pol servidor:",
-    "For more information, please contact your friendly ownCloud administrator." : "Pa llograr más información, póngase en contactu col alministrador d'ownCloud.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Pa llograr más información, póngase en contactu col alministrador d'owncloud.online.",
     "Sorry, but the server could not fulfill your request." : "Sentímoslo, pero'l servidor nun pudo cumplir cola so solicitú.",
     "Possible reasons for the problem:" : "Les posibles razones pal problema:",
     "a conflicting app was installed" : "Instalóse una aplicación conflictiva",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "l'enllaz caducó",
     "sharing is disabled" : "la compartición ta deshabilitada",
     "For more information, please ask the person who has sent you this link." : "Pa más información, entrúga-y a la persona qu'unvió esti enllaz.",
-    "Add to your ownCloud" : "Amestar al to ownCloud",
+    "Add to your owncloud.online" : "Amestar al to owncloud.online",
     "Picture view" : "Vista d'imáxenes"
 },
 "nplurals=2; plural=(n != 1);");

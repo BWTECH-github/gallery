@@ -52,7 +52,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Współdziel z użytkownikami lub grupami",
     "Share with users, groups or remote users …" : "Współdziel z użytkownikami, grupami lub użytkownikami zdalnymi ...",
     "Share" : "Udostępnij",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Współdziel z użytkownikami innych chmur ownCloud używając wzorca uzytkownik@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Współdziel z użytkownikami innych chmur owncloud.online używając wzorca uzytkownik@example.com/owncloud",
     "Share link" : "Udostępnij link",
     "The public link will expire no later than {days} days after it is created" : "Link publiczny wygaśnie nie później niż po {days} dniach od utworzenia",
     "Link" : "Link",
@@ -99,7 +99,7 @@ OC.L10N.register(
     "the file is corrupt" : "plik jest uszkodzony",
     "the encryption key is missing" : "brakujący klucz szyfrowania",
     "Here is the error message returned by the server: " : "Serwer zwrócił następującą wiadomość błędu:",
-    "For more information, please contact your friendly ownCloud administrator." : "Po więcej informacji, proszę skontaktuj się z twoim przyjaznym administratorem ownCloud.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Po więcej informacji, proszę skontaktuj się z twoim przyjaznym administratorem owncloud.online.",
     "Sorry, but the server could not fulfill your request." : "Przepraszamy, ale serwer nie mógł zrealizować Twojego żądania.",
     "Possible reasons for the problem:" : "Możliwe przyczyny tego problemu:",
     "a conflicting app was installed" : "zainstalowana została konfliktowa aplikacja",
@@ -110,7 +110,7 @@ OC.L10N.register(
     "the link has expired" : "link wygasł",
     "sharing is disabled" : "udostępnianie jest wyłączone",
     "For more information, please ask the person who has sent you this link." : "Aby uzyskać więcej informacji proszę poprosić osobę, która wysłał ten link.",
-    "Add to your ownCloud" : "Dodaj do twojego ownCloud",
+    "Add to your owncloud.online" : "Dodaj do twojego owncloud.online",
     "Picture view" : "Widok zdjęć"
 },
 "nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);");

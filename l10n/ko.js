@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "사용자 및 그룹과 공유...",
     "Share with users, groups or remote users …" : "사용자, 그룹 및 원격 사용자와 공유...",
     "Share" : "공유",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "username@example.com/owncloud 형식으로 다른 ownCloud 사용자와 공유할 수 있습니다",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "username@example.com/owncloud 형식으로 다른 owncloud.online 사용자와 공유할 수 있습니다",
     "Share link" : "링크 공유",
     "The public link will expire no later than {days} days after it is created" : "공개 링크를 만든 후 최대 {days}일까지 유지됩니다",
     "Link" : "링크",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "파일이 손상됨",
     "the encryption key is missing" : "암호화 키가 없음",
     "Here is the error message returned by the server: " : "서버에서 반환한 오류 메시지입니다: ",
-    "For more information, please contact your friendly ownCloud administrator." : "더 많은 정보를 보려면 ownCloud 관리자에게 연락하십시오.",
+    "For more information, please contact your friendly owncloud.online administrator." : "더 많은 정보를 보려면 owncloud.online 관리자에게 연락하십시오.",
     "Sorry, but the server could not fulfill your request." : "서버에서 요청을 처리할 수 없습니다.",
     "Possible reasons for the problem:" : "문제의 가능한 이유:",
     "a conflicting app was installed" : "충돌하는 앱이 설치됨",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "링크가 만료됨",
     "sharing is disabled" : "공유가 비활성화됨",
     "For more information, please ask the person who has sent you this link." : "더 많은 정보를 얻으려면 링크를 보낸 사람에게 물어 보십시오.",
-    "Add to your ownCloud" : "내 ownCloud에 추가하기",
+    "Add to your owncloud.online" : "내 owncloud.online에 추가하기",
     "Picture view" : "사진 보기"
 },
 "nplurals=1; plural=0;");

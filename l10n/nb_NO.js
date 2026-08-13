@@ -52,7 +52,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Del med brukere eller grupper ...",
     "Share with users, groups or remote users …" : "Del med brukere, grupper eller eksterne brukere ...",
     "Share" : "Del",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Del med personer på andre ownCloud-installasjoner med syntaksen brukernavn@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Del med personer på andre owncloud.online-installasjoner med syntaksen brukernavn@example.com/owncloud",
     "Share link" : "Del lenke",
     "The public link will expire no later than {days} days after it is created" : "Den offentlige lenken vil utløpe senest {days} dager etter at den lages",
     "Link" : "Lenke",
@@ -99,7 +99,7 @@ OC.L10N.register(
     "the file is corrupt" : "filen er ødelagt",
     "the encryption key is missing" : "krypteringsnøkkelen mangler",
     "Here is the error message returned by the server: " : "Her er feilmeldingen som ble returnert av serveren:",
-    "For more information, please contact your friendly ownCloud administrator." : "For mer informasjon, kontakt ownCloud-administratoren.",
+    "For more information, please contact your friendly owncloud.online administrator." : "For mer informasjon, kontakt owncloud.online-administratoren.",
     "Sorry, but the server could not fulfill your request." : "Beklager, men serveren kunne ikke utføre forespørselen din.",
     "Possible reasons for the problem:" : "Mulige årsaker til problemet:",
     "a conflicting app was installed" : "en uforenlig app var installert",
@@ -110,7 +110,7 @@ OC.L10N.register(
     "the link has expired" : "lenken er utløpt",
     "sharing is disabled" : "deling er deaktivert",
     "For more information, please ask the person who has sent you this link." : "For mer informasjon, spør personen som har sendt deg lenken.",
-    "Add to your ownCloud" : "Legg til i din ownCloud",
+    "Add to your owncloud.online" : "Legg til i din owncloud.online",
     "Picture view" : "Bildevisning"
 },
 "nplurals=2; plural=(n != 1);");

@@ -49,7 +49,7 @@
     "Share with users or groups …" : "Megosztás felhasználókkal vagy csoportokkal ...",
     "Share with users, groups or remote users …" : "Megosztás felhasználókkal, csoportokkal vagy távoli felhasználókkal ...",
     "Share" : "Megosztás",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Megosztás más ownCloud szerverekkel, a következő formátum használatával felhasznalo@példa.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Megosztás más owncloud.online szerverekkel, a következő formátum használatával felhasznalo@példa.com/owncloud",
     "Share link" : "Megosztás hivatkozással",
     "The public link will expire no later than {days} days after it is created" : "A nyilvános hivatkozás érvényessége legkorábban {days} nappal a létrehozása után jár csak le",
     "Link" : "Hivatkozás",
@@ -96,7 +96,7 @@
     "the file is corrupt" : "a fájl korrupt",
     "the encryption key is missing" : "a titkosító kulcs hiányzik",
     "Here is the error message returned by the server: " : "Ezzel a hibaüzenettel tért vissza a szerver:",
-    "For more information, please contact your friendly ownCloud administrator." : "Bővebb információért, kérjük keresse fel a barátságos ownCloud rendszergazdáját.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Bővebb információért, kérjük keresse fel a barátságos owncloud.online rendszergazdáját.",
     "Sorry, but the server could not fulfill your request." : "Sajnáljuk, de a szerver nem tudta teljesíteni a kérését.",
     "Possible reasons for the problem:" : "A probléma lehetséges okai:",
     "a conflicting app was installed" : "ütköző alkalmazás lett telepítve",
@@ -107,7 +107,7 @@
     "the link has expired" : "a hivatkozás lejárt",
     "sharing is disabled" : "letiltásra került a megosztás",
     "For more information, please ask the person who has sent you this link." : "Bővebb információért, kérjük keresse fel azt az embert, aki küldte ezt a hivatkozást.",
-    "Add to your ownCloud" : "Adjuk hozzá a saját ownCloudunkhoz",
+    "Add to your owncloud.online" : "Adjuk hozzá a saját owncloud.onlineunkhoz",
     "Picture view" : "Képnézet"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

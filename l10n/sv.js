@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Dela med användare eller grupper ...",
     "Share with users, groups or remote users …" : "Dela med användare, grupper eller fjärranvändare ...",
     "Share" : "Dela",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Dela med folk på andra ownClouds med följande syntax username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Dela med folk på andra Servern med följande syntax username@example.com/owncloud",
     "Share link" : "Dela länk",
     "The public link will expire no later than {days} days after it is created" : "Den publika länken kommer sluta gälla inte senare än {days} dagar efter att den skapades",
     "Link" : "Länk",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "Denna fil är korrupt",
     "the encryption key is missing" : "Krypteringsnyckel saknas",
     "Here is the error message returned by the server: " : "Här är felkoden som returnerades av servern",
-    "For more information, please contact your friendly ownCloud administrator." : "För mer information var god kontakta din vänliga ownCloud administratör.",
+    "For more information, please contact your friendly owncloud.online administrator." : "För mer information var god kontakta din vänliga owncloud.online administratör.",
     "Sorry, but the server could not fulfill your request." : "Tyvärr, servern kunde ej fullfölja din förfrågan.",
     "Possible reasons for the problem:" : "Sannolika orsaker till detta problem:",
     "a conflicting app was installed" : "En motstridig applikation har installerats",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "tidsgräns för länken har löpt ut",
     "sharing is disabled" : "delning är inaktiverat",
     "For more information, please ask the person who has sent you this link." : "För mer information, var god fråga den person som skickat dig länken",
-    "Add to your ownCloud" : "Lägg till i din ownCloud",
+    "Add to your owncloud.online" : "Lägg till i din owncloud.online",
     "Picture view" : "Bildvy"
 },
 "nplurals=2; plural=(n != 1);");

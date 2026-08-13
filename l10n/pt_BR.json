@@ -50,7 +50,7 @@
     "Share with users or groups …" : "Compartilhar com usuários ou grupos ...",
     "Share with users, groups or remote users …" : "Compartilhar com usuários, grupos ou usuários remoto ...",
     "Share" : "Compartilhar",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Compartilhar com usuários em outros ownClouds usando a sintaxe username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Compartilhar com usuários em outros Servern usando a sintaxe username@example.com/owncloud",
     "Share link" : "Compartilhar link",
     "The public link will expire no later than {days} days after it is created" : "O link público irá expirar não antes de {days} depois de ser criado",
     "Link" : "Link",
@@ -97,7 +97,7 @@
     "the file is corrupt" : "o arquivo está corrompido",
     "the encryption key is missing" : "está faltando a chave de criptografia",
     "Here is the error message returned by the server: " : "Aqui está a mensagem de erro retornada pelo servidor:",
-    "For more information, please contact your friendly ownCloud administrator." : "Para obter mais informações, entre em contato com o amigável administrador do ownCloud.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Para obter mais informações, entre em contato com o amigável administrador do owncloud.online.",
     "Sorry, but the server could not fulfill your request." : "Desculpe, mas o servidor não pode satisfazer o seu pedido.",
     "Possible reasons for the problem:" : "As possíveis razões para o problema:",
     "a conflicting app was installed" : "um aplicativo conflitante foi instalado",
@@ -108,7 +108,7 @@
     "the link has expired" : "o link expirou",
     "sharing is disabled" : "o compartilhamento está desativado",
     "For more information, please ask the person who has sent you this link." : "Para mais informações, por favor, pergunte a pessoa que lhe enviou este link.",
-    "Add to your ownCloud" : "Adiconar ao seu ownCloud",
+    "Add to your owncloud.online" : "Adiconar ao seu owncloud.online",
     "Picture view" : "Visualizar foto"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }

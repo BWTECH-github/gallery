@@ -52,7 +52,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Mit Benutzern oder Gruppen teilen…",
     "Share with users, groups or remote users …" : "Mit Benutzern, Gruppen oder entfernten Benutzern teilen…",
     "Share" : "Teilen",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Mit Benutzern anderer ownClouds unter Verwendung der Syntax benutzername@beispiel.com/owncloud teilen",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Mit Benutzern anderer Servern unter Verwendung der Syntax benutzername@beispiel.com/owncloud teilen",
     "Share link" : "Link teilen",
     "The public link will expire no later than {days} days after it is created" : "Der öffentliche Link wird spätestens {days} Tage nach seiner Erstellung ablaufen",
     "Link" : "Link",
@@ -99,7 +99,7 @@ OC.L10N.register(
     "the file is corrupt" : "die Datei ist beschädigt",
     "the encryption key is missing" : "Der Verschlüsselungsschlüssel fehlt",
     "Here is the error message returned by the server: " : "Hier ist die Fehlermeldung, welche vom Server zurückgegeben wurde:",
-    "For more information, please contact your friendly ownCloud administrator." : "Bitte kontaktiere für mehr Informationen deinen freundlichen ownCloud-Administrator.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Bitte kontaktiere für mehr Informationen deinen freundlichen owncloud.online-Administrator.",
     "Sorry, but the server could not fulfill your request." : "Entschuldigung, aber der Server konnte deine Anfrage nicht beantworten.",
     "Possible reasons for the problem:" : "Mögliche Gründe für das Problem:",
     "a conflicting app was installed" : "eine konfliktträchtige App wurde installiert",
@@ -110,7 +110,7 @@ OC.L10N.register(
     "the link has expired" : "Der Link ist abgelaufen",
     "sharing is disabled" : "Teilen ist deaktiviert",
     "For more information, please ask the person who has sent you this link." : "Um nähere Informationen zu erhalten, wende Dich bitte an die Person, die Dir diesen Link geschickt hat.",
-    "Add to your ownCloud" : "Zu Deiner ownCloud hinzufügen",
+    "Add to your owncloud.online" : "Zu Deiner owncloud.online hinzufügen",
     "Picture view" : "Bildansicht"
 },
 "nplurals=2; plural=(n != 1);");

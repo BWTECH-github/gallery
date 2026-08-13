@@ -38,7 +38,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Поширити серед користувачів або груп ...",
     "Share with users, groups or remote users …" : "Поширити серед локальних чи віддалених користувачів або груп ...",
     "Share" : "Поділитися",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Поширити серед людей інших ownCloud'ів, використовуючи синтаксис ім'я_користувача@файли.укр/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Поширити серед людей інших owncloud.online'ів, використовуючи синтаксис ім'я_користувача@файли.укр/owncloud",
     "Share link" : "Поділитись посиланням",
     "The public link will expire no later than {days} days after it is created" : "Доступ до опублікованого посилання буде припинено не пізніше ніж через {days} днів з моменту створення",
     "Link" : "Посилання",
@@ -86,7 +86,7 @@ OC.L10N.register(
     "the item was removed" : "цей пункт був вилучений",
     "the link has expired" : "посилання застаріло",
     "sharing is disabled" : "обмін заборонений",
-    "Add to your ownCloud" : "Додати до вашого ownCloud",
+    "Add to your owncloud.online" : "Додати до вашого owncloud.online",
     "Picture view" : "Перегляд Зображення"
 },
 "nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);");

@@ -52,7 +52,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Condividi con utenti o gruppi...",
     "Share with users, groups or remote users …" : "Condividi con utenti, gruppi o utenti remoti...",
     "Share" : "Condividi",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Condividi con persone su altri ownCloud utilizzando la sintassi nomeutente@esempio.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Condividi con persone su altri owncloud.online utilizzando la sintassi nomeutente@esempio.com/owncloud",
     "Share link" : "Condividi collegamento",
     "The public link will expire no later than {days} days after it is created" : "Il collegamento pubblico scadrà non più tardi di {days} giorni dopo la sua creazione",
     "Link" : "Collegamento",
@@ -99,7 +99,7 @@ OC.L10N.register(
     "the file is corrupt" : "il file è danneggiato",
     "the encryption key is missing" : "manca la chiave di cifratura",
     "Here is the error message returned by the server: " : "Ecco il messaggio di errore restituito dal server:",
-    "For more information, please contact your friendly ownCloud administrator." : "Per ulteriori informazioni, contatta il tuo amministratore di ownCloud.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Per ulteriori informazioni, contatta il tuo amministratore di owncloud.online.",
     "Sorry, but the server could not fulfill your request." : "Spiacenti, ma il server non può completare la tua richiesta.",
     "Possible reasons for the problem:" : "Possibili cause del problema:",
     "a conflicting app was installed" : "è stata installata un'applicazione che causa un conflitto",
@@ -110,7 +110,7 @@ OC.L10N.register(
     "the link has expired" : "il collegamento è scaduto",
     "sharing is disabled" : "la condivisione è disabilitata",
     "For more information, please ask the person who has sent you this link." : "Per ulteriori informazioni, chiedi alla persona che ti ha inviato il collegamento.",
-    "Add to your ownCloud" : "Aggiungi al tuo ownCloud",
+    "Add to your owncloud.online" : "Aggiungi al tuo owncloud.online",
     "Picture view" : "Vista immagini"
 },
 "nplurals=2; plural=(n != 1);");

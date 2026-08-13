@@ -49,7 +49,7 @@
     "Share with users or groups …" : "Deel met gebruikers of groepe …",
     "Share with users, groups or remote users …" : "Deel met gebruikers, groepe of afstandsgebruikers …",
     "Share" : "Deel",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Deel met mense op ander ownClouds deur die sintaks gebruikernaam@voorbeeld.com/owncloud te gebruik",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Deel met mense op ander Servern deur die sintaks gebruikernaam@voorbeeld.com/owncloud te gebruik",
     "Share link" : "Deel skakel",
     "The public link will expire no later than {days} days after it is created" : "Die openbare skakel sal nie later nie as {days} dae veral nadat dit geskep is",
     "Link" : "Skakel",
@@ -96,7 +96,7 @@
     "the file is corrupt" : "die lêer is korrup",
     "the encryption key is missing" : "die enkripsiesleutel makeer",
     "Here is the error message returned by the server: " : "Hier is die foutboodskap van die bediener af:",
-    "For more information, please contact your friendly ownCloud administrator." : "Kontak asb. u behulpsame ownCloud-administrateur vir verdere inligting.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Kontak asb. u behulpsame owncloud.online-administrateur vir verdere inligting.",
     "Sorry, but the server could not fulfill your request." : "Jammer, die bediener kon nie aan u versoek voldoen nie.",
     "Possible reasons for the problem:" : "Moontlike redes vir die probleem:",
     "a conflicting app was installed" : "’n botsende toep is geïnstalleer",
@@ -107,7 +107,7 @@
     "the link has expired" : "die skakel het verstryk",
     "sharing is disabled" : "deling is gedeaktiveer",
     "For more information, please ask the person who has sent you this link." : "Vra die persoon wat hierdie skakel aangestuur het vir verdere inligting.",
-    "Add to your ownCloud" : "Voeg tot u ownCloud toe",
+    "Add to your owncloud.online" : "Voeg tot u owncloud.online toe",
     "Picture view" : "Prentaansig"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

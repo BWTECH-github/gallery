@@ -36,7 +36,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Partajează cu utilizatori și grupuri ...",
     "Share with users, groups or remote users …" : "Partajează cu utilizatori, grupuri sau utilizatori la distanță ...",
     "Share" : "Partajează",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Partajează cu persoane din alte instanțe ownCloud folosind sintaxa nume_utilizator@exemplu.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Partajează cu persoane din alte instanțe owncloud.online folosind sintaxa nume_utilizator@exemplu.com/owncloud",
     "Share link" : "Partajează legătura",
     "The public link will expire no later than {days} days after it is created" : "Legătura publică va expira nu mai târziu de {days} zile de la ziua creării",
     "Link" : "Legătură",
@@ -92,7 +92,7 @@ OC.L10N.register(
     "the link has expired" : "această legătură a expirat",
     "sharing is disabled" : "partajarea este oprită",
     "For more information, please ask the person who has sent you this link." : "Pentru mai multe informații, ia legătura cu persoana care ți-a trimis acest link.",
-    "Add to your ownCloud" : "Adaugă propriul tău ownCloud",
+    "Add to your owncloud.online" : "Adaugă propriul tău owncloud.online",
     "Picture view" : "Vizualizare imagine"
 },
 "nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));");

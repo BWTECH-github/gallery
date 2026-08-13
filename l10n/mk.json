@@ -50,7 +50,7 @@
     "Share with users or groups …" : "Сподели со корисници или групи ...",
     "Share with users, groups or remote users …" : "Споделено со корисници, групи или оддалечени корисници ...",
     "Share" : "Сподели",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Споделете со луѓе на други OwnCloud сервери користејќи ја синтаксата username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Споделете со луѓе на други OwnCloud сервери користејќи ја синтаксата username@example.com/owncloud",
     "Share link" : "Сподели ја врската",
     "The public link will expire no later than {days} days after it is created" : "Овој јавен линк е важечки {days} дена од денот на креирање.",
     "Link" : "Линк",
@@ -97,7 +97,7 @@
     "the file is corrupt" : "Датотеката е оштетена",
     "the encryption key is missing" : "клучот за шифрирање недостасува",
     "Here is the error message returned by the server: " : "Пораката за грешката која ја врати серверот:",
-    "For more information, please contact your friendly ownCloud administrator." : "За повеќе информации, контактирајте го администраторот.",
+    "For more information, please contact your friendly owncloud.online administrator." : "За повеќе информации, контактирајте го администраторот.",
     "Sorry, but the server could not fulfill your request." : "Се извинуваме, серверот наможе да го исполни вашето барање.",
     "Possible reasons for the problem:" : "Можни причини за проблемот:",
     "a conflicting app was installed" : "инсталирана е конфликтна апликација",
@@ -108,7 +108,7 @@
     "the link has expired" : "линкот е истечен",
     "sharing is disabled" : "споделувањето не е дозволено",
     "For more information, please ask the person who has sent you this link." : "За повеќе информации, обратете се кај особата која ви го испрати овој линк.",
-    "Add to your ownCloud" : "Додади во вашиот ownCloud",
+    "Add to your owncloud.online" : "Додади во вашиот owncloud.online",
     "Picture view" : "Приказ на слика"
 },"pluralForm" :"nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;"
 }

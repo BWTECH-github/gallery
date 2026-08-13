@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Partejar amb d'utilizaires o gropes...",
     "Share with users, groups or remote users …" : "Partejar amb d'utilizaires, gropes, o utilizaires distants",
     "Share" : "Partejar",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Partejatz amb de personas sus d'autres ownClouds en utilizant la sintaxi utilizaire@exemple.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Partejatz amb de personas sus d'autres Servern en utilizant la sintaxi utilizaire@exemple.com/owncloud",
     "Share link" : "Partejar lo ligam",
     "The public link will expire no later than {days} days after it is created" : "Aqueste ligam public expirarà al mai tard {days} jorns aprèp sa creacion.",
     "Link" : "Ligam",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "lo fichièr es corromput",
     "the encryption key is missing" : "la clau de chiframent es mancanta",
     "Here is the error message returned by the server: " : "Messatge d'error renviat pel servidor :",
-    "For more information, please contact your friendly ownCloud administrator." : "Per mai d'informacions, contactatz vòstre administrator ownCloud.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Per mai d'informacions, contactatz vòstre administrator owncloud.online.",
     "Sorry, but the server could not fulfill your request." : "O planhèm, lo servidor pòt pas satisfar vòstra requèsta.",
     "Possible reasons for the problem:" : "Rasons possiblas del problèma :",
     "a conflicting app was installed" : "una aplicacion incompatibla es estada installada",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "lo ligam a expirat",
     "sharing is disabled" : "lo partiment es desactivat",
     "For more information, please ask the person who has sent you this link." : "Per mai d'informacions, contactatz la persona que vos a mandat aqueste ligam.",
-    "Add to your ownCloud" : "Apondre a vòstre ownCloud",
+    "Add to your owncloud.online" : "Apondre a vòstre owncloud.online",
     "Picture view" : "Visualizacion de l'imatge"
 },
 "nplurals=2; plural=(n > 1);");

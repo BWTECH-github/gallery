@@ -52,7 +52,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Dalintis su vartotoju ar grupe",
     "Share with users, groups or remote users …" : "Dalintis su vartotoju, grupe, ar nutolusiu vartotoju...",
     "Share" : "Dalintis",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Dalintis su vartotoju kitame ownCloud debesyje, sintaksė vartotojas@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Dalintis su vartotoju kitame owncloud.online debesyje, sintaksė vartotojas@example.com/owncloud",
     "Share link" : "Dalintis nuoroda",
     "The public link will expire no later than {days} days after it is created" : "Vieša nuoroda galios ne mažiau kaip {days} dienas nuo sukūrimo",
     "Link" : "Nuoroda",
@@ -99,7 +99,7 @@ OC.L10N.register(
     "the file is corrupt" : "failas sugadintas",
     "the encryption key is missing" : "nėra šifravimo rakto",
     "Here is the error message returned by the server: " : "Serveris gražino klaidos pranešimą:",
-    "For more information, please contact your friendly ownCloud administrator." : "Dėl platesnė informacijos, susisiekite su draugišku administratoriumi.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Dėl platesnė informacijos, susisiekite su draugišku administratoriumi.",
     "Sorry, but the server could not fulfill your request." : "Gaila, bet serveris negali įvykdyti užklausos.",
     "Possible reasons for the problem:" : "Galimos problemos priežastys:",
     "a conflicting app was installed" : "nesuderinama programėlė buvo įdiegta",
@@ -110,7 +110,7 @@ OC.L10N.register(
     "the link has expired" : "baigėsi nuorodos galiojimo laikas",
     "sharing is disabled" : "dalinimasis yra išjungtas",
     "For more information, please ask the person who has sent you this link." : "Dėl tikslesnės informacijos susisiekite su asmeniu atsiuntusiu nuorodą.",
-    "Add to your ownCloud" : "Pridėti prie tavo ownCloud",
+    "Add to your owncloud.online" : "Pridėti prie tavo owncloud.online",
     "Picture view" : "Paveikslėlio rodymas"
 },
 "nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);");

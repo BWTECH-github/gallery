@@ -52,7 +52,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Deila með notendum eða hópum ...",
     "Share with users, groups or remote users …" : "Deila með notendum, hópa eða ytri notendum ...",
     "Share" : "Deila",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Deila með fólki í öðrum ownCloud-skýjum með skipuninni notandanafn@dæmi.is/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Deila með fólki í öðrum owncloud.online-skýjum með skipuninni notandanafn@dæmi.is/owncloud",
     "Share link" : "Deila tengli",
     "The public link will expire no later than {days} days after it is created" : "Opinberi tengillinn rennur út eigi síðar en {days} dögum eftir að hann er útbúinn",
     "Link" : "Tengill",
@@ -99,7 +99,7 @@ OC.L10N.register(
     "the file is corrupt" : "skráin er skemmd",
     "the encryption key is missing" : "dulritunarlykil vantar",
     "Here is the error message returned by the server: " : "Hér er villumeldingin sem kom frá þjóninum:",
-    "For more information, please contact your friendly ownCloud administrator." : "Til að fá nánari upplýsingar, hafðu samband við vinalega ownCloud kerfisstjórann.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Til að fá nánari upplýsingar, hafðu samband við vinalega owncloud.online kerfisstjórann.",
     "Sorry, but the server could not fulfill your request." : "Því miður gat netþjónninn ekki uppfyllt fyrirspurnina þína.",
     "Possible reasons for the problem:" : "Mögulegar ástæður fyrir þessu vandamáli:",
     "a conflicting app was installed" : "sett var upp forrit sem veldur árekstrum",
@@ -110,7 +110,7 @@ OC.L10N.register(
     "the link has expired" : "tengillinn er útrunninn",
     "sharing is disabled" : "slökkt er á skráadeilingu",
     "For more information, please ask the person who has sent you this link." : "Til að vita meira skaltu hafa samband við þann sem sendi þér þennan tengil.",
-    "Add to your ownCloud" : "Bæta í þitt eigið ownCloud",
+    "Add to your owncloud.online" : "Bæta í þitt eigið owncloud.online",
     "Picture view" : "Myndasýn"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

@@ -52,7 +52,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Ndajeni me përdorues ose grupe …",
     "Share with users, groups or remote users …" : "Ndajeni me përdorues, grupe ose përdorues të largët …",
     "Share" : "Ndajeni me të tjerët",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Ndajeni me persona në ownCloud-e të tjera duke përdorur sintaksën username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Ndajeni me persona në owncloud.online-e të tjera duke përdorur sintaksën username@example.com/owncloud",
     "Share link" : "Ndani lidhjen",
     "The public link will expire no later than {days} days after it is created" : "Lidhja publike do të skadojë jo më vonë se {days} ditë pas krijimit",
     "Link" : "Lidhje",
@@ -99,7 +99,7 @@ OC.L10N.register(
     "the file is corrupt" : "kartela është e dëmtuar",
     "the encryption key is missing" : "mungon kyçi i fshehtëzimeve",
     "Here is the error message returned by the server: " : "Ky është mesazhi i gabimit i kthyer nga shërbyesi: ",
-    "For more information, please contact your friendly ownCloud administrator." : "Për më tepër të dhëna, ju lutemi, lidhuni me ne përgjegjësin miqësor të ownCloud-it tuaj.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Për më tepër të dhëna, ju lutemi, lidhuni me ne përgjegjësin miqësor të owncloud.online-it tuaj.",
     "Sorry, but the server could not fulfill your request." : "Na ndjeni, por shërbyesi s’e përmbushi dot kërkesën tuaj.",
     "Possible reasons for the problem:" : "Arsye të mundshme për problemin:",
     "a conflicting app was installed" : "qe instaluar një aplikacion konfliktues",
@@ -110,7 +110,7 @@ OC.L10N.register(
     "the link has expired" : "lidhja ka skaduar",
     "sharing is disabled" : "ndarjet janë çaktivizuar",
     "For more information, please ask the person who has sent you this link." : "Për më tepër të dhëna, ju lutemi, pyetni personin që ju dërgoi këtë lidhje.",
-    "Add to your ownCloud" : "Shtojeni te ownCloud-i juaj",
+    "Add to your owncloud.online" : "Shtojeni te owncloud.online-i juaj",
     "Picture view" : "Pamje Foto"
 },
 "nplurals=2; plural=(n != 1);");

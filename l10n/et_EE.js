@@ -88,7 +88,7 @@ OC.L10N.register(
     "the file is corrupt" : "fail on vigane",
     "the encryption key is missing" : "krüpteerimisvõti puudub",
     "Here is the error message returned by the server: " : "Siin on viga, mille server tagastas:",
-    "For more information, please contact your friendly ownCloud administrator." : "Lisainfo saamiseks võta ühendust oma muheda ownCloudi adminiga.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Lisainfo saamiseks võta ühendust oma muheda owncloud.onlinei adminiga.",
     "Sorry, but the server could not fulfill your request." : "Vabandust, aga server ei suutnud sinu päringut täita.",
     "Possible reasons for the problem:" : "Probleemi võimalikud põhjused:",
     "a conflicting app was installed" : "paigaldati rakendus, mis tekitas konflikti",
@@ -99,7 +99,7 @@ OC.L10N.register(
     "the link has expired" : "link on aegunud",
     "sharing is disabled" : "jagamine on peatatud",
     "For more information, please ask the person who has sent you this link." : "Küsi lisainfot inimeselt, kes sulle selle lingi saatis.",
-    "Add to your ownCloud" : "Lisa oma ownCloudi",
+    "Add to your owncloud.online" : "Lisa oma owncloud.onlinei",
     "Picture view" : "Pildi vaade"
 },
 "nplurals=2; plural=(n != 1);");

@@ -50,7 +50,7 @@
     "Share with users or groups …" : "Διαμοιρασμός με χρήστες ή ομάδες …",
     "Share with users, groups or remote users …" : "Διαμοιρασμός με χρήστες, ομάδες ή απομακρυσμένους χρήστες …",
     "Share" : "Διαμοιρασμός",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Διαμοιρασμός με άτομα σε άλλα διακομιστές ownCloud χρησιμοποιώντας την σύνταξη username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Διαμοιρασμός με άτομα σε άλλα διακομιστές owncloud.online χρησιμοποιώντας την σύνταξη username@example.com/owncloud",
     "Share link" : "Διαμοιρασμός συνδέσμου",
     "The public link will expire no later than {days} days after it is created" : "Ο δημόσιος σύνδεσμος θα απενεργοποιηθεί όχι πριν από {days} ημέρες μετά την δημιουργία του",
     "Link" : "Σύνδεσμος",
@@ -97,7 +97,7 @@
     "the file is corrupt" : "το αρχείο είναι κατεστραμμένο",
     "the encryption key is missing" : "λείπει το κλειδί κρυπτογράφησης",
     "Here is the error message returned by the server: " : "Εδώ είναι το μήνυμα σφάλματος που επέστρεψε ο διακομιστής:",
-    "For more information, please contact your friendly ownCloud administrator." : "Για περισσότερες πληροφορίες παρακαλούμε, επικοινωνήστε με το φιλικό διαχειριστή του ownCloud σας.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Για περισσότερες πληροφορίες παρακαλούμε, επικοινωνήστε με το φιλικό διαχειριστή του owncloud.online σας.",
     "Sorry, but the server could not fulfill your request." : "Συγγνώμη αλλά ο διακομιστής δεν μπόρεσε να εκπληρώσει το αίτημά σας.",
     "Possible reasons for the problem:" : "Πιθανές αιτίες του προβλήματος:",
     "a conflicting app was installed" : "εγκαταστάθηκε μια ασύμβατη εφαρμογή",
@@ -108,7 +108,7 @@
     "the link has expired" : "ο σύνδεσμος έληξε",
     "sharing is disabled" : "ο διαμοιρασμός απενεργοποιήθηκε",
     "For more information, please ask the person who has sent you this link." : "Για περισσότερες πληροφορίες, παρακαλούμε ρωτήστε το άτομο που σας έστειλε αυτόν τον σύνδεσμο.",
-    "Add to your ownCloud" : "Προσθήκη στο ownCloud σας",
+    "Add to your owncloud.online" : "Προσθήκη στο owncloud.online σας",
     "Picture view" : "Προβολή εικονιδίων"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

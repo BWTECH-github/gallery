@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Kullanıcı ve gruplarla paylaş...",
     "Share with users, groups or remote users …" : "Kullanıcılar, gruplar veya uzak kullanıcılarla paylaş ...",
     "Share" : "Paylaş",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "kullanıcı@example.com/owncloud şeklinde diğer ownCloud kullanan diğer kullanıcılarla paylaş",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "kullanıcı@example.com/owncloud şeklinde diğer owncloud.online kullanan diğer kullanıcılarla paylaş",
     "Share link" : "Paylaşma bağlantısı",
     "The public link will expire no later than {days} days after it is created" : "Herkese açık bağlantı, oluşturulduktan en geç {days} gün sonra sona erecek",
     "Link" : "Bağlantı",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "dosya bozuk",
     "the encryption key is missing" : "şifreleme anahtarı eksik",
     "Here is the error message returned by the server: " : "Sunucunun döndürdüğü hata iletisi: ",
-    "For more information, please contact your friendly ownCloud administrator." : "Daha fazla bilgi için ownCloud yöneticiniz ile bağlantıya geçin.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Daha fazla bilgi için owncloud.online yöneticiniz ile bağlantıya geçin.",
     "Sorry, but the server could not fulfill your request." : "Üzgünüm, sunucu isteğinizi yerine getiremedi.",
     "Possible reasons for the problem:" : "Bu problemin muhtemel nedenleri:",
     "a conflicting app was installed" : "çakışan bir uygulama yüklü",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "bağlantı zamanı geçmiş",
     "sharing is disabled" : "paylaşım devre dışı",
     "For more information, please ask the person who has sent you this link." : "Daha fazla bilgi için size bu bağlantıyı veren kişiyle bağlantıya geçin.",
-    "Add to your ownCloud" : "ownCloud'ınıza Ekleyin",
+    "Add to your owncloud.online" : "owncloud.online'ınıza Ekleyin",
     "Picture view" : "Resim görünümü"
 },
 "nplurals=2; plural=(n > 1);");

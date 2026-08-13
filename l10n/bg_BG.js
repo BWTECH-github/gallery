@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Споделяне с потребители и групи...",
     "Share with users, groups or remote users …" : "Споделяне с потребители, групи и отдалечени потребители...",
     "Share" : "Сподели",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Споделете с хора на други ownClouds използвайки синтаксиса username@example.com/ownCloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Споделете с хора на други Servern използвайки синтаксиса username@example.com/owncloud.online",
     "Share link" : "Връзка за споделяне",
     "The public link will expire no later than {days} days after it is created" : "Общодостъпната връзка ще изтече не по-късно от {days} дни след създаването ѝ.",
     "Link" : "Връзка",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "файлът е повреден",
     "the encryption key is missing" : "криптиращия ключ липсва",
     "Here is the error message returned by the server: " : "Ето съобщението за грешка, върнато от сървъра:",
-    "For more information, please contact your friendly ownCloud administrator." : "За повече информация, моля свържете се вашия любезен ownCloud администратор.",
+    "For more information, please contact your friendly owncloud.online administrator." : "За повече информация, моля свържете се вашия любезен owncloud.online администратор.",
     "Sorry, but the server could not fulfill your request." : "Съжаляваме, но сървърът не може да изпълни заявката.",
     "Possible reasons for the problem:" : "Възможни причини за проблема:",
     "a conflicting app was installed" : "беше инсталирано конфликтно приложение",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "тази връзка е изтекла",
     "sharing is disabled" : "споделянето е изключено",
     "For more information, please ask the person who has sent you this link." : "За повече информация, моля обърнете се към човека, който ви е изпратил тази връзка.",
-    "Add to your ownCloud" : "Добави към своя ownCloud",
+    "Add to your owncloud.online" : "Добави към своя owncloud.online",
     "Picture view" : "Албум със снимки"
 },
 "nplurals=2; plural=(n != 1);");

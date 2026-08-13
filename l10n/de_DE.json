@@ -50,7 +50,7 @@
     "Share with users or groups …" : "Mit Benutzern oder Gruppen teilen…",
     "Share with users, groups or remote users …" : "Mit Benutzern, Gruppen oder entfernten Benutzern teilen…",
     "Share" : "Teilen",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Mit Benutzern anderer ownClouds unter Verwendung der Syntax benutzername@beispiel.com/owncloud teilen",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Mit Benutzern anderer Servern unter Verwendung der Syntax benutzername@beispiel.com/owncloud teilen",
     "Share link" : "Link teilen",
     "The public link will expire no later than {days} days after it is created" : "Der öffentliche Link wird spätestens {days} Tage nach seiner Erstellung ablaufen",
     "Link" : "Link",
@@ -97,7 +97,7 @@
     "the file is corrupt" : "Die Datei ist korrupt",
     "the encryption key is missing" : "Der Verschlüsselungsschlüssel fehlt",
     "Here is the error message returned by the server: " : "Diese Fehler Meldung is vom Server zurück gekommen:",
-    "For more information, please contact your friendly ownCloud administrator." : "Für mehr Informationen kontaktieren Sie bitte Ihren freundlichen ownCloud Administrator.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Für mehr Informationen kontaktieren Sie bitte Ihren freundlichen owncloud.online Administrator.",
     "Sorry, but the server could not fulfill your request." : "Entschuldigen Sie, aber der Server kann Ihre Anfrage nicht ausführen.",
     "Possible reasons for the problem:" : "Ein möglicher Grund für dieses Proble:",
     "a conflicting app was installed" : "eine widersprüchliche App wurde installiert",
@@ -108,7 +108,7 @@
     "the link has expired" : "Der Link ist abgelaufen",
     "sharing is disabled" : "Teilen ist deaktiviert",
     "For more information, please ask the person who has sent you this link." : "Um nähere Informationen zu erhalten, wenden Sie sich bitte an die Person, die Ihnen diesen Link geschickt hat.",
-    "Add to your ownCloud" : "Zu Ihrer ownCloud hinzufügen",
+    "Add to your owncloud.online" : "Zu Ihrer owncloud.online hinzufügen",
     "Picture view" : "Bildansicht"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

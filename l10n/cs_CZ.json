@@ -49,7 +49,7 @@
     "Share with users or groups …" : "Sdílet s uživateli nebo skupinami",
     "Share with users, groups or remote users …" : "Sdílet s uživateli, skupinami nebo vzdálenými uživateli",
     "Share" : "Sdílet",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Sdílejte s lidmi na ownClouds použitím syntaxe username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Sdílejte s lidmi na Servern použitím syntaxe username@example.com/owncloud",
     "Share link" : "Sdílet odkaz",
     "The public link will expire no later than {days} days after it is created" : "Veřejný odkaz vyprší nejpozději {days} dní od svého vytvoření",
     "Link" : "Odkaz",
@@ -96,7 +96,7 @@
     "the file is corrupt" : "soubor je poškozen",
     "the encryption key is missing" : "chybí šifrovací klíč",
     "Here is the error message returned by the server: " : "Zde je chybová zpráva vrácená serverem:",
-    "For more information, please contact your friendly ownCloud administrator." : "Pro více informací prosím kontaktujte svého přátelského ownCloud administrátora.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Pro více informací prosím kontaktujte svého přátelského owncloud.online administrátora.",
     "Sorry, but the server could not fulfill your request." : "Omlouváme se, ale server nemohl splnit váš požadavek.",
     "Possible reasons for the problem:" : "Možný důvod problému:",
     "a conflicting app was installed" : "byla nainstalovaná konfliktní aplikace",
@@ -107,7 +107,7 @@
     "the link has expired" : "platnost odkazu vypršela",
     "sharing is disabled" : "sdílení je zakázané",
     "For more information, please ask the person who has sent you this link." : "Pro více informací kontaktujte osobu, která vám zaslala tento odkaz.",
-    "Add to your ownCloud" : "Přidat do svého ownCloudu",
+    "Add to your owncloud.online" : "Přidat do svého owncloud.onlineu",
     "Picture view" : "Zobrazení obrázku"
 },"pluralForm" :"nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;"
 }

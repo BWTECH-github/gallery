@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "ユーザーもしくはグループと共有 ...",
     "Share with users, groups or remote users …" : "ユーザー、グループもしくはリモートユーザーと共有 ...",
     "Share" : "共有",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "次の形式で指定して他のownCloudのユーザーと、共有",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "次の形式で指定して他のowncloud.onlineのユーザーと、共有",
     "Share link" : "URLで共有",
     "The public link will expire no later than {days} days after it is created" : "URLによる共有は、作成してから {days} 日以内に有効期限切れになります",
     "Link" : "リンク",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "ファイルが壊れています",
     "the encryption key is missing" : "暗号化キーが欠落しています",
     "Here is the error message returned by the server: " : "サーバーから返されるエラーメッセージ：",
-    "For more information, please contact your friendly ownCloud administrator." : "詳細については、あなたのフレンドリーな ownCloud の管理者に連絡してください。",
+    "For more information, please contact your friendly owncloud.online administrator." : "詳細については、あなたのフレンドリーな owncloud.online の管理者に連絡してください。",
     "Sorry, but the server could not fulfill your request." : "申し訳ありませんが、サーバーはあなたのリクエストを果たすことができませんでした。",
     "Possible reasons for the problem:" : "問題の考えられる理由：",
     "a conflicting app was installed" : "競合するアプリがインストールされました",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "リンクの期限が切れました",
     "sharing is disabled" : "共有は無効になっています",
     "For more information, please ask the person who has sent you this link." : "詳細については、このリンクを提供者に確認をお願いします。",
-    "Add to your ownCloud" : "ownCloud に追加",
+    "Add to your owncloud.online" : "owncloud.online に追加",
     "Picture view" : "ピクチャービュー"
 },
 "nplurals=1; plural=0;");

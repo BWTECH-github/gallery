@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "اشتراک گذاری با کاربران یا گروه ها ...",
     "Share with users, groups or remote users …" : "اشتراک گذاری با کاربران، گروه‌ها یا کاربران راه دور...",
     "Share" : "اشتراک‌گذاری",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "اشتراک‌گذاری با دیگر افراد بر روی ownClouds بصورت username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "اشتراک‌گذاری با دیگر افراد بر روی Servern بصورت username@example.com/owncloud",
     "Share link" : "اشتراک گذاشتن لینک",
     "The public link will expire no later than {days} days after it is created" : "لینک عمومی پس از {days} روز پس از ایجاد منقضی خواهد شد",
     "Link" : "لینک",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "پرونده از بین رفته است",
     "the encryption key is missing" : "کلید رمزگذاری گم شده است",
     "Here is the error message returned by the server: " : "این پیام خطایی است که از سرور برگشته است:",
-    "For more information, please contact your friendly ownCloud administrator." : "برای اطلاعات بیشتر، لطفا با مدیر ownCloud دوستانه خود تماس بگیرید.",
+    "For more information, please contact your friendly owncloud.online administrator." : "برای اطلاعات بیشتر، لطفا با مدیر owncloud.online دوستانه خود تماس بگیرید.",
     "Sorry, but the server could not fulfill your request." : "متاسفانه سرور نمی تواند درخواست شما را تکمیل کند.",
     "Possible reasons for the problem:" : "دلایل ممکن برای مشکل:",
     "a conflicting app was installed" : "یک برنامه متناقض نصب شد",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "لینک منقضی شده است",
     "sharing is disabled" : "قابلیت اشتراک گذاری غیرفعال است",
     "For more information, please ask the person who has sent you this link." : "برای اطلاعات بیشتر، لطفا از شخصی که این پیوند را ارسال کرده سوال بفرمایید.",
-    "Add to your ownCloud" : "افزودن به ownCloud شما",
+    "Add to your owncloud.online" : "افزودن به owncloud.online شما",
     "Picture view" : "نمایش تصویر"
 },
 "nplurals=2; plural=(n > 1);");

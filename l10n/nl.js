@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Delen met gebruikers of groepen ...",
     "Share with users, groups or remote users …" : "Delen met gebruikers, groepen of externe gebruikers ...",
     "Share" : "Delen",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Delen met mensen op andere ownClouds via de syntax gebruikersnaam@voorbeeld.org/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Delen met mensen op andere Servern via de syntax gebruikersnaam@voorbeeld.org/owncloud",
     "Share link" : "Deel link",
     "The public link will expire no later than {days} days after it is created" : "De openbare link vervalt niet eerder dan {days} dagen na het aanmaken",
     "Link" : "Link",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "het bestand is beschadigd",
     "the encryption key is missing" : "de encryptiesleutel ontbreekt",
     "Here is the error message returned by the server: " : "Hier is de foutmelding van de server:",
-    "For more information, please contact your friendly ownCloud administrator." : "Voor meer informatie neemt u contact op met uw systeembeheerder.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Voor meer informatie neemt u contact op met uw systeembeheerder.",
     "Sorry, but the server could not fulfill your request." : "Sorry, maar de server kon uw opdracht niet uitvoeren.",
     "Possible reasons for the problem:" : "Mogelijke oorzaken voor het probleem:",
     "a conflicting app was installed" : "een conflicteren app was geinstalleerd",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "de link is verlopen",
     "sharing is disabled" : "delen is uitgeschakeld",
     "For more information, please ask the person who has sent you this link." : "Voor meer informatie, neem contact op met de persoon die u deze link heeft gestuurd.",
-    "Add to your ownCloud" : "Toevoegen aan uw ownCloud",
+    "Add to your owncloud.online" : "Toevoegen aan uw owncloud.online",
     "Picture view" : "Afbeeldingenoverzicht"
 },
 "nplurals=2; plural=(n != 1);");

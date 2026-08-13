@@ -50,7 +50,7 @@
     "Share with users or groups …" : "分享给其他用户或组 ...",
     "Share with users, groups or remote users …" : "分享给其他用户、组或远程用户 ...",
     "Share" : "共享",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "使用语法 username@example.com/owncloud 分享给其他 ownCloud 上的用户",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "使用语法 username@example.com/owncloud 分享给其他 owncloud.online 上的用户",
     "Share link" : "分享链接",
     "The public link will expire no later than {days} days after it is created" : "这个共享链接将在创建后 {days} 天失效",
     "Link" : "链接",
@@ -97,7 +97,7 @@
     "the file is corrupt" : "文件已损坏",
     "the encryption key is missing" : "加密密钥丢失",
     "Here is the error message returned by the server: " : "下面是服务器返回的错误信息：",
-    "For more information, please contact your friendly ownCloud administrator." : "欲了解更多信息，请联系您和蔼可亲的 ownCloud 管理员。",
+    "For more information, please contact your friendly owncloud.online administrator." : "欲了解更多信息，请联系您和蔼可亲的 owncloud.online 管理员。",
     "Sorry, but the server could not fulfill your request." : "抱歉，服务器无法完成您的请求。",
     "Possible reasons for the problem:" : "可能的原因：",
     "a conflicting app was installed" : "已安装了一个会引发冲突的应用",
@@ -108,7 +108,7 @@
     "the link has expired" : "链接已过期",
     "sharing is disabled" : "共享已禁用",
     "For more information, please ask the person who has sent you this link." : "欲知详情，请联系共享链接给你的人。",
-    "Add to your ownCloud" : "添加到您的 ownCloud",
+    "Add to your owncloud.online" : "添加到您的 owncloud.online",
     "Picture view" : "查看图片"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

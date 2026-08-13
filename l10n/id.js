@@ -42,7 +42,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Bagikan dengan pengguna atau grup ...",
     "Share with users, groups or remote users …" : "Bagikan dengan pengguna, grup atau pengguna remote ...",
     "Share" : "Bagikan",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Bagikan dengan orang lain di ownCloud menggunakan sintaks username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Bagikan dengan orang lain di owncloud.online menggunakan sintaks username@example.com/owncloud",
     "Share link" : "Bagikan tautan",
     "The public link will expire no later than {days} days after it is created" : "Tautan publik akan kadaluarsa tidak lebih dari {days} hari setelah ini dibuat",
     "Link" : "Tautan",
@@ -88,7 +88,7 @@ OC.L10N.register(
     "the file is corrupt" : "berkas tersebut rusak",
     "the encryption key is missing" : "kunci enkripsi tidak ada",
     "Here is the error message returned by the server: " : "Disini merupakan pesan kesalahan yang dikembalikan oleh server:",
-    "For more information, please contact your friendly ownCloud administrator." : "Untuk informasi lebih lanjut, silakan hubungi administrator ownCloud Anda.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Untuk informasi lebih lanjut, silakan hubungi administrator owncloud.online Anda.",
     "Sorry, but the server could not fulfill your request." : "Maaf, tetapi server tidak dapat memenuhi permintaan Anda.",
     "Possible reasons for the problem:" : "Penyebab masalah yang mungkin:",
     "a conflicting app was installed" : "sebuah aplikasi yang dipasang menyebabkan konflik",
@@ -99,7 +99,7 @@ OC.L10N.register(
     "the link has expired" : "tautan telah kadaluarsa",
     "sharing is disabled" : "berbagi dinonaktifkan",
     "For more information, please ask the person who has sent you this link." : "Untuk informasi lebih lanjut, silakan tanyakan pada orang yang telah mengirimkan Anda tautan ini.",
-    "Add to your ownCloud" : "Tambahkan ke ownCloud Anda",
+    "Add to your owncloud.online" : "Tambahkan ke owncloud.online Anda",
     "Picture view" : "Tampilan gambar"
 },
 "nplurals=1; plural=0;");

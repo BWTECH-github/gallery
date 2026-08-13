@@ -49,7 +49,7 @@
     "Share with users or groups …" : "Partilhar com utilizadores ou grupos...",
     "Share with users, groups or remote users …" : "Partilhar com utilizadores, grupos ou utilizadores remotos...",
     "Share" : "Partilhar",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Partilhe com as pessoas nas outras ownClouds utilizando a sintaxe username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Partilhe com as pessoas nas outras Servern utilizando a sintaxe username@example.com/owncloud",
     "Share link" : "Partilhar hiperligação",
     "The public link will expire no later than {days} days after it is created" : "O link público expira, o mais tardar {days} dias após a sua criação",
     "Link" : "Hiperligação",
@@ -96,7 +96,7 @@
     "the file is corrupt" : "o ficheiro está corrompido",
     "the encryption key is missing" : "a chave de encriptação está em falta",
     "Here is the error message returned by the server: " : "Aqui tem a mensagem de erro devolvida pelo servidor:",
-    "For more information, please contact your friendly ownCloud administrator." : "Para mais informação, por favor, contacte o seu administrador da ownCloud.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Para mais informação, por favor, contacte o seu administrador da owncloud.online.",
     "Sorry, but the server could not fulfill your request." : "Desculpe, o servidor não conseguiu processar o pedido.",
     "Possible reasons for the problem:" : "Razões possíveis para o problema:",
     "a conflicting app was installed" : "foi instalada uma app conflituosa",
@@ -107,7 +107,7 @@
     "the link has expired" : "a hiperligação expirou",
     "sharing is disabled" : "a partilha está desativada",
     "For more information, please ask the person who has sent you this link." : "Para mais informação, por favor, pergunte à pessoa que lhe enviou esta hiperligação.",
-    "Add to your ownCloud" : "Adicionar à sua ownCloud",
+    "Add to your owncloud.online" : "Adicionar à sua owncloud.online",
     "Picture view" : "Visualização da Imagem"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

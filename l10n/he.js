@@ -52,7 +52,7 @@ OC.L10N.register(
     "Share with users or groups …" : "שיתוף עם משתמשים או קבוצות...",
     "Share with users, groups or remote users …" : "שיתוף עם משתמשים, קבוצות או משתמשים חצוניים...",
     "Share" : "שתף",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "ניתן לשתף עם אנשים אחרים המשתמשים ב- ownClouds בעזרת הפורמט הבא username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "ניתן לשתף עם אנשים אחרים המשתמשים ב- Servern בעזרת הפורמט הבא username@example.com/owncloud",
     "Share link" : "קישור לשיתוף",
     "The public link will expire no later than {days} days after it is created" : "הקישור הציבורי יפוג עד {days} ימים לאחר שנוצר",
     "Link" : "קישור",
@@ -99,7 +99,7 @@ OC.L10N.register(
     "the file is corrupt" : "הקובץ משובש",
     "the encryption key is missing" : "מפתח ההצפנה חסר",
     "Here is the error message returned by the server: " : "להלן הודעת השגיאה שהתקבלה מהשרת:",
-    "For more information, please contact your friendly ownCloud administrator." : "למידע נוסף, יש לפנות למנהל ownCloud החברותי",
+    "For more information, please contact your friendly owncloud.online administrator." : "למידע נוסף, יש לפנות למנהל owncloud.online החברותי",
     "Sorry, but the server could not fulfill your request." : "מצטערים, אך אין באפשרותו של השרת למלא את בקשתך.",
     "Possible reasons for the problem:" : "סיבות אפשריות לבעיה:",
     "a conflicting app was installed" : "הותקן יישום הגורם להתנגשות",
@@ -110,7 +110,7 @@ OC.L10N.register(
     "the link has expired" : "הקישור פג תוקף",
     "sharing is disabled" : "השיתוף נוטרל",
     "For more information, please ask the person who has sent you this link." : "למידע נוסף, יש לפנות לשולח קישור זה.",
-    "Add to your ownCloud" : "הוספה ל- ownCloud שלך",
+    "Add to your owncloud.online" : "הוספה ל- owncloud.online שלך",
     "Picture view" : "תצוגת תמונה"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;");

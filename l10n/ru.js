@@ -52,7 +52,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Поделиться с пользователями или группами ...",
     "Share with users, groups or remote users …" : "Поделиться с пользователями, группами или удаленными пользователями ...",
     "Share" : "Открыть доступ",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Поделиться с людьми на других серверах ownCloud используя синтакс username@example.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Поделиться с людьми на других серверах owncloud.online используя синтакс username@example.com/owncloud",
     "Share link" : "Поделиться ссылкой",
     "The public link will expire no later than {days} days after it is created" : "Срок действия публичной ссылки истекает не позже чем через {days} дней после её создания",
     "Link" : "Ссылка",
@@ -99,7 +99,7 @@ OC.L10N.register(
     "the file is corrupt" : "файл поврежден",
     "the encryption key is missing" : "отсутствует ключ шифрования",
     "Here is the error message returned by the server: " : "Вот сообщение об ошибке, возвращенное сервером:",
-    "For more information, please contact your friendly ownCloud administrator." : "Для получения более подробной информации, пожалуйста, обратитесь к администратору Вашего OwnCloud.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Для получения более подробной информации, пожалуйста, обратитесь к администратору Вашего OwnCloud.",
     "Sorry, but the server could not fulfill your request." : "К сожалению, сервер не смог выполнить Ваш запрос.",
     "Possible reasons for the problem:" : "Возможные причины проблемы:",
     "a conflicting app was installed" : "было установлено конфликтующее приложение",
@@ -110,7 +110,7 @@ OC.L10N.register(
     "the link has expired" : "срок действия ссылки истек",
     "sharing is disabled" : "общий доступ отключён",
     "For more information, please ask the person who has sent you this link." : "Для получения более подробной информации, пожалуйста, обратитесь к человеку, который послал вам эту ссылку.",
-    "Add to your ownCloud" : "Добавить в свой ownCloud",
+    "Add to your owncloud.online" : "Добавить в свой owncloud.online",
     "Picture view" : "Просмотр изображения"
 },
 "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);");

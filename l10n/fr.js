@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Partager avec des utilisateurs ou groupes...",
     "Share with users, groups or remote users …" : "Partager avec des utilisateurs, groupes, ou utilisateurs distants",
     "Share" : "Partager",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Partagez avec des personnes sur d'autres ownClouds en utilisant la syntaxe utilisateur@exemple.com/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Partagez avec des personnes sur d'autres Servern en utilisant la syntaxe utilisateur@exemple.com/owncloud",
     "Share link" : "Partage par lien",
     "The public link will expire no later than {days} days after it is created" : "Ce lien public expirera au plus tard {days} jours après sa création.",
     "Link" : "Lien",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "le fichier est corrompu",
     "the encryption key is missing" : "la clé de chiffrement est manquante",
     "Here is the error message returned by the server: " : "Message d'erreur renvoyé par le serveur :",
-    "For more information, please contact your friendly ownCloud administrator." : "Pour plus d'informations, veuillez contacter votre administrateur ownCloud.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Pour plus d'informations, veuillez contacter votre administrateur owncloud.online.",
     "Sorry, but the server could not fulfill your request." : "Désolé, le serveur ne peut satisfaire votre requête.",
     "Possible reasons for the problem:" : "Raisons possibles du problème :",
     "a conflicting app was installed" : "une application incompatible a été installée",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "le lien a expiré",
     "sharing is disabled" : "le partage est désactivé",
     "For more information, please ask the person who has sent you this link." : "Pour plus d'informations, veuillez contacter la personne qui vous a envoyé ce lien.",
-    "Add to your ownCloud" : "Ajouter à votre ownCloud",
+    "Add to your owncloud.online" : "Ajouter à votre owncloud.online",
     "Picture view" : "Visualisation de l'image"
 },
 "nplurals=2; plural=(n > 1);");

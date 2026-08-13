@@ -51,7 +51,7 @@ OC.L10N.register(
     "Share with users or groups …" : "Souporaba z uporabniki ali skupinami ...",
     "Share with users, groups or remote users …" : "Uporabniki, skupine ali zunanji uporabniki ...",
     "Share" : "Souporaba",
-    "Share with people on other ownClouds using the syntax username@example.com/owncloud" : "Souporaba z uporabniki oddaljenih oblakov ownCloud v zapisu uporabnik@domena.si/owncloud",
+    "Share with people on other servers using the syntax username@example.com/owncloud" : "Souporaba z uporabniki oddaljenih oblakov owncloud.online v zapisu uporabnik@domena.si/owncloud",
     "Share link" : "Povezava za souporabo",
     "The public link will expire no later than {days} days after it is created" : "Javna povezava bo potekla {days} dni po ustvarjanju.",
     "Link" : "Povezava",
@@ -98,7 +98,7 @@ OC.L10N.register(
     "the file is corrupt" : "datoteka je okvarjena",
     "the encryption key is missing" : "manjka ključ za kodiranje",
     "Here is the error message returned by the server: " : "Sporočilo s strežnika o napaki: ",
-    "For more information, please contact your friendly ownCloud administrator." : "Za več podrobnosti stopite v stik s skrbnikom strežnika ownCloud.",
+    "For more information, please contact your friendly owncloud.online administrator." : "Za več podrobnosti stopite v stik s skrbnikom strežnika owncloud.online.",
     "Sorry, but the server could not fulfill your request." : "Zahteve ni mogoče izpolniti.",
     "Possible reasons for the problem:" : "Možno vzroki za težavo:",
     "a conflicting app was installed" : "nameščen je neskladen program",
@@ -109,7 +109,7 @@ OC.L10N.register(
     "the link has expired" : "povezava je potekla",
     "sharing is disabled" : "souporaba je onemogočena.",
     "For more information, please ask the person who has sent you this link." : "Za več podrobnosti stopite v stik z osebo, ki je poslala to povezavo.",
-    "Add to your ownCloud" : "Dodaj v svoj oblak ownCloud",
+    "Add to your owncloud.online" : "Dodaj v svoj oblak owncloud.online",
     "Picture view" : "Slikovni pogled"
 },
 "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);");
