@@ -1,12 +1,11 @@
 # Gallery
 <!-- Modified by BW-Tech GmbH for owncloud.online (PHP 8.4). -->
-[![Build Status](https://drone.owncloud.com/api/badges/owncloud/gallery/status.svg?branch=master)](https://drone.owncloud.com/owncloud/gallery)
 
-Media gallery for ownCloud which includes previews for all media types supported by your installation.
+Media gallery for owncloud.online which includes previews for all media types supported by your installation.
 
 Provides a dedicated view of all images in a grid, adds image viewing capabilities to the files app and adds a gallery view to public links.
 
-**This fork is maintained by BW-Tech GmbH for owncloud.online and targets PHP 8.4 / ownCloud 11. It keeps the original ownCloud Gallery feature set.**
+**This fork is maintained by BW-Tech GmbH for owncloud.online and targets PHP 8.4 / owncloud.online 11. It keeps the original owncloud.online Gallery feature set.**
 
 ![Screenshot](https://raw.githubusercontent.com/owncloud/gallery/master/build/screenshots/Gallery.jpg)
 ## Featuring
@@ -36,18 +35,18 @@ Checkout the [full changelog](CHANGELOG.md) for more.
 
 ## Contributors
 
-* All the people who have provided patches to [Gallery(+)](https://github.com/owncloud/gallery/pulls?q=is%3Apr+is%3Aclosed) and [Pictures](https://github.com/owncloud/gallery-old/pulls?q=is%3Apr+is%3Aclosed) over the years
+* All the people who have provided patches to [Gallery(+)](https://github.com/BWTECH-github/gallery/pulls?q=is%3Apr+is%3Aclosed) and [Pictures](https://github.com/BWTECH-github/gallery-old/pulls?q=is%3Apr+is%3Aclosed) over the years
 
 ## Requirements
 
-See this [wiki article](https://github.com/owncloud/gallery/wiki/Requirements) about the requirements for Gallery.
+See this [wiki article](https://github.com/BWTECH-github/gallery/wiki/Requirements) about the requirements for Gallery.
 
 ## Supporting the development
 
 There are many ways in which you can help make Gallery a better product
 
 * Report bugs (see below)
-* Provide patches for [`owncloud/core`](https://github.com/owncloud/core) or the app itself
+* Provide patches for [owncloud.online](https://github.com/BWTECH-github/owncloud.online) or the app itself
 * Help test new features by checking out new branches on Github
 * Design interface components for new features
 * Develop new features. Please consult with the maintainers before starting your journey
@@ -55,7 +54,7 @@ There are many ways in which you can help make Gallery a better product
 
 ## Bug reporting and contributing
 
-Everything you need to know about bug reporting and contributing [is located here](https://github.com/owncloud/gallery/blob/master/CONTRIBUTING.md).
+Everything you need to know about bug reporting and contributing [is located here](https://github.com/BWTECH-github/gallery/blob/master/CONTRIBUTING.md).
 
 ## Preparation
 Here is a list of steps you might want to take before using the app
@@ -87,13 +86,13 @@ That's it. You should be able to see more media types in your slideshows and gal
 
 Using Redis for files locking improves performance **by a factor of 10** when loading an album.
 
-Read about it in the [ownCloud](https://doc.owncloud.com/server/next/admin_manual/configuration/files/files_locking_transactional.html) Administration Manual
+Read about it in the [owncloud.online](https://docs.owncloud.online) Administration Manual
 
 #### Assets pipelining
 Make sure to enable "asset pipelining", so that all the Javascript and CSS resources can be mixed together.
 This can greatly reduce the loading time of the app.
 
-Read about it in the [ownCloud](https://doc.owncloud.com/server/next/admin_manual/configuration/server/) Administration Manual
+Read about it in the [owncloud.online](https://docs.owncloud.online) Administration Manual
 
 ## Installation
 
@@ -105,7 +104,7 @@ Read about it in the [ownCloud](https://doc.owncloud.com/server/next/admin_manua
 
 ### Installing from archive
 
-* Go to the [the releases page](https://github.com/owncloud/gallery/releases)
+* Go to the [the releases page](https://github.com/BWTECH-github/gallery/releases)
 * Download the latest release/archive to your server's **apps/** directory
 * Unpack the app
 * **IMPORTANT**: Make sure the folder name is gallery
@@ -114,7 +113,7 @@ Read about it in the [ownCloud](https://doc.owncloud.com/server/next/admin_manua
 
 In your terminal go into the **apps/** directory and then run the following command:
 ```
-$ git clone https://github.com/owncloud/gallery.git
+$ git clone https://github.com/BWTECH-github/gallery.git
 ```
 
 Now you can activate it in the apps menu. It's called Gallery
@@ -131,7 +130,7 @@ $ git pull --rebase
 When disabling or uninstalling the app, all link shares created with the app will stop working.
 Instead of having to resend new links to all recipients, you can setup a redirection on the server to redirect gallery-style links to regular public links. This means that people with the original link will get redirected to the regular file view instead of getting a 404 page.
 
-For this, edit your `.htaccess` file in the ownCloud root folder and add a new rewrite rule among the existing ones or with a new block at the bottom of the file:
+For this, edit your `.htaccess` file in the owncloud.online root folder and add a new rewrite rule among the existing ones or with a new block at the bottom of the file:
 
 ```
 <IfModule mod_rewrite.c>
