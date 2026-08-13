@@ -79,7 +79,7 @@ style(
 						  data-owner="<?php p($_['displayName']) ?>"
 						  data-name="<?php p($_['filename']) ?>">
 									<button id="save-button"><?php p(
-						$l->t('Add to your ownCloud')
+						$l->t('Add to your owncloud.online')
 					) ?></button>
 									<form class="save-form hidden" action="#">
 										<input type="text" id="remote_address"
@@ -87,8 +87,8 @@ style(
 											   placeholder="example.com/owncloud"/>
 										<button id="save-button-confirm"
 												class="icon-confirm svg"
-												aria-label="<?php p($l->t('Add to your ownCloud')); ?>"
-												title="<?php p($l->t('Add to your ownCloud')); ?>" disabled></button>
+												aria-label="<?php p($l->t('Add to your owncloud.online')); ?>"
+												title="<?php p($l->t('Add to your owncloud.online')); ?>" disabled></button>
 									</form>
 								</span>
 				<?php
