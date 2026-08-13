@@ -7,7 +7,6 @@ Provides a dedicated view of all images in a grid, adds image viewing capabiliti
 
 **This fork is maintained by BW-Tech GmbH for owncloud.online and targets PHP 8.4 / owncloud.online 11. It keeps the original owncloud.online Gallery feature set.**
 
-![Screenshot](https://raw.githubusercontent.com/owncloud/gallery/master/build/screenshots/Gallery.jpg)
 ## Featuring
 * Support for large selection of media types (depending on server setup)
 * Upload and organise images and albums straight from the app
