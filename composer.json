@@ -35,7 +35,7 @@
   },
   "require": {
     "php": ">=8.4",
-    "symfony/yaml": "~2.6"
+    "symfony/yaml": "^5.4.52"
   },
   "require-dev": {
     "guzzlehttp/guzzle": "^5.0|^6.2",
