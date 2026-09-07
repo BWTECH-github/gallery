@@ -144,6 +144,11 @@ style(
 <input type="hidden" name="mailPublicNotificationEnabled" id="mailPublicNotificationEnabled"
 	   value="<?php p($_['mailPublicNotificationEnabled']) ?>"/>
 <div class="hiddenuploadfield">
+	<?php /* Das Feld liegt unsichtbar hinter dem Menueeintrag "Hochladen".
+	     Ohne eigenen Namen meldet es die Pruefung als Formularfeld ohne
+	     Beschriftung: das <label for> im Neu-Menue entsteht erst, wenn das
+	     Menue aufgeklappt wird. */ ?>
 	<input type="file" id="file_upload_start" class="hiddenuploadfield" name="files[]"
+		   aria-label="<?php p($l->t('Upload')); ?>"
 		   data-url="<?php print_unescaped($_['uploadUrl']); ?>"/>
 </div>

@@ -14,7 +14,11 @@
 	var TEMPLATE_MENU =
 		'<ul>' +
 		'<li>' +
-		'<label for="file_upload_start" class="menuitem" data-action="upload" title="{{uploadMaxHumanFilesize}}"><span class="svg icon icon-upload"></span><span class="displayname">{{uploadLabel}}</span></label>' +
+		// Ein <button> statt des frueheren <label for="file_upload_start">: ein
+		// Label nimmt keinen Tabhalt, der Eintrag war per Tastatur nicht zu
+		// erreichen. Den Klick, den der Browser beim Label an das Dateifeld
+		// weitergereicht hat, gibt jetzt _onClickAction weiter.
+		'<button type="button" class="menuitem" data-action="upload" title="{{uploadMaxHumanFilesize}}"><span class="svg icon icon-upload"></span><span class="displayname">{{uploadLabel}}</span></button>' +
 		'</li>' +
 		'{{#each items}}' +
 		'<li>' +
@@ -67,11 +71,13 @@
 				$target = $target.closest('.menuitem');
 			}
 			var action = $target.attr('data-action');
-			// note: clicking the upload label will automatically
-			// set the focus on the "file_upload_start" hidden field
-			// which itself triggers the upload dialog.
-			// Currently the upload logic is still in file-upload.js and filelist.js
+			// Die Ladelogik steckt weiterhin in file-upload.js und filelist.js;
+			// ausgeloest wird sie ueber das versteckte Dateifeld.
 			if (action === 'upload') {
+				var uploadField = document.getElementById('file_upload_start');
+				if (uploadField) {
+					uploadField.click();
+				}
 				OC.hideMenus(null);
 			} else {
 				event.preventDefault();
