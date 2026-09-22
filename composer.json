@@ -3,7 +3,7 @@
   "type": "project",
   "description": "Media gallery for owncloud.online. Modified by BW-Tech GmbH (PHP 8.4 fork of owncloud/gallery).",
   "license": "AGPL-3.0-only",
-  "homepage": "https://github.com/GrossLukas/gallery",
+  "homepage": "https://owncloud.online",
   "modified-by": "BW-Tech GmbH",
   "authors": [
     {
@@ -29,16 +29,16 @@
     }
   },
   "support": {
-    "issues": "https://github.com/GrossLukas/gallery/issues",
+    "issues": "https://github.com/BWTECH-github/gallery/issues",
     "wiki": "https://github.com/owncloud/gallery/wiki",
-    "source": "https://github.com/GrossLukas/gallery"
+    "source": "https://github.com/BWTECH-github/gallery"
   },
   "require": {
     "php": ">=8.4",
     "symfony/yaml": "^5.4.52"
   },
   "require-dev": {
-    "guzzlehttp/guzzle": "^5.0|^6.2",
+    "guzzlehttp/guzzle": "^7.9",
     "phpunit/phpunit": "^9.5",
     "codeception/codeception": "^4.1",
     "codeception/phpbuiltinserver": "*",
