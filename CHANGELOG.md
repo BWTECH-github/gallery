@@ -45,6 +45,8 @@ Redesign-Linie (owncloud.online 11.1). Für 11.0 gilt weiter der Zweig `main`.
 - Rahmen der Knöpfe in der Werkzeugleiste mit 3:1-Kontrast
   (`--oco-border-control`), Wurzel der Brotkrume als Knopf ausgezeichnet.
 - Hinweis zu Fremdserver-Freigaben nennt „Servern“ statt „ownClouds“.
+- Verweise auf fremde Repositories (Changelog-Historie, Code-Kommentare) als
+  Text statt als Link.
 - Voraussetzung owncloud.online 11.1.
 
 ### Added
