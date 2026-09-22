@@ -50,24 +50,19 @@ style(
 	<div id="notification" style="display: none;"></div>
 </div>
 <header>
+	<?php /* Derselbe Kopf wie auf der Linkseite der Dateien-App
+	         (apps/files_sharing/templates/public.php): nur dafür ist
+	         owncloud-online-public.css geschrieben. Mit dem alten Markup
+	         (a#owncloud, absolut gesetzter Instanzname) rutschten Herunterladen
+	         und Hinzufügen nach links über den Namen, das Logo stand klein in
+	         der Mitte. Der Name steht wie dort nur noch für die Sprachausgabe. */ ?>
 	<div id="header">
 		<a href="<?php print_unescaped(link_to('', 'index.php')); ?>"
-		   title="<?php p($l->t('Home')); ?>" aria-label="<?php p($l->t('Home')); ?>" id="owncloud">
-			<div class="logo-icon svg">
-			</div>
-		</a>
-
-		<div class="header-appname-container">
-			<h1 class="header-appname">
-				<?php
-				if (\OCP\App::isEnabled('enterprise_key')) {
-					print_unescaped($theme->getHTMLName());
-				} else {
-					p($theme->getName());
-				}
-				?>
+		   title="<?php p($l->t('Home')); ?>" id="owncloud-public">
+			<h1 class="logo-icon">
+				<span class="hidden-visually"><?php p($theme->getName()); ?></span>
 			</h1>
-		</div>
+		</a>
 
 		<div id="logo-claim" style="display:none;"><?php p($theme->getLogoClaim()); ?></div>
 		<div class="header-right">
@@ -78,7 +73,7 @@ style(
 					<span id="save" data-protected="<?php p($_['protected']) ?>"
 						  data-owner="<?php p($_['displayName']) ?>"
 						  data-name="<?php p($_['filename']) ?>">
-									<button id="save-button"><?php p(
+									<button id="save-button" class="button"><?php p(
 						$l->t('Add to your owncloud.online')
 					) ?></button>
 									<form class="save-form hidden" action="#">

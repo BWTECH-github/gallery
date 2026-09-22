@@ -97,7 +97,11 @@
 				this.container.css('background-position', '-10000px 0');
 
 				// check if we moved along while we were loading
-				if (currentImageId === index) {
+				// Ebenso, ob die Diashow inzwischen geschlossen wurde: stop() leert
+				// die Bilderliste. Wer vor dem Ende des Ladens schloss, bekam einen
+				// TypeError, und _setUrl schrieb den Bildpfad nachträglich in die
+				// Adresse der längst wieder sichtbaren Dateiliste.
+				if (currentImageId === index && this.active && this.images) {
 					var image = this.images[index];
 					var transparent = this._isTransparent(image.mimeType);
 					this.controls.showActionButtons(transparent, Gallery.token, image.permissions);
@@ -124,7 +128,7 @@
 			}.bind(this), function () {
 				// Don't do anything if the user has moved along while we were loading as it would
 				// mess up the index
-				if (currentImageId === index) {
+				if (currentImageId === index && this.active && this.images) {
 					this.errorLoadingImage = true;
 					this.showErrorNotification(null);
 					this._setUrl(this.images[index].path);

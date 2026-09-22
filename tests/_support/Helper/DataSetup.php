@@ -139,7 +139,7 @@ class DataSetup extends \Codeception\Module {
 		/**
 		 * Logging hooks are missing at the moment, so we need to disable encryption
 		 *
-		 * @link https://github.com/owncloud/core/issues/18085#issuecomment-128093797
+		 * @link Upstream-Kern #18085
 		 */
 		$this->server->getConfig()
 					 ->setAppValue('core', 'encryption_enabled', 'no');

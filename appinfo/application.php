@@ -311,7 +311,7 @@ class Application extends App {
 				);
 			}
 		);
-		/*// The same thing as above, but in OC9, hopefully. See https://github.com/owncloud/core/issues/12676
+		/*// The same thing as above, but in OC9, hopefully. See Upstream-Kern #12676
 		$container->registerService(
 			'Environment', function (IAppContainer $c) {
 			$token = $c->query('Token');

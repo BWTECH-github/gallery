@@ -25,7 +25,7 @@ namespace OCA\Gallery\Utility;
  * Wrapper for server side events (http://en.wikipedia.org/wiki/Server-sent_events)
  *
  * This version is tailored for the Gallery app, do not use elsewhere!
- * @link https://github.com/owncloud/core/blob/master/lib/private/eventsource.php
+ * @link lib/private/eventsource.php des Upstream-Kerns
  *
  * @todo Replace with a library
  *

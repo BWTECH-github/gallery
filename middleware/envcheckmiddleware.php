@@ -145,7 +145,7 @@ class EnvCheckMiddleware extends CheckMiddleware {
 	 *
 	 * Uses Share 2.0
 	 *
-	 * @fixme setIncognitoMode in 8.1 https://github.com/owncloud/core/pull/12912
+	 * @fixme setIncognitoMode in 8.1 Upstream-Kern #12912
 	 *
 	 * @param string $token
 	 *
@@ -255,7 +255,7 @@ class EnvCheckMiddleware extends CheckMiddleware {
 	 * In the future the migration should be performed once there is a proper method
 	 * to update the share's password. (for example `$share->updatePassword($password)`
 	 *
-	 * @link https://github.com/owncloud/core/issues/10671
+	 * @link Upstream-Kern #10671
 	 *
 	 * @param IShare $share
 	 * @param string $password

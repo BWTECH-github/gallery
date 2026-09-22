@@ -1,3 +1,9 @@
+/* Rahmenfarbe der Bedienelemente: WCAG 1.4.11 verlangt für die Begrenzung
+   eines Bedienelements 3:1 gegen die Umgebung. Die Töne rgba(240,240,240,.9)
+   und rgba(216,216,216,.9) kamen auf 1,06 bzw. 1,23 – die Knöpfe hatten damit
+   praktisch keine sichtbare Kante. --oco-border-control (#78899F) trägt
+   3,57:1 auf Weiß und ist der Rahmenton des Entwurfs. Flächen bleiben
+   unberührt. Gemessen am 09.09.2026. */
 /* Gallery buttons design  */
 #controls .left {
 	float: left;
@@ -43,7 +49,7 @@
 	margin-left: 3px;
 	margin-right: 0;
 	border-right: 0;
-	border-right: 1px solid rgba(216, 216, 216, 0.9);
+	border-right: 1px solid var(--oco-border-control, #78899F);
 }
 
 #controls .button.right-switch-button {
@@ -76,27 +82,27 @@
 #controls .disabled-button.loading {
 	background-color: rgba(255, 255, 255, .9);
 	color: #111;
-	border: 1px solid rgba(240, 240, 240, .9);
+	border: 1px solid var(--oco-border-control, #78899F);
 }
 
 #controls .button.view-switcher:hover {
 	background-color: rgba(255, 255, 255, .9);
 	color: #111;
-	border: 1px solid rgba(240, 240, 240, .9);
+	border: 1px solid var(--oco-border-control, #78899F);
 }
 
 #controls .button.sorting.active-button {
 	background-color: rgba(255, 255, 255, .9);
 	color: #111;
-	border: 1px solid rgba(240, 240, 240, .9);
-	border-right-color: rgba(216, 216, 216, 0.9);
+	border: 1px solid var(--oco-border-control, #78899F);
+	border-right-color: var(--oco-border-control, #78899F);
 }
 
 #controls .button.sorting.active-button:hover {
 	background-color: rgba(255, 255, 255, .9);
 	color: #111;
-	border: 1px solid rgba(240, 240, 240, .9);
-	border-right-color: rgba(216, 216, 216, 0.9);
+	border: 1px solid var(--oco-border-control, #78899F);
+	border-right-color: var(--oco-border-control, #78899F);
 }
 
 /* Original Flip CSS by David Walsh
@@ -169,4 +175,65 @@ http://davidwalsh.name/css-flip*/
 	-webkit-transform: rotateX(180deg);
 	-moz-transform: rotateX(180deg);
 	transform: rotateX(180deg);
+}
+
+/* ==========================================================================
+ * Redesign (owncloud.online 11.1) – Knopf „Galerie-Ansicht“ in der Dateien-App
+ *
+ * gallerybutton.js hängt den Knopf in den Kartenkopf der Liste (.oco-list-head)
+ * oder – auf der Linkseite, die keinen solchen Kopf hat – in #controls, das
+ * der Kern dort selbst zum Kartenkopf macht. Beide sind Flex-Zeilen; float und
+ * margin-top der alten Leiste greifen darin nicht mehr bzw. verschöben ihn.
+ * ========================================================================== */
+body.oco-shell .oco-list-head #gallery-button,
+#body-public #controls #gallery-button {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	order: 10;
+	box-sizing: border-box;
+	width: 36px;
+	height: 36px;
+	margin: 0 0 0 auto;
+	padding: 0;
+	border: 1px solid var(--oco-border-control);
+	border-radius: var(--oco-radius-button);
+	background: var(--oco-surface);
+	cursor: pointer;
+}
+
+/* Steht der Zieh-Hinweis oder der Neu-Knopf im Kopf, schiebt schon er nach
+   rechts; der Galerie-Knopf folgt ihm mit dem Abstand der Zeile. */
+body.oco-shell .oco-list-head:has(.oco-hint-chip) #gallery-button,
+#body-public #controls:has(.oco-hint-chip) #gallery-button,
+#body-public #controls:has(.actions.creatable:not(.hidden)) #gallery-button {
+	margin-left: 0;
+}
+
+body.oco-shell .oco-list-head #gallery-button:hover,
+#body-public #controls #gallery-button:hover {
+	border-color: var(--oco-border-hover);
+	background: var(--oco-surface-hover);
+}
+
+body.oco-shell .oco-list-head #gallery-button:focus-visible,
+#body-public #controls #gallery-button:focus-visible {
+	outline: 2px solid var(--oco-focus-color);
+	outline-offset: 2px;
+}
+
+body.oco-shell .oco-list-head #gallery-button img,
+#body-public #controls #gallery-button img {
+	width: 16px;
+	height: 16px;
+	opacity: .8;
+}
+
+body.oco-shell .oco-list-head #gallery-button #button-loading,
+#body-public #controls #gallery-button #button-loading {
+	top: 50%;
+	left: 50%;
+	margin: -12px 0 0 -12px;
 }

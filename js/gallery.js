@@ -12,7 +12,6 @@
 		appName: 'gallery',
 		token: undefined,
 		activeSlideShow: null,
-		buttonsWidth: 600,
 		browserToolbarHeight: 150,
 		filesClient: null,
 

@@ -115,7 +115,7 @@ class Preview {
 	 * the browser. If not, we send "false" to the controller
 	 *
 	 * @fixme setKeepAspect is missing from public interface.
-	 *     https://github.com/owncloud/core/issues/12772
+	 *     Upstream-Kern #12772
 	 *
 	 * @param int $maxWidth
 	 * @param int $maxHeight

@@ -1,4 +1,4 @@
-/* global oc_requesttoken, FileList, Gallery, SlideShow */
+/* global oc_requesttoken, Gallery, SlideShow */
 (function ($, OC, OCA, oc_requesttoken) {
 	"use strict";
 	var galleryFileAction = {
@@ -6,6 +6,7 @@
 		mediaTypes: {},
 		scrollContainer: null,
 		slideShow: null,
+		fileList: null,
 
 		/**
 		 * Builds a URL pointing to one of the app's controllers
@@ -91,6 +92,11 @@
 		onView: function (filename, context) {
 			var imageUrl, downloadUrl;
 			var fileList = context.fileList;
+			// Die Liste, aus der geöffnet wurde. Das globale FileList taugt dafür
+			// nicht mehr: der Kern setzt es nur für „Alle Dateien“, nach einem
+			// Wechsel in Favoriten oder Freigaben ist es null, beim Direkteinstieg
+			// über ?view=… sogar das FileList des Browsers.
+			galleryFileAction.fileList = fileList;
 			var files = fileList.files;
 			var start = 0;
 			var images = [];
@@ -170,20 +176,35 @@
 		_startSlideshow: function (images, start) {
 			galleryFileAction.slideShow.setImages(images, false);
 
-			var scrollTop = galleryFileAction.scrollContainer.scrollTop();
+			var fileList = galleryFileAction.fileList;
+			// Gerollt wird der Behälter der Liste (im Redesign #app-content-view,
+			// auf der Linkseite das Fenster); #app-content steht fest.
+			var scrollContainer = (fileList && fileList.$container && fileList.$container.length) ?
+				fileList.$container : galleryFileAction.scrollContainer;
+			var scrollTop = scrollContainer.scrollTop();
 			// This is only called when the slideshow is stopped
 			galleryFileAction.slideShow.onStop = function () {
-				FileList.$fileList.one('updated', function () {
-					galleryFileAction.scrollContainer.scrollTop(scrollTop);
+				if (!fileList || !fileList.$fileList) {
+					return;
+				}
+				fileList.$fileList.one('updated', function () {
+					scrollContainer.scrollTop(scrollTop);
 				});
 			};
 
 			// Only modern browsers can manipulate history
 			if (history && history.replaceState) {
 				// This stores the fileslist in the history state
-				var stateData = {
-					dir: FileList.getCurrentDirectory()
-				};
+				// Der bisherige Zustand bleibt erhalten: stand darin nur dir, fiel die
+				// Dateien-App beim Schließen der Diashow (history.back) auf ihre
+				// Voreinstellung view=files zurück – aus Favoriten oder Freigaben
+				// heraus landete man in „Alle Dateien“.
+				var stateData = (history.state && typeof history.state === 'object') ?
+					$.extend({}, history.state) :
+					(OC.parseQueryString(location.search.replace(/^\?/, '')) || {});
+				if (fileList && typeof fileList.getCurrentDirectory === 'function') {
+					stateData.dir = fileList.getCurrentDirectory();
+				}
 				history.replaceState(stateData, document.title, window.location);
 
 				// This creates a new entry in history for the slideshow. It will

@@ -80,7 +80,7 @@ nicht für die Galerieansicht: `application/font-sfnt` und `application/x-font`.
 
 ## Voraussetzungen
 
-- owncloud.online 11.0 bis 11.99
+- owncloud.online 11.1 bis 11.99 (Redesign). Für 11.0 gilt der Zweig `main`.
 - PHP 8.4
 - Aktivierte Vorschauerzeugung im Server. Ohne passenden Vorschau-Anbieter
   bleibt ein Album leer, auch wenn Bilder darin liegen.

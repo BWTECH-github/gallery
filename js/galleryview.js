@@ -2,7 +2,10 @@
 (function ($, _, OC, t, Gallery) {
 	"use strict";
 
-	var TEMPLATE_ADDBUTTON = '<a href="#" class="button new"><img src="{{iconUrl}}" alt="{{addText}}"></img></a>';
+	// role="button": der Anker öffnet ein Menü und führt nirgendwohin; die
+	// Leertaste ergänzt der Kern für a[role="button"].
+	var TEMPLATE_ADDBUTTON = '<a href="#" class="button new" role="button" title="{{addText}}">' +
+		'<img src="{{iconUrl}}" alt="{{addText}}"></a>';
 
 	/**
 	 * Builds and updates the Gallery view
@@ -138,7 +141,10 @@
 			 * At this stage, there is no loading taking place, so we can look for new rows
 			 */
 
-			var scroll = $('#content-wrapper').scrollTop() + $(window).scrollTop();
+			// Es rollt genau einer der drei Behälter (#content angemeldet im
+			// Redesign, das Dokument auf der Linkseite); die übrigen stehen auf 0.
+			var scroll = $('#content-wrapper').scrollTop() + $('#content').scrollTop() +
+				$(window).scrollTop();
 			// 2 windows worth of rows is the limit from which we need to start loading new rows.
 			// As we scroll down, it grows
 			var targetHeight = ($(window).height() * 2) + scroll;
@@ -159,7 +165,7 @@
 				}
 
 				// We can now safely create a new row
-				var row = album.getRow($(window).width());
+				var row = album.getRow(view.getRowWidth());
 				var rowDom = row.getDom();
 				view.element.append(rowDom);
 
@@ -221,9 +227,52 @@
 
 			this._hideButtons(uploadAllowed);
 			Gallery.currentAlbum = albumPath;
-			var availableWidth = $(window).width() - Gallery.buttonsWidth;
-			this.breadcrumb.init(albumPath, availableWidth);
+			this.breadcrumb.init(albumPath, this.getBreadcrumbWidth());
 			Gallery.config.albumDesign = null;
+		},
+
+		/**
+		 * Breite, auf die eine Reihe der Fotowand skaliert wird
+		 *
+		 * Das Fenster ist dafür das falsche Maß: im Redesign stehen links die
+		 * Seitenleiste (244 px) und auf der Linkseite Innenabstände daneben – die
+		 * Reihen wurden um genau so viel zu breit gerechnet und rechts
+		 * abgeschnitten. Die Fotowand selbst weiß, wie breit sie ist.
+		 *
+		 * @returns {number}
+		 */
+		getRowWidth: function () {
+			var width = this.element.width();
+			if (!(width > 0)) {
+				width = $(window).width();
+			}
+			// Row rechnet die festen 4-px-Abstände zwischen den Bildern mit in den
+			// Skalierungsfaktor ein, der Browser skaliert sie aber nicht – eine
+			// volle Reihe wird dadurch um bis zu 4 px breiter als bestellt und
+			// verlor rechts ein Stück des letzten Bildes (gemessen 1–4 px).
+			return width - 8;
+		},
+
+		/**
+		 * Platz, den die Brotkrume in der Werkzeugleiste belegen darf
+		 *
+		 * Gemessen wird, was die übrigen Bedienelemente der Leiste tatsächlich
+		 * brauchen. Die frühere Pauschale (Fensterbreite minus 600 px) kannte
+		 * weder die Seitenleiste noch den Neu-Knopf.
+		 *
+		 * @returns {number}
+		 */
+		getBreadcrumbWidth: function () {
+			var controls = this.controlsElement;
+			var others = 0;
+			// outerWidth ohne Außenabstand: die rechte Gruppe schiebt sich im
+			// Redesign mit margin-left: auto nach rechts, und dieser Rand ist
+			// genau der freie Platz – mitgezählt blieb für die Brotkrume nichts.
+			controls.children().not('#breadcrumbs, .mask').filter(':visible').each(function () {
+				others += $(this).outerWidth() + 8;
+			});
+			// 48 px Reserve, damit die Brotkrume nicht bündig an die Knöpfe stößt
+			return Math.max(controls.width() - others - 48, 0);
 		},
 
 		/**
@@ -288,29 +337,65 @@
 			this._uploader.on('add', function (e, data) {
 				data.targetDir = '/' + Gallery.currentAlbum;
 			});
-			this._uploader.on('done', function (e, upload) {
-				var data = upload.data;
-				// is that the last upload ?
-				if (data.files[0] === data.originalFiles[data.originalFiles.length - 1]) {
-					var fileList = data.originalFiles;
-					//Ask for a refresh of the photowall
-					Gallery.getFiles(Gallery.currentAlbum).done(function () {
-						var fileId, path;
-						// Removes the cached thumbnails of files which have been re-uploaded
-						_(fileList).each(function (fileName) {
-							path = Gallery.currentAlbum + '/' + fileName;
-							if (Gallery.imageMap[path]) {
-								fileId = Gallery.imageMap[path].fileId;
-								if (Thumbnails.map[fileId]) {
-									delete Thumbnails.map[fileId];
-								}
+			// Die Fotowand wird neu geladen, sobald der letzte Upload fertig ist.
+			// Bisher hieß „der letzte“: data.files[0] ist identisch mit dem letzten
+			// Eintrag von data.originalFiles. Der Uploader des Redesign-Kerns
+			// reicht dort andere Objekte durch, der Vergleich traf nie – das
+			// hochgeladene Bild erschien erst nach Neuladen der Seite. Jetzt zählt,
+			// ob der Uploader noch arbeitet. Gesammelt werden die Dateinamen (vorher
+			// die File-Objekte selbst, die als Pfad nie auf eine Miniatur passten).
+			var uploadedNames = [];
+			var refreshAfterUpload = function () {
+				var names = uploadedNames;
+				uploadedNames = [];
+				//Ask for a refresh of the photowall
+				Gallery.getFiles(Gallery.currentAlbum).done(function () {
+					var fileId, path;
+					// Removes the cached thumbnails of files which have been re-uploaded
+					_(names).each(function (fileName) {
+						path = Gallery.currentAlbum ? Gallery.currentAlbum + '/' + fileName : fileName;
+						if (Gallery.imageMap[path]) {
+							fileId = Gallery.imageMap[path].fileId;
+							if (Thumbnails.map[fileId]) {
+								delete Thumbnails.map[fileId];
 							}
-						});
-
-						Gallery.view.init(Gallery.currentAlbum);
+						}
 					});
+
+					Gallery.view.init(Gallery.currentAlbum);
+				});
+			};
+			// Wie der Kern selbst: erst nach dem laufenden Durchgang fragen, ob
+			// noch etwas aussteht – der gerade fertige Upload gibt sich sonst noch
+			// als laufend aus. Geprüft wird auch nach 'fail' und 'stop': endet ein
+			// Stapel mit einem Fehlschlag, kommt nach dem letzten erfolgreichen
+			// Upload kein 'done' mehr, und die schon hochgeladenen Bilder blieben
+			// bis zum Neuladen unsichtbar.
+			var refreshIfIdle = function () {
+				_.defer(function () {
+					var uploader = self._uploader;
+					if (uploader && typeof uploader.isProcessing === 'function' && uploader.isProcessing()) {
+						return;
+					}
+					if (uploadedNames.length) {
+						refreshAfterUpload();
+					}
+				});
+			};
+			this._uploader.on('done', function (e, upload) {
+				var name = null;
+				if (upload && typeof upload.getFileName === 'function') {
+					name = upload.getFileName();
+				} else if (upload && upload.data && upload.data.files && upload.data.files[0]) {
+					name = upload.data.files[0].name;
 				}
+				if (name) {
+					uploadedNames.push(name);
+				}
+				refreshIfIdle();
 			});
+			this._uploader.on('fail', refreshIfIdle);
+			this._uploader.on('stop', refreshIfIdle);
 
 			// Since 9.0
 			if (OC.Uploader) {
@@ -346,8 +431,8 @@
 			$('#sort-date-button').click(Gallery.sorter);
 			$('#save #save-button').click(Gallery.showSaveForm);
 			$('.save-form').submit(Gallery.saveForm);
-			// Tastaturbedienung fuer die als div umgesetzten Buttons (role="button"):
-			// Enter/Leertaste loesen denselben Click-Handler aus (WCAG 2.1.1)
+			// Tastaturbedienung für die als div umgesetzten Buttons (role="button"):
+			// Enter/Leertaste lösen denselben Click-Handler aus (WCAG 2.1.1)
 			$('#share-button, #album-info-button, #filelist-button, ' +
 				'#sort-name-button, #sort-date-button').on('keydown', function (event) {
 				if (event.which === 13 || event.which === 32) {
@@ -373,10 +458,8 @@
 			this._shareButtonSetup(albumPath);
 			this._infoButtonSetup();
 
-			var availableWidth = $(window).width() - Gallery.buttonsWidth;
-			this.breadcrumb.init(albumPath, availableWidth);
 			var album = Gallery.albumMap[albumPath];
-			
+
 			var sum = album.images.length + album.subAlbums.length;
 			//If sum of the number of images and subalbums exceeds 1 then show the buttons.
 			if(sum > 1)
@@ -400,6 +483,10 @@
 			$('#save-button').show();
 			$('#download').show();
 			$('a.button.new').show();
+
+			// Erst jetzt stehen alle Knöpfe der Leiste fest; vorher rechnete die
+			// Brotkrume mit den Sortierknöpfen des vorigen Albums.
+			this.breadcrumb.init(albumPath, this.getBreadcrumbWidth());
 		},
 
 		/**

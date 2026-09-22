@@ -83,7 +83,7 @@
 	opacity: .75;
 }
 
-/* Sichtbarer Tastatur-Fokus fuer die Slideshow-Steuerelemente (WCAG 2.4.7) */
+/* Sichtbarer Tastatur-Fokus für die Slideshow-Steuerelemente (WCAG 2.4.7) */
 #slideshow > input:focus,
 #slideshow > input:focus-visible {
 	opacity: 1;
@@ -152,7 +152,7 @@
 	margin-right: 10px;
 }
 
-/* Sichtbarer Tastatur-Fokus fuer die Slideshow-Menu-Buttons (WCAG 2.4.7) */
+/* Sichtbarer Tastatur-Fokus für die Slideshow-Menü-Buttons (WCAG 2.4.7) */
 #slideshow .menu .menuItem:hover,
 #slideshow .menu .menuItem:focus {
 	opacity: 1;

@@ -6,7 +6,7 @@
 		'{{#each crumbs}}' +
 		'	<div class="crumb {{cssClass}}" data-dir="{{dir}}">' +
 		'	{{#if link}}' +
-		'		<a href="{{link}}">' +
+		'		<a href="{{link}}"{{#if knopf}} role="button"{{/if}}>' +
 		'		{{#if img}}' +
 		'			{{#with img}}' +
 		'			<img alt="{{title}}" title="{{title}}" src="{{imageSrc}}">' +
@@ -201,6 +201,14 @@
 				name: name,
 				dir: link,
 				link: hash,
+				// Die Wurzel trägt als Ziel nur "#" – für eine Sprachausgabe ist
+				// das ein Verweis, der nirgendwohin führt. Sie navigiert aber
+				// wirklich (Hash-Router), verhält sich also wie ein Knopf:
+				// role="button" sagt das, ohne am Verhalten etwas zu ändern. Den
+				// fehlenden Leertasten-Griff ergänzt der Kern (OCO.wireButtonAnchors).
+				// Nur die Wurzel: die Auslassung trägt anfangs ebenfalls "#", bekommt
+				// in _resize aber das Ziel des Elternalbums und ist dann ein Verweis.
+				knopf: hash === '#' && cssClass.indexOf('home') > -1,
 				img: img,
 				cssClass: cssClass
 			});

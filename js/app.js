@@ -47,26 +47,34 @@ $(document).ready(function () {
 		});
 
 		// This block loads new rows
-		$('html, #content-wrapper').scroll(function () {
+		// Im Redesign rollt angemeldet #content (die Schale hält #content-wrapper
+		// fest), auf der Linkseite das Dokument selbst. Dessen scroll-Ereignis
+		// kommt am window an, nicht am html-Element – ohne window lud die
+		// öffentliche Galerie nach den ersten zwei Bildschirmhöhen nichts mehr.
+		var loadRows = function () {
 			Gallery.view.loadVisibleRows(Gallery.albumMap[Gallery.currentAlbum]);
-		});
+		};
+		$('#content-wrapper, #content').scroll(loadRows);
+		$(window).scroll(loadRows);
 
 
-		var windowWidth = $(window).width();
+		var rowWidth = Gallery.view.getRowWidth();
 		var windowHeight = $(window).height();
 		$(window).resize(_.throttle(function () {
 			var infoContentContainer = $('.album-info-container');
 			// This section redraws the photowall and limits the width of dropdowns
-			if (windowWidth !== $(window).width()) {
+			// Maßgeblich ist die Breite der Fotowand, nicht die des Fensters:
+			// neben ihr stehen im Redesign Seitenleiste und Innenabstände.
+			if (rowWidth !== Gallery.view.getRowWidth()) {
 				if ($('#emptycontent').is(':hidden')) {
 					Gallery.view.viewAlbum(Gallery.currentAlbum);
-					infoContentContainer.css('max-width', $(window).width());
+					infoContentContainer.css('max-width', Gallery.view.getRowWidth());
 				}
 				if (Gallery.currentAlbum) {
-					Gallery.view.breadcrumb.setMaxWidth($(window).width() - Gallery.buttonsWidth);
+					Gallery.view.breadcrumb.setMaxWidth(Gallery.view.getBreadcrumbWidth());
 				}
 
-				windowWidth = $(window).width();
+				rowWidth = Gallery.view.getRowWidth();
 			}
 			// This makes sure dropdowns will not be hidden after a window resize
 			if (windowHeight !== $(window).height()) {

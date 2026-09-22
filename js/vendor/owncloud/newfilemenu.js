@@ -14,7 +14,7 @@
 	var TEMPLATE_MENU =
 		'<ul>' +
 		'<li>' +
-		// Ein <button> statt des frueheren <label for="file_upload_start">: ein
+		// Ein <button> statt des früheren <label for="file_upload_start">: ein
 		// Label nimmt keinen Tabhalt, der Eintrag war per Tastatur nicht zu
 		// erreichen. Den Klick, den der Browser beim Label an das Dateifeld
 		// weitergereicht hat, gibt jetzt _onClickAction weiter.
@@ -72,7 +72,7 @@
 			}
 			var action = $target.attr('data-action');
 			// Die Ladelogik steckt weiterhin in file-upload.js und filelist.js;
-			// ausgeloest wird sie ueber das versteckte Dateifeld.
+			// ausgelöst wird sie über das versteckte Dateifeld.
 			if (action === 'upload') {
 				var uploadField = document.getElementById('file_upload_start');
 				if (uploadField) {

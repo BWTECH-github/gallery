@@ -49,6 +49,27 @@
 		droppedDown: false,
 
 		/**
+		 * Muss ein Link aus der Galerie ein Passwort tragen?
+		 *
+		 * Der Kern führt den Passwortzwang seit langem je Berechtigung
+		 * (enforceLinkPassword…); die Galerie legt Links nur lesend an
+		 * (OC.PERMISSION_READ), maßgeblich ist also enforceLinkPasswordReadOnly.
+		 * Das hier früher abgefragte enforcePasswordForPublicLink steht nicht
+		 * mehr in oc_appconfig – der Vergleich „=== false“ traf nie, der Link
+		 * wurde nie angelegt, stattdessen erschien ein Passwortfeld, dessen
+		 * Eingabe an „shares/undefined“ ging.
+		 *
+		 * @returns {boolean}
+		 */
+		isPasswordEnforced: function () {
+			var core = oc_appconfig.core || {};
+			if (typeof core.enforceLinkPasswordReadOnly === 'boolean') {
+				return core.enforceLinkPasswordReadOnly;
+			}
+			return core.enforcePasswordForPublicLink === true;
+		},
+
+		/**
 		 *
 		 * @param path {String} path to the file/folder which should be shared
 		 * @param shareType {Number} 0 = user; 1 = group; 3 = public link; 6 = federated cloud
@@ -200,7 +221,7 @@
 					var federatedCloudSharingDoc =
 						'<a target="_blank" class="icon-info svg shareWithRemoteInfo" ' +
 						'href="{docLink}" title="' + t('core',
-							'Share with people on other ownClouds using the syntax username@example.com/owncloud') +
+							'Share with people on other servers using the syntax username@example.com/owncloud') +
 						'"></a>';
 					html += federatedCloudSharingDoc.replace('{docLink}',
 						oc_appconfig.core.federatedCloudShareDoc);
@@ -339,7 +360,7 @@
 						var $loading = $('#dropdown .shareWithLoading');
 						$loading.removeClass('hidden');
 						// Can be replaced with Sharee API
-						// https://github.com/owncloud/core/pull/18234
+						// Upstream-Kern #18234
 						$.get(OC.filePath('core', 'ajax', 'share.php'), {
 							fetch: 'getShareWith',
 							search: search.term.trim(),
@@ -523,7 +544,7 @@
 			$linkText.val(link);
 			$linkText.slideDown(OC.menuSpeed);
 			$linkText.css('display', 'block');
-			if (oc_appconfig.core.enforcePasswordForPublicLink === false || password === null) {
+			if (!this.isPasswordEnforced() || password === null) {
 				$('#showPassword+label').show();
 			}
 			if (password != null) {
@@ -952,7 +973,7 @@ $(document).ready(function () {
 	$(document).on('change', '#dropdown #linkCheckbox', function () {
 		var $dropDown = $('#dropdown');
 		var path = $dropDown.data('item-source');
-		var shareId = $('#linkCheckbox').data('id');
+		var shareId = $('#linkCheckbox').attr('data-id');
 		var shareWith = '';
 		var publicUpload = 0;
 		var $loading = $dropDown.find('#link .icon-loading-small');
@@ -976,7 +997,7 @@ $(document).ready(function () {
 			$('#expirationDate').hide();
 			var expireDateString = '';
 			// Create a link
-			if (oc_appconfig.core.enforcePasswordForPublicLink === false) {
+			if (!Gallery.Share.isPasswordEnforced()) {
 				expireDateString = Gallery.Share.getDefaultExpirationDate();
 				$loading.removeClass('hidden');
 				$button.addClass('hidden');
@@ -1029,7 +1050,7 @@ $(document).ready(function () {
 
 		// Gather data
 		var $dropDown = $('#dropdown');
-		var shareId = $('#linkCheckbox').data('id');
+		var shareId = $('#linkCheckbox').attr('data-id');
 		var allowPublicUpload = $(this).is(':checked');
 		var $button = $(this);
 		var $loading = $dropDown.find('#allowPublicUploadWrapper .icon-loading-small');
@@ -1061,7 +1082,7 @@ $(document).ready(function () {
 	$(document).on('click', '#dropdown #showPassword', function () {
 		$('#linkPass').slideToggle(OC.menuSpeed);
 		if (!$('#showPassword').is(':checked')) {
-			var shareId = $('#linkCheckbox').data('id');
+			var shareId = $('#linkCheckbox').attr('data-id');
 			var $loading = $('#showPassword .icon-loading-small');
 
 			$loading.removeClass('hidden');
@@ -1087,9 +1108,35 @@ $(document).ready(function () {
 		if (linkPassText.val() != '' && (event.type == 'focusout' || event.keyCode == 13)) {
 			var dropDown = $('#dropdown');
 			var $loading = dropDown.find('#linkPass .icon-loading-small');
-			var shareId = $('#linkCheckbox').data('id');
+			var shareId = $('#linkCheckbox').attr('data-id');
 
 			$loading.removeClass('hidden');
+			// Gibt es noch keinen Link (Passwortzwang: das Feld erscheint vor dem
+			// Anlegen), wird er jetzt mit dem Passwort angelegt. Vorher ging die
+			// Eingabe per PUT an „shares/undefined“ und scheiterte.
+			if (!shareId) {
+				Gallery.Share.share(
+					dropDown.data('item-source'),
+					Gallery.Share.SHARE_TYPE_LINK,
+					'',
+					0,
+					linkPassText.val(),
+					OC.PERMISSION_READ,
+					function (data) {
+						$loading.addClass('hidden');
+						linkPassText.val('');
+						linkPassText.attr('placeholder', t('core', 'Password protected'));
+						Gallery.Share.showLink(data.id, data.token, "password set");
+					},
+					function (result) {
+						$loading.addClass('hidden');
+						linkPassText.val('');
+						linkPassText.attr('placeholder',
+							(result && result.ocs && result.ocs.meta.message) || t('core', 'Error'));
+					}
+				);
+				return;
+			}
 			$.ajax({
 				url: OC.linkToOCS('apps/files_sharing/api/v1', 2) + 'shares/' + shareId +
 				'?format=json',
@@ -1097,19 +1144,18 @@ $(document).ready(function () {
 				data: {
 					password: $('#linkPassText').val()
 				}
-			}).done(function (data) {
+			}).done(function () {
 				$loading.addClass('hidden');
 				linkPassText.val('');
 				linkPassText.attr('placeholder', t('core', 'Password protected'));
-
-				if (oc_appconfig.core.enforcePasswordForPublicLink) {
-					Gallery.Share.showLink(data.id, data.token, "password set");
-				}
 			}).fail(function (xhr) {
+				// OCS v2 meldet den Grund unter ocs.meta.message; result.data gibt
+				// es dort nicht, der Zugriff warf einen TypeError.
 				var result = xhr.responseJSON;
 				$loading.addClass('hidden');
 				linkPassText.val('');
-				linkPassText.attr('placeholder', result.data.message);
+				linkPassText.attr('placeholder',
+					(result && result.ocs && result.ocs.meta.message) || t('core', 'Error'));
 			});
 		}
 	});
@@ -1118,7 +1164,7 @@ $(document).ready(function () {
 		if (this.checked) {
 			Gallery.Share.showExpirationDate('');
 		} else {
-			var shareId = $('#linkCheckbox').data('id');
+			var shareId = $('#linkCheckbox').attr('data-id');
 			$.ajax({
 				url: OC.linkToOCS('apps/files_sharing/api/v1', 2) + 'shares/' + shareId +
 				'?format=json',
@@ -1139,7 +1185,7 @@ $(document).ready(function () {
 	});
 
 	$(document).on('change', '#dropdown #expirationDate', function () {
-		var shareId = $('#linkCheckbox').data('id');
+		var shareId = $('#linkCheckbox').attr('data-id');
 
 		$(this).tooltip('hide');
 		$(this).removeClass('error');

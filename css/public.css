@@ -1,14 +1,7 @@
-body {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-}
-
-#content {
-	height: initial;
-	min-height: calc( 100vh - 120px );
-	overflow: hidden;
-}
+/* body { position: absolute; height: 100% } und #content { overflow: hidden;
+   min-height: calc(100vh - 120px) } sind weg: sie gehörten zur alten, fest
+   verankerten 45-px-Kopfleiste. Im Redesign steht die Leiste im Fluss, und
+   owncloud-online-public.css regelt Höhe und Innenabstand der Seite. */
 
 /* within #save */
 #save .save-form {
@@ -52,4 +45,83 @@ body {
 
 #gallery.hascontrols {
 	padding-bottom: 0;
+}
+
+/* ==========================================================================
+ * Redesign (owncloud.online 11.1) – öffentliche Galerie
+ * ========================================================================== */
+
+/* Der Kern macht #controls auf der Linkseite zum Kopf einer Karte (runde
+   obere Ecken, 14/18 px Innenrand). app.js hängt die Leiste der Galerie aber
+   vor #content-wrapper – sie ist hier eine Leiste über die volle Breite. Sie
+   klebt beim Rollen oben, damit Sortieren und Albuminfo erreichbar bleiben.
+   body# statt # allein: die Kernregel hat ebenfalls zwei Kennungen und lädt
+   später. */
+body#body-public > #controls {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	min-height: 56px;
+	gap: var(--oco-space-2);
+	padding: var(--oco-space-2) var(--oco-space-6);
+	border-bottom: 1px solid var(--oco-border);
+	border-radius: 0;
+}
+
+body#body-public > #controls #breadcrumbs {
+	float: none;
+	display: flex;
+	flex: 0 1 auto;
+	flex-wrap: nowrap;
+	min-width: 0;
+	overflow: hidden;
+}
+
+body#body-public > #controls .left {
+	flex: 0 0 auto;
+}
+
+body#body-public > #controls > .right {
+	position: static;
+	display: flex;
+	align-items: center;
+	gap: var(--oco-space-2);
+	margin-left: auto;
+}
+
+body#body-public > #controls .button {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+body#body-public > #controls .album-info-container {
+	top: calc(100% + 4px);
+	right: var(--oco-space-6);
+	box-sizing: border-box;
+	max-width: calc(100% - 2 * var(--oco-space-6));
+	background: var(--oco-surface);
+	border: 1px solid var(--oco-border);
+	border-radius: var(--oco-radius-card);
+	box-shadow: var(--oco-shadow-float);
+}
+
+/* Die Fotowand ist keine Karte: 24 px Rand statt der 48 px, mit denen der
+   Kern eine einzelne Karte auf die Fläche setzt. */
+#body-public #content.app-gallery {
+	padding: var(--oco-space-6);
+}
+
+@media only screen and (max-width: 767px) {
+	body#body-public > #controls {
+		gap: var(--oco-space-1);
+		padding: var(--oco-space-2) var(--oco-space-4);
+	}
+
+	body#body-public > #controls > .right {
+		gap: var(--oco-space-1);
+	}
+
+	#body-public #content.app-gallery {
+		padding: var(--oco-space-4);
+	}
 }

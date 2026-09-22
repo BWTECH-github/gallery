@@ -4,6 +4,55 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [17.0.0] - 2026-09-22
+
+Redesign-Linie (owncloud.online 11.1). Für 11.0 gilt weiter der Zweig `main`.
+
+### Fixed
+
+- Galerie-App: Die Fotowand ließ sich im Redesign nicht rollen und lud nach den
+  ersten zwei Bildschirmhöhen keine Bilder mehr nach. Sie rollt jetzt in
+  `#content`, das Nachladen hört dort und am Fenster (Linkseite).
+- Reihen wurden auf die Fensterbreite gerechnet und rechts abgeschnitten
+  (neben der Seitenleiste um 244 px); maßgeblich ist jetzt die Breite der
+  Fotowand.
+- Neu-Knopf (Hochladen, Album ausblenden) war unsichtbar; er steht wieder in
+  der Werkzeugleiste. Hochgeladene Bilder erschienen erst nach Neuladen der
+  Seite in der Fotowand.
+- Werkzeugleiste, Albuminfo und Freigabe-Aufklapper sitzen unter der
+  Kopfleiste statt über ihr; die Brotkrume bekommt den Platz, der neben den
+  Knöpfen wirklich frei ist, und bricht nicht mehr in eine zweite Zeile um.
+- Diashow aus der Dateien-App: in Favoriten, Freigaben und Tags (nach einem
+  Ansichtswechsel oder beim Direkteinstieg über `?view=`) brach sie mit einem
+  TypeError ab; nach dem Schließen landete man in „Alle Dateien“ statt in der
+  Ansicht, aus der man kam.
+- Diashow: Schließen, bevor das Bild geladen war, warf einen TypeError und
+  schrieb den Bildpfad nachträglich in die Adresse.
+- Knopf „Galerie-Ansicht“ in der Dateien-App verschwand nach dem ersten
+  Ansichtswechsel und zeigte danach auf den alten Ordner; er steht jetzt im
+  Kartenkopf der Liste statt in einer eigenen Zeile über der Tabelle.
+- Freigabe per Link aus der Galerie legte nie einen Link an (abgefragter
+  Kernschalter `enforcePasswordForPublicLink` existiert nicht mehr; maßgeblich
+  ist `enforceLinkPasswordReadOnly`). Bei Passwortzwang wird der Link jetzt mit
+  dem eingegebenen Passwort angelegt; Link löschen und neu anlegen im selben
+  Dialog trifft die richtige Freigabe.
+- Öffentliche Galerie: Kopf mit dem Markup der Linkseite des Kerns (Logo
+  links, Herunterladen und Hinzufügen rechts statt über dem Instanznamen),
+  Werkzeugleiste klebt beim Rollen oben, Nachladen beim Rollen funktioniert.
+
+### Changed
+
+- Rahmen der Knöpfe in der Werkzeugleiste mit 3:1-Kontrast
+  (`--oco-border-control`), Wurzel der Brotkrume als Knopf ausgezeichnet.
+- Hinweis zu Fremdserver-Freigaben nennt „Servern“ statt „ownClouds“.
+- Voraussetzung owncloud.online 11.1.
+
+### Added
+
+- `tests/visual/pruefe-gallery.js` (60 Prüfungen: Galerie-App, Dateien-App,
+  Linkseite und öffentliche Galerie in 1440 und 400 px) mit
+  `tests/visual/gallery-testdaten.sh`.
+
 ## [16.1.7] - 2026-08-13
 
 ### Changed
@@ -15,7 +64,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
-- Produktname, Beschreibung und uebersetzte Zeichenketten nennen owncloud.online;
+- Produktname, Beschreibung und übersetzte Zeichenketten nennen owncloud.online;
   Verweise auf Fehlerbereich, Repository und Dokumentation zeigen auf das eigene
   Repository. Screenshots aus fremden Repositories entfernt.
 
@@ -37,10 +86,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
-- Show proper name in file menu - Fileactions: get rid of deprecate register function, adjust name, displayName and icon [#836](https://github.com/owncloud/gallery/pull/836)
-- Don't return files when accessing a share files drop [#839](https://github.com/owncloud/gallery/pull/839)
-- Unbreak gallery with gallery.cnf [#840](https://github.com/owncloud/gallery/pull/840)
-- Align password public protected link, with new Login-UI - Apply new auth form design [#846](https://github.com/owncloud/gallery/pull/846)
+- Show proper name in file menu - Fileactions: get rid of deprecate register function, adjust name, displayName and icon Upstream #836
+- Don't return files when accessing a share files drop Upstream #839
+- Unbreak gallery with gallery.cnf Upstream #840
+- Align password public protected link, with new Login-UI - Apply new auth form design Upstream #846
 
 
 ## [16.1.1] - 2018-12-11
@@ -53,79 +102,75 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
-- Rotate images in the browser [#764](https://github.com/owncloud/gallery/pull/764)
-- Do not break if mount is not available [#739](https://github.com/owncloud/gallery/pull/739)
-- Fix to work properly with 10.0.9 [738](https://github.com/owncloud/gallery/pull/738)
+- Rotate images in the browser Upstream #764
+- Do not break if mount is not available Upstream #739
+- Fix to work properly with 10.0.9 Upstream #738
 
-[Unreleased]: https://github.com/owncloud/gallery/compare/v16.1.2...master
-[16.1.2]: https://github.com/owncloud/gallery/compare/v16.1.1...v16.1.2
-[16.1.1]: https://github.com/owncloud/gallery/compare/v16.1.0...v16.1.1
-[16.1.0]: https://github.com/owncloud/gallery/compare/v16.0.2...v16.1.0
 
 
 # Archived entries
 
 gallery (15.0.0)
-* Drag and drop files and folders owncloud/gallery#405 (@oparoz)
-* Upload straight from the app owncloud/gallery#25 (@oparoz)
-* Show thumbnails as soon as they're received owncloud/gallery#29 (@oparoz)
-* Add missing options in share dialogue owncloud/gallery#565 owncloud/gallery#213 (@imjalpreet)
+* Drag and drop files and folders Upstream #405 (@oparoz)
+* Upload straight from the app Upstream #25 (@oparoz)
+* Show thumbnails as soon as they're received Upstream #29 (@oparoz)
+* Add missing options in share dialogue Upstream #565 Upstream #213 (@imjalpreet)
 * Add flickr style gradients (@raghunayyar)
 * Full Album Name is now shown on hovering (@imjalpreet)
-* Fix the download button on public pages owncloud/gallery#554 (@imjalpreet)
-* Close the share dialogue when performing another action owncloud/gallery#545 (@viraj96)
+* Fix the download button on public pages Upstream #554 (@imjalpreet)
+* Close the share dialogue when performing another action Upstream #545 (@viraj96)
 * PHP7 compatibility
 
 gallery (14.5.0)
-* Make the slideshow controls work with a light background owncloud/gallery#51 (@jancborchardt @oparoz)
-* Replace feof()/fread() errors when reading some files with error messages owncloud/gallery#395 (@oparoz)
+* Make the slideshow controls work with a light background Upstream #51 (@jancborchardt @oparoz)
+* Replace feof()/fread() errors when reading some files with error messages Upstream #395 (@oparoz)
 
 gallery (14.4.0)
-* More gallery.cnf parameter validation owncloud/gallery#477 (@oparoz)
-* Bring back smooth scrolling on mobile owncloud/gallery#524 (@oparoz)
-* Improve SVG cleanup after purification owncloud/gallery#481 (@oparoz)
-* Big area for "next" and "prev" buttons owncloud/gallery#457 (@0xb0ba)
-* Introduce support for shorter URLs owncloud/gallery#517 (@oparoz)
-* Remove IE8 support owncloud/gallery#514 (@oparoz)
+* More gallery.cnf parameter validation Upstream #477 (@oparoz)
+* Bring back smooth scrolling on mobile Upstream #524 (@oparoz)
+* Improve SVG cleanup after purification Upstream #481 (@oparoz)
+* Big area for "next" and "prev" buttons Upstream #457 (@0xb0ba)
+* Introduce support for shorter URLs Upstream #517 (@oparoz)
+* Remove IE8 support Upstream #514 (@oparoz)
 
 gallery (14.3.0)
-* Add visual feedback when clicking on albums owncloud/gallery#416 (@oparoz)
-* Protect app from bad JPEGs owncloud/gallery#420 (@oparoz)
+* Add visual feedback when clicking on albums Upstream #416 (@oparoz)
+* Protect app from bad JPEGs Upstream #420 (@oparoz)
 * Fix empty album presentation when images can't be processed (@oparoz)
 * More efficient breadcrumbs (@oparoz)
 * A few minor visual glitches (@oparoz)
 
 gallery (14.2.0)
-* [security] Purify SVGs owncloud/gallery#373 (@oparoz)
-* Restore sharing on 8.2 owncloud/gallery#359 (@PVince81 @icewind1991 @oparoz)
-* Fix empty page for public galleries owncloud/gallery#414 owncloud/gallery#418 (@henni @oparoz)
-* Fix displaying album icon on Chrome owncloud/gallery#397 (@oparoz)
+* [security] Purify SVGs Upstream #373 (@oparoz)
+* Restore sharing on 8.2 Upstream #359 (@PVince81 @icewind1991 @oparoz)
+* Fix empty page for public galleries Upstream #414 Upstream #418 (@henni @oparoz)
+* Fix displaying album icon on Chrome Upstream #397 (@oparoz)
 
 gallery (14.1.0)
 * [security] Update DomPurify to fix a vulnerability in Firefox and to fix browser problems (@oparoz)
-* Fix problems with sub-album thumbnails on HighDPI screens owncloud/gallery#377 (@oparoz)
-* Fix ordering of thumbnails in sub-albums owncloud/gallery#382 (@oparoz)
-* Update the "no pictures found" landing page to be in line with Files owncloud/gallery#290 (@jancborchardt)
+* Fix problems with sub-album thumbnails on HighDPI screens Upstream #377 (@oparoz)
+* Fix ordering of thumbnails in sub-albums Upstream #382 (@oparoz)
+* Update the "no pictures found" landing page to be in line with Files Upstream #290 (@jancborchardt)
 
 gallery (14.0.0)
 * Make Gallery the new official app to display images in ownCloud
-* [security] Sanitize markdown descriptions owncloud/gallery#295 (@oparoz/@LukasReschke)
-* [security] Send SVGs as text files on download endpoints owncloud/gallery#347 (@oparoz/@LukasReschke)
-* [security] Keep error messages in cookies owncloud/gallery#296 (@oparoz/@LukasReschke)
-* [security] Print filenames as text, not html owncloud/gallery#294 (@oparoz/@LukasReschke)
-* New RESTful API to serve config, file list, thumbnails or previews to apps owncloud/gallery#5 (@oparoz)
-* Make button to toggle the background colour optional owncloud/gallery#226 (@oparoz)
-* Pick a background colour for the photowall owncloud/gallery#288 (@oparoz)
-* Add a busy spinner whilst loading thumbs owncloud/gallery#130 (@oparoz)
-* Turn the gallery/files view button into a switch owncloud/gallery#145 (@oparoz/@jancborchardt)
-* Use SVG icons owncloud/gallery#331 (@oparoz)
-* Send the media type icon if the browser can't parse a preview owncloud/gallery#346 (@oparoz)
+* [security] Sanitize markdown descriptions Upstream #295 (@oparoz/@LukasReschke)
+* [security] Send SVGs as text files on download endpoints Upstream #347 (@oparoz/@LukasReschke)
+* [security] Keep error messages in cookies Upstream #296 (@oparoz/@LukasReschke)
+* [security] Print filenames as text, not html Upstream #294 (@oparoz/@LukasReschke)
+* New RESTful API to serve config, file list, thumbnails or previews to apps Upstream #5 (@oparoz)
+* Make button to toggle the background colour optional Upstream #226 (@oparoz)
+* Pick a background colour for the photowall Upstream #288 (@oparoz)
+* Add a busy spinner whilst loading thumbs Upstream #130 (@oparoz)
+* Turn the gallery/files view button into a switch Upstream #145 (@oparoz/@jancborchardt)
+* Use SVG icons Upstream #331 (@oparoz)
+* Send the media type icon if the browser can't parse a preview Upstream #346 (@oparoz)
 * Restore IE9/10 compatibility (@oparoz)
 * Restore IE8 compatibility for the slideshow (@oparoz)
-* Fix external share permission logic owncloud/gallery#218 (@oparoz)
-* Fix native SVG previews on IE owncloud/gallery#238 (@oparoz)
-* Fix slideshow controls contrast, remove duplicate code owncloud/gallery#222 (@jancborchardt )
-* Fix slideshow when the folder contains a single image owncloud/gallery#246 (@oparoz)
+* Fix external share permission logic Upstream #218 (@oparoz)
+* Fix native SVG previews on IE Upstream #238 (@oparoz)
+* Fix slideshow controls contrast, remove duplicate code Upstream #222 (@jancborchardt )
+* Fix slideshow when the folder contains a single image Upstream #246 (@oparoz)
 
 gallery (13.0.0)
 * Caching and JS performance improvements (@oparoz)
