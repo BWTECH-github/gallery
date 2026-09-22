@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [17.0.1] - 2026-09-23
+
+### Fixed
+
+- Aus main übernommen (df1ea7bf): chore(deps): Entwicklungsabhaengigkeiten ohne Schwachstellenmeldungen
+
 ## [17.0.0] - 2026-09-22
 
 Redesign-Linie (owncloud.online 11.1). Für 11.0 gilt weiter der Zweig `main`.
