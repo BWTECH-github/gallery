@@ -45,6 +45,7 @@
 				galleryFileAction.mediaTypes = mediaTypes;
 			}
 			var i, mediaTypesLength = mediaTypes.length;
+			var viewerTypes = galleryFileAction.mediaViewerTypes();
 			// We only want to create slideshows for supported media types
 			for (i = 0; i < mediaTypesLength; i++) {
 				// Each click handler gets the same function and images array and
@@ -58,8 +59,34 @@
 					displayName: t('gallery', 'Open in Gallery')
 				})
 				;
-				OCA.Files.fileActions.setDefault(mediaTypes[i], 'Gallery');
+				// Öffnet der Media Viewer diesen Typ, ist ER die Standardaktion.
+				// Zwei Standardaktionen für denselben Typ zeigen bei jedem Klick
+				// das Auswahlmenü „Wie möchtest du diese Datei öffnen?“. Die
+				// Galerie bleibt dann als ausdrückliche Wahl im Aktionsmenü
+				// („…“ bzw. Rechtsklick). Ohne Media Viewer bleibt sie Standard.
+				if (viewerTypes.indexOf(mediaTypes[i]) < 0) {
+					OCA.Files.fileActions.setDefault(mediaTypes[i], 'Gallery');
+				}
 			}
+		},
+
+		/**
+		 * Typen, die der Media Viewer als Standardaktion übernimmt - leer, wenn
+		 * er nicht eingeschaltet ist. Sein Skript steht wie dieses im Kopf der
+		 * Seite und legt OCA.Mediaviewer beim Laden an; register() läuft erst
+		 * danach (nach dem Laden der Galerie-Konfiguration).
+		 *
+		 * @returns {Array}
+		 */
+		mediaViewerTypes: function () {
+			var aktiv = !!(OC.appswebroots && OC.appswebroots.files_mediaviewer);
+			var app = OCA.Mediaviewer && OCA.Mediaviewer.app;
+			if (!aktiv || !app || !app.config || !app.config.mimetypes) {
+				return [];
+			}
+			// Videos registriert der Media Viewer nur, wenn der Browser sie
+			// abspielen kann; die Galerie zeigt ohnehin nur Bilder.
+			return app.config.mimetypes;
 		},
 
 		/**
