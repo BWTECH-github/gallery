@@ -67,6 +67,30 @@ Redesign-Linie (owncloud.online 11.1). Für 11.0 gilt weiter der Zweig `main`.
   Linkseite und öffentliche Galerie in 1440 und 400 px) mit
   `tests/visual/gallery-testdaten.sh`.
 
+## [16.1.9] - 2026-09-22
+
+### Changed
+
+- Entwicklungsabhaengigkeiten: `guzzlehttp/guzzle` 6.5.8 -> 7.15.5,
+  `guzzlehttp/psr7` 1.9.1 -> 2.13.1, `guzzlehttp/promises` 1.5.1 -> 2.5.3,
+  `symfony/polyfill-intl-idn` auf 1.38.1. `composer audit --locked` meldete
+  darauf **14** Schwachstellen in drei Paketen.
+
+  Ausgeliefert wurde davon nichts: Guzzle haengt hier nur an codeception und
+  steht unter `require-dev`, ein `composer install --no-dev` liess es
+  draussen. Der Produktivbaum war und ist ohne Befund. Die 14 Meldungen
+  haben aber jede Pruefung dieser App zugemuellt und damit echte Funde
+  verdeckt - `composer audit --locked` ist jetzt auch mit
+  Entwicklungsabhaengigkeiten sauber.
+
+  codeception bleibt auf 4.2.1, die Aufloesung ist unveraendert.
+
+### Fixed
+
+- `composer.json` verwies bei `homepage`, `support.issues` und
+  `support.source` noch auf ein persoenliches Konto statt auf das
+  Fork-Repository. `appinfo/info.xml` war bereits richtig.
+
 ## [16.1.7] - 2026-08-13
 
 ### Changed
