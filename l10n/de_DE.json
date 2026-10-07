@@ -110,6 +110,11 @@
     "sharing is disabled" : "Teilen ist deaktiviert",
     "For more information, please ask the person who has sent you this link." : "Um nähere Informationen zu erhalten, wenden Sie sich bitte an die Person, die Ihnen diesen Link geschickt hat.",
     "Add to your owncloud.online" : "Zu Ihrer owncloud.online hinzufügen",
-    "Picture view" : "Bildansicht"
+    "Picture view" : "Bildansicht",
+    "Could not load the description: {message}" : "Die Beschreibung konnte nicht geladen werden: {message}",
+    "Could not load the copyright notice: {message}" : "Der Urheberrechtshinweis konnte nicht geladen werden: {message}",
+    "Proceed" : "Weiter",
+    "Home" : "Startseite",
+    "Remote address" : "Server-Adresse"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
