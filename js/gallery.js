@@ -555,10 +555,11 @@
 					{remote: remote}).then(function (protocol) {
 					if (protocol !== 'http' && protocol !== 'https') {
 						// Domäne gallery: der Katalog von files_sharing ist auf der
-						// öffentlichen Galerieseite nicht geladen.
+						// öffentlichen Galerieseite nicht geladen. escape:false, weil
+						// der Kerndialog (octemplate) selbst maskiert.
 						OC.dialogs.alert(t('gallery',
 							'No compatible server found at {remote}',
-							{remote: remote}),
+							{remote: remote}, undefined, {escape: false}),
 							t('gallery', 'Invalid server url'));
 					} else {
 						OC.redirect(protocol + '://' + url);
