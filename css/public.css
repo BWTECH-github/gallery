@@ -61,6 +61,7 @@ body#body-public > #controls {
 	position: sticky;
 	top: 0;
 	z-index: 50;
+	flex-wrap: wrap;
 	min-height: 56px;
 	gap: var(--oco-space-2);
 	padding: var(--oco-space-2) var(--oco-space-6);
@@ -68,13 +69,16 @@ body#body-public > #controls {
 	border-radius: 0;
 }
 
+/* Wie angemeldet: eigene Zeile, wenn es eng wird; der Rest rollt waagerecht. */
 body#body-public > #controls #breadcrumbs {
 	float: none;
 	display: flex;
-	flex: 0 1 auto;
+	flex: 1 1 12rem;
 	flex-wrap: nowrap;
 	min-width: 0;
-	overflow: hidden;
+	overflow-x: auto;
+	overflow-y: hidden;
+	scrollbar-width: thin;
 }
 
 body#body-public > #controls .left {

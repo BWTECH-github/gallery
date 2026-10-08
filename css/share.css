@@ -72,11 +72,9 @@
 }
 #shareWithList .username{
 	padding-right: 8px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	max-width: 254px;
+	max-width: 100%;
 	display: inline-block;
-	overflow: hidden;
+	overflow-wrap: anywhere;
 	vertical-align: middle;
 }
 #shareWithList li label{
