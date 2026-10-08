@@ -59,7 +59,7 @@ OC.L10N.register(
     "Link" : "Link",
     "Password protect" : "Passwortschutz",
     "Password" : "Passwort",
-    "Choose a password for the public link" : "Wählen Sie ein Passwort für den öffentlichen Link",
+    "Choose a password for the public link" : "Wähle ein Passwort für den öffentlichen Link",
     "Allow editing" : "Bearbeitung erlauben",
     "Email link to person" : "Link per E-Mail verschicken",
     "Send" : "Senden",
