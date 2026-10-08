@@ -171,6 +171,7 @@
 	width: 100%;
 }
 
+/* Der Bildname bricht um statt „…“ (lange Dateinamen). */
 #slideshow > .name .title {
 	padding: 0 50px 3px;
 	text-align: center;
@@ -178,9 +179,7 @@
 	text-shadow: 1px 1px 4px #333, 1px -1px 4px #333, -1px 1px 4px #333, -1px -1px 4px #333;
 	font-size: 18px;
 	line-height: normal;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
+	overflow-wrap: anywhere;
 	opacity: .75;
 }
 

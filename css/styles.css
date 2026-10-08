@@ -173,7 +173,6 @@ a.row-element > .album-label {
 	box-sizing: border-box;
 	padding: 5px;
 	overflow-x: hidden;
-	text-overflow: ellipsis;
 	z-index: 11;
 	word-break: break-all;
 }
@@ -201,26 +200,43 @@ a.row-element > .image-label {
 	background-image: linear-gradient(rgba(0,0,0,0) 65%,rgba(0,0,0,0.35));
 }
 
+/* Album- und Bildnamen brechen um und wachsen von unten nach oben in die
+   Kachel, statt mit „…“ zu enden. Vorher stand der ganze Name nur beim
+   Überfahren mit der Maus da - per Tastatur und auf Touchgeräten nie. */
 a.row-element > .image-label .title,
 a.row-element > .album-label .title {
 	display: inline-block;
+	box-sizing: border-box;
+	padding: 0 6px;
 	color: #fff;
 	text-align: center;
 	font-size: 13px;
 	line-height: normal;
 	width: 100%;
-	overflow-x: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+	/* #gallery .row vererbt white-space: nowrap (Zeilen aus Kacheln) */
+	white-space: normal;
+	overflow-wrap: anywhere;
 	left: 0;
 	bottom: 10px;
 	position: absolute;
 }
 
-a.row-element > .image-label .title:hover,
-a.row-element > .album-label .title:hover {
-	overflow: visible;
-	white-space: normal;
+/* Albumschild als Flex-Spalte, der Name steht unten. Wird er höher als die
+   Kachel (lange Namen in kleinen Kacheln, gemessen bei 320 px), beginnt er
+   oben und rollt im Schild (safe), statt oben abzureißen. Das Bildschild
+   bleibt beim alten Aufbau: Es erscheint nur beim Überfahren, jQuery setzt
+   dabei display: block. */
+a.row-element > .album-label {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	justify-content: safe flex-end;
+	overflow-y: auto;
+	padding-bottom: 10px;
+}
+
+a.row-element > .album-label .title {
+	position: static;
 }
 
 a.row-element > .album > img {
@@ -390,6 +406,9 @@ body.oco-shell .oco-main > #controls {
 	top: auto;
 	flex: 0 0 auto;
 	display: flex;
+	/* Reicht die Zeile nicht für Krumen und Knöpfe, bekommen die Krumen eine
+	   eigene Zeile (bei 320 px blieben sonst 52 px und der Albumname fehlte). */
+	flex-wrap: wrap;
 	align-items: center;
 	gap: var(--oco-space-2);
 	box-sizing: border-box;
@@ -401,14 +420,17 @@ body.oco-shell .oco-main > #controls {
 
 /* Die Krumen sind float-Blöcke; in einer schmalen Leiste brachen sie in eine
    zweite Zeile um und verdoppelten deren Höhe. Als Flex-Zeile bleiben sie
-   einreihig – was nicht passt, fasst breadcrumb.js ohnehin in „…“ zusammen. */
+   einreihig. Was dann noch nicht passt, rollt waagerecht in der Leiste,
+   statt abgeschnitten zu werden. */
 body.oco-shell .oco-main > #controls #breadcrumbs {
 	float: none;
 	display: flex;
-	flex: 0 1 auto;
+	flex: 1 1 12rem;
 	flex-wrap: nowrap;
 	min-width: 0;
-	overflow: hidden;
+	overflow-x: auto;
+	overflow-y: hidden;
+	scrollbar-width: thin;
 }
 
 /* .left bleibt ein Block: die beiden Sortierknöpfe darin sind über float

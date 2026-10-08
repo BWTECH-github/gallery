@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [17.0.4] - 2026-10-08
+
+### Behoben
+
+- Album- und Bildnamen in den Kacheln brechen um, statt mit „…“ zu enden; der
+  ganze Name stand vorher nur beim Überfahren mit der Maus da.
+- Diashow: der Bildname bricht um.
+- Werkzeugleiste: reicht die Zeile nicht, bekommen die Brotkrumen eine eigene
+  Zeile und rollen bei Bedarf waagerecht – bei 320 px fehlte der Albumname
+  ganz. Gilt angemeldet und auf der Linkseite.
+- Teilen-Liste der Galerie: Namen brechen um.
+- Diashow: Die Symbolknöpfe (Weiter, Zurück, Abspielen, Schließen,
+  Herunterladen, Löschen, Drehen) tragen ihren Namen als aria-label statt als
+  durchsichtigen Wert; der Wert war breiter als der Knopf.
+
 ## [17.0.2] - 2026-09-23
 
 ### Changed

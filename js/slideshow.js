@@ -436,7 +436,10 @@
 							var button = buttonsArray[i];
 
 							tmplButton = template.find(button.el);
-							tmplButton.val(button.trans);
+							// Name über aria-label statt value: Die Knöpfe zeigen nur
+							// ein Symbol, der Wert stand als durchsichtiger Text im
+							// Knopf und war breiter als er („Herunterladen“ 51 px).
+							tmplButton.attr('aria-label', button.trans);
 							if (button.toolTip) {
 								tmplButton.attr("title", button.trans);
 							}
