@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
+- Anrede (de): „{owner} hat dies mit Dir … geteilt“ – „dir“ klein wie in der übrigen Oberfläche.
 - Sprache: Das Popup „Zu deiner owncloud.online hinzufügen“ mit unbrauchbarer Serveradresse fragte seine Texte im Katalog von files_sharing ab, der auf der öffentlichen Galerieseite nicht geladen ist – Titel und Meldung standen englisch. Sie kommen jetzt aus dem Galerie-Katalog.
 - Sprache: „Error loading slideshow template“ lief über die Domäne core, die den Text nicht kennt; jetzt gallery.
 - Sprache: Die Fehler der Infobox („Could not load the description/copyright notice: …“) bauten den Schlüssel aus Text und Fehlermeldung zusammen und wurden nie übersetzt; jetzt mit Platzhalter `{message}` (wird dabei maskiert).
