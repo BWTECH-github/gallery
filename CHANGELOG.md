@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [17.0.3] - 2026-10-07
+
+### Fixed
+
+- Anrede (de): „{owner} hat dies mit Dir … geteilt“ – „dir“ klein wie in der übrigen Oberfläche.
+- Anrede (de): „Wählen Sie ein Passwort für den öffentlichen Link“ stand im Du-Katalog in Sie-Form – jetzt „Wähle ein Passwort …“.
+- Sprache: Das Popup „Zu deiner owncloud.online hinzufügen“ mit unbrauchbarer Serveradresse fragte seine Texte im Katalog von files_sharing ab, der auf der öffentlichen Galerieseite nicht geladen ist – Titel und Meldung standen englisch. Sie kommen jetzt aus dem Galerie-Katalog.
+- Sprache: „Error loading slideshow template“ lief über die Domäne core, die den Text nicht kennt; jetzt gallery.
+- Sprache: Die Fehler der Infobox („Could not load the description/copyright notice: …“) bauten den Schlüssel aus Text und Fehlermeldung zusammen und wurden nie übersetzt; jetzt mit Platzhalter `{message}` (wird dabei maskiert).
+- Sprache: „Proceed“ (Passwortseite eines geschützten Galerie-Links), „Home“ (Logo) und „Remote address“ (Sprachausgabe) fehlten in de und de_DE.
+- Anrede: „Dein/Dich/Dir“ auf den Linkseiten klein.
+
 ## [17.0.2] - 2026-09-23
 
 ### Changed
@@ -66,6 +78,30 @@ Redesign-Linie (owncloud.online 11.1). Für 11.0 gilt weiter der Zweig `main`.
 - `tests/visual/pruefe-gallery.js` (60 Prüfungen: Galerie-App, Dateien-App,
   Linkseite und öffentliche Galerie in 1440 und 400 px) mit
   `tests/visual/gallery-testdaten.sh`.
+
+## [16.1.9] - 2026-09-22
+
+### Changed
+
+- Entwicklungsabhaengigkeiten: `guzzlehttp/guzzle` 6.5.8 -> 7.15.5,
+  `guzzlehttp/psr7` 1.9.1 -> 2.13.1, `guzzlehttp/promises` 1.5.1 -> 2.5.3,
+  `symfony/polyfill-intl-idn` auf 1.38.1. `composer audit --locked` meldete
+  darauf **14** Schwachstellen in drei Paketen.
+
+  Ausgeliefert wurde davon nichts: Guzzle haengt hier nur an codeception und
+  steht unter `require-dev`, ein `composer install --no-dev` liess es
+  draussen. Der Produktivbaum war und ist ohne Befund. Die 14 Meldungen
+  haben aber jede Pruefung dieser App zugemuellt und damit echte Funde
+  verdeckt - `composer audit --locked` ist jetzt auch mit
+  Entwicklungsabhaengigkeiten sauber.
+
+  codeception bleibt auf 4.2.1, die Aufloesung ist unveraendert.
+
+### Fixed
+
+- `composer.json` verwies bei `homepage`, `support.issues` und
+  `support.source` noch auf ein persoenliches Konto statt auf das
+  Fork-Repository. `appinfo/info.xml` war bereits richtig.
 
 ## [16.1.7] - 2026-08-13
 

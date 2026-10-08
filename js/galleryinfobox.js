@@ -73,7 +73,7 @@
 				content = this._parseMarkdown(content);
 			} catch (exception) {
 				content = t('gallery',
-					'Could not load the description: ' + exception.message);
+					'Could not load the description: {message}', {message: exception.message});
 			}
 			this.infoContentElement.append(content);
 			this.infoContentElement.find('a').attr("target", "_blank");
@@ -129,7 +129,7 @@
 					} catch (exception) {
 						copyright =
 							t('gallery',
-								'Could not load the copyright notice: ' + exception.message);
+								'Could not load the copyright notice: {message}', {message: exception.message});
 					}
 				} else {
 					copyright = '<p>' + t('gallery', 'Copyright notice') + '</p>';

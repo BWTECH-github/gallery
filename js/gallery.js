@@ -554,10 +554,13 @@
 				$.get(OC.generateUrl('apps/files_sharing/testremote'),
 					{remote: remote}).then(function (protocol) {
 					if (protocol !== 'http' && protocol !== 'https') {
-						OC.dialogs.alert(t('files_sharing',
+						// Domäne gallery: der Katalog von files_sharing ist auf der
+						// öffentlichen Galerieseite nicht geladen. escape:false, weil
+						// der Kerndialog (octemplate) selbst maskiert.
+						OC.dialogs.alert(t('gallery',
 							'No compatible server found at {remote}',
-							{remote: remote}),
-							t('files_sharing', 'Invalid server url'));
+							{remote: remote}, undefined, {escape: false}),
+							t('gallery', 'Invalid server url'));
 					} else {
 						OC.redirect(protocol + '://' + url);
 					}
