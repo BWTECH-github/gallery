@@ -39,6 +39,9 @@
 				// Move the slideshow outside the content so we can hide the content
 				$('body').append($tmpl);
 				this.container = $('#slideshow');
+				// Modaler Dialog (Name = Bildname, siehe show())
+				this.container.attr({'role': 'dialog', 'aria-modal': 'true', 'tabindex': '-1'});
+				this._trapFocusBound = this._trapFocus.bind(this);
 				this.zoomablePreviewContainer = this.container.find('.bigshotContainer');
 				this.zoomablePreview = new SlideShow.ZoomablePreview(this.container);
 				this.controls =
@@ -88,8 +91,15 @@
 		 */
 		show: function (index) {
 			this.hideErrorNotification();
+			var schonOffen = this.container.is(':visible');
 			this.active = true;
+			if (this.images && this.images[index]) {
+				this.container.attr('aria-label', this.images[index].name);
+			}
 			this.container.show();
+			if (!schonOffen) {
+				this._open();
+			}
 			this.container.css('background-position', 'center');
 			this._hideImage();
 			var currentImageId = index;
@@ -192,6 +202,7 @@
 			this.active = false;
 			this.images = null;
 			this._hideImage();
+			this._close();
 			if (this.onStop) {
 				this.onStop();
 			}
@@ -295,15 +306,97 @@
 		 */
 		_initControlsAutoFader: function () {
 			var inactiveCallback = function () {
+				// Mit dem Tastaturfokus auf einem Knopf bleibt die Steuerung
+				// sichtbar (sonst verschwände der fokussierte Knopf)
+				var fokus = document.activeElement;
+				if (fokus && fokus !== this.container[0] && this.container[0].contains(fokus) &&
+					fokus.matches && fokus.matches(':focus-visible')) {
+					inactiveTimeout = setTimeout(inactiveCallback, 3000);
+					return;
+				}
 				this.container.addClass('inactive');
 			}.bind(this);
 			var inactiveTimeout = setTimeout(inactiveCallback, 3000);
 
-			this.container.on('mousemove touchstart', function () {
+			this.container.on('mousemove touchstart keydown focusin', function () {
 				this.container.removeClass('inactive');
 				clearTimeout(inactiveTimeout);
 				inactiveTimeout = setTimeout(inactiveCallback, 3000);
 			}.bind(this));
+		},
+
+		/**
+		 * Öffnen: Fokus in die Diashow, die Seite dahinter ist für Tab und
+		 * Sprachausgabe nicht erreichbar.
+		 *
+		 * @private
+		 */
+		_open: function () {
+			var fokus = document.activeElement;
+			this._opener = (fokus && fokus !== document.body && !this.container[0].contains(fokus)) ? fokus : null;
+			var container = this.container[0];
+			for (var n = container; n && n.parentElement && n !== document.body; n = n.parentElement) {
+				$(n).siblings().each(function () {
+					if (/^(SCRIPT|STYLE|LINK|TEMPLATE)$/.test(this.tagName) || this.hasAttribute('inert')) {
+						return;
+					}
+					if (this.id === 'notification-container' || $(this).find('#notification-container').length) {
+						return;
+					}
+					this.setAttribute('inert', '');
+					this.setAttribute('data-gallery-inert', '');
+				});
+			}
+			document.addEventListener('keydown', this._trapFocusBound, true);
+			container.focus({preventScroll: true});
+		},
+
+		/**
+		 * Schließen: Seite wieder bedienbar, Fokus zurück auf das Bild bzw. die
+		 * Datei, von der aus die Diashow geöffnet wurde.
+		 *
+		 * @private
+		 */
+		_close: function () {
+			document.removeEventListener('keydown', this._trapFocusBound, true);
+			$('[data-gallery-inert]').removeAttr('inert').removeAttr('data-gallery-inert');
+			var opener = this._opener;
+			this._opener = null;
+			if (opener && document.body.contains(opener) && typeof opener.focus === 'function') {
+				opener.focus();
+			}
+		},
+
+		/**
+		 * Tab und Umschalt+Tab bleiben in der Diashow.
+		 *
+		 * @param {KeyboardEvent} e
+		 * @private
+		 */
+		_trapFocus: function (e) {
+			if (e.key !== 'Tab' || !this.active) {
+				return;
+			}
+			var container = this.container[0];
+			var items = $(container).find('input, button, a[href], [tabindex]:not([tabindex="-1"])').filter(function () {
+				return !this.disabled && this.getClientRects().length > 0 &&
+					getComputedStyle(this).visibility !== 'hidden' && getComputedStyle(this).display !== 'none';
+			}).get();
+			if (!items.length) {
+				e.preventDefault();
+				container.focus();
+				return;
+			}
+			var first = items[0];
+			var last = items[items.length - 1];
+			var active = document.activeElement;
+			if (!container.contains(active) || (e.shiftKey && (active === first || active === container))) {
+				e.preventDefault();
+				(e.shiftKey ? last : first).focus();
+			} else if (!e.shiftKey && active === last) {
+				e.preventDefault();
+				first.focus();
+			}
 		},
 
 		/**

@@ -4,7 +4,7 @@
 
 	var TEMPLATE =
 		'<a class="row-element" style="width: {{targetWidth}}px; height: {{targetHeight}}px;" ' +
-		'href="" data-path="{{path}}">' +
+		'href="" data-path="{{path}}" aria-label="{{label}}">' +
 		'	<div class="image-loader loading"></div>' +
 		'	<span class="image-label">' +
 		'		<span class="title">{{label}}</span>' +

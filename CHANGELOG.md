@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [17.0.5] - 2026-10-29
+
+### Behoben
+
+- Diashow als modaler Dialog: benannt nach dem Bild, Fokus darin, Tab bleibt
+  in der Diashow, die Seite dahinter ist nicht erreichbar, nach dem Schließen
+  steht der Fokus wieder auf dem Bild bzw. der Datei.
+- Diashow: Die Steuerung blendet sich nicht aus, solange ein Knopf den
+  Tastaturfokus hat; die Leertaste auf einem Knopf löst nur diesen aus.
+- Fotowand: Kacheln tragen ihren Namen auch vor dem Laden des Vorschaubilds.
+- Neu-Menü lesbar (volle Deckkraft), Info-Link im Teilen-Dialog benannt.
+- Brotkrumen zeigen das geöffnete Album und bei genug Platz den ganzen Pfad;
+  kein Trenner mehr hinter der letzten Krume.
+- Linkseite auf Telefonen: „Zu Ihrer owncloud.online hinzufügen“ bricht im
+  Knopf um.
+
 ## [17.0.4] - 2026-10-08
 
 ### Behoben

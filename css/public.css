@@ -24,6 +24,22 @@
 	line-height: 14px;
 }
 
+/* Schmale Telefone: der Text „Zu Ihrer owncloud.online hinzufügen“ bricht im
+   Knopf um, statt an dessen Rand abgeschnitten zu werden */
+@media (max-width: 480px) {
+	/* vier Kennungen: schlägt die Knopfregel der Linkseite
+	   (#body-public #header .button, white-space: nowrap) */
+	#body-public #header #save #save-button {
+		height: auto;
+		min-height: 28px;
+		white-space: normal;
+		overflow-wrap: anywhere;
+		line-height: 16px;
+		padding-top: 4px;
+		text-align: center;
+	}
+}
+
 #save-button-confirm {
 	position: absolute;
 	background-color: transparent;

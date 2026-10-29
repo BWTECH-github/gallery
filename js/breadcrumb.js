@@ -244,16 +244,30 @@
 			var shorten = false;
 			var ellipsisPath = '';
 			var self = this;
+			// Im Redesign füllt die Krumenleiste als Flex-Element den freien
+			// Platz: Ihre eigene Breite sagt nichts über den Inhalt und war stets
+			// größer als der berechnete Platz - jede Krume, auch das geöffnete
+			// Album, wurde ausgeblendet. Gemessen wird deshalb die Summe der
+			// sichtbaren Krumen gegen den Platz der Leiste.
+			var platz = Math.max(availableWidth, this.breadcrumbsElement.get(0) ? this.breadcrumbsElement.get(0).clientWidth : 0);
+			var inhalt = function () {
+				var summe = 0;
+				self.breadcrumbsElement.children(':visible').each(function () {
+					summe += $(this).outerWidth(true);
+				});
+				return summe;
+			};
 
 			// Hide everything first, so that we can check the width after adding each crumb
 			crumbs.hide();
+			crumbs.filter('.home').show();
 
 			// We go through the array in reverse order
 			var crumbsElement = crumbs.get().reverse();
-			$(crumbsElement).each(function () {
-				$(this).click(self.showLoader);
+			$(crumbsElement).each(function (index) {
+				// nur einmal anbinden (_resize läuft bei jeder Größenänderung)
+				$(this).off('click', self.showLoader).on('click', self.showLoader);
 				if ($(this).hasClass('home')) {
-					$(this).show();
 					return;
 				}
 				if ($(this).hasClass('ellipsis')) {
@@ -264,13 +278,19 @@
 					$(this).show();
 				}
 
-				// If we've reached the maximum width, we start hiding crumbs
-				if (self.breadcrumbsElement.width() > availableWidth) {
+				// If we've reached the maximum width, we start hiding crumbs;
+				// die letzte Krume (das geöffnete Album) bleibt immer stehen
+				if (index > 0 && inhalt() > platz) {
 					shorten = true;
 					$(this).hide();
 					ellipsisPath = $(this).data('dir');
 				}
 			});
+
+			// Kein Trenner hinter der letzten sichtbaren Krume (der Kern malt ihn
+			// als Hintergrundbild an jede Krume, auch an die letzte)
+			crumbs.removeClass('oco-krume-ende');
+			crumbs.filter(':visible').last().addClass('oco-krume-ende');
 
 			// If we had to hide crumbs, we add a way to go to the parent folder
 			if (shorten) {

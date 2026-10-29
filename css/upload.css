@@ -69,6 +69,16 @@
 	opacity: 1;
 }
 
+/* Redesign: Einträge voll deckend und lesbar (der Kern blendet
+   .popovermenu .menuitem auf 50 % ab, WCAG 1.4.3) */
+.newFileMenu.popovermenu {
+	color: var(--oco-text-primary, #1f2733);
+}
+.newFileMenu.popovermenu .menuitem {
+	opacity: 1;
+	color: var(--oco-text-primary, #1f2733);
+}
+
 .newFileMenu.bubble:after {
 	left: 75px;
 	right: auto;

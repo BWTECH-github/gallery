@@ -4,8 +4,8 @@
 
 	var TEMPLATE =
 		'<a class="row-element" style="width: {{targetWidth}}px; height: {{targetHeight}}px;" ' +
-		'data-width="{{targetWidth}}" data-height="{{targetHeight}}"' +
-		'href="{{targetPath}}" data-dir="{{dir}}" data-path="{{path}}"' +
+		'data-width="{{targetWidth}}" data-height="{{targetHeight}}" ' +
+		'href="{{targetPath}}" data-dir="{{dir}}" data-path="{{path}}" aria-label="{{label}}" ' +
 		'data-permissions="{{permissions}}" data-freespace="{{freeSpace}}"' +
 		'>' +
 		'	<div class="album-loader loading"></div>' +

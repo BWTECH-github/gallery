@@ -329,8 +329,9 @@
 				Gallery.Share.hideDropDown();
 			}
 			$('.album-info-container').slideUp();
-			// Resets the last focused element
-			document.activeElement.blur();
+			// Der Fokus steht jetzt in der Diashow (Slideshow._open) und kehrt
+			// beim Schließen auf das Bild zurück; kein blur() mehr, das hätte ihn
+			// aus dem Dialog genommen.
 		},
 
 		/**

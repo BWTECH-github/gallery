@@ -24,6 +24,16 @@ div.crumb.last a {
 	cursor: default;
 }
 
+/* letzte sichtbare Krume ohne Trenner dahinter (breadcrumb.js) */
+#breadcrumbs div.crumb.oco-krume-ende {
+	background-image: none;
+}
+/* der rechte Innenabstand war Platz für den Trenner */
+#breadcrumbs div.crumb.oco-krume-ende a,
+#breadcrumbs div.crumb.oco-krume-ende span {
+	padding-right: 8px;
+}
+
 #controls .button {
 	margin-top: 5px;
 	width: 40px;

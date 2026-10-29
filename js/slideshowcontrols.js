@@ -240,6 +240,10 @@
 				} else if (evt.keyCode === rightKey) {
 					makeCallBack(this._next)(evt);
 				} else if (evt.keyCode === spaceKey) {
+					// Auf einem fokussierten Knopf löst die Leertaste nur ihn aus
+					if ($(evt.target).is('input, button, a, select, textarea')) {
+						return;
+					}
 					makeCallBack(this._playPauseToggle)(evt);
 				} else if (evt.keyCode === fKey) {
 					makeCallBack(this._fullScreenToggle)(evt);

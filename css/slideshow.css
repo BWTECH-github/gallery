@@ -1,3 +1,8 @@
+/* Der Dialog selbst bekommt beim Öffnen den Fokus (Sprachausgabe) */
+#slideshow:focus {
+	outline: none;
+}
+
 #slideshow {
 	position: fixed;
 	left: 0;

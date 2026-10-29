@@ -218,11 +218,12 @@
 				html +=
 					'<input id="shareWith" type="text" placeholder="' + sharePlaceholder + '" />';
 				if (oc_appconfig.core.remoteShareAllowed) {
+					var federatedCloudSharingInfo = escapeHTML(t('core',
+						'Share with people on other servers using the syntax username@example.com/owncloud'));
 					var federatedCloudSharingDoc =
 						'<a target="_blank" class="icon-info svg shareWithRemoteInfo" ' +
-						'href="{docLink}" title="' + t('core',
-							'Share with people on other servers using the syntax username@example.com/owncloud') +
-						'"></a>';
+						'href="{docLink}" title="' + federatedCloudSharingInfo + '" ' +
+						'aria-label="' + federatedCloudSharingInfo + '"></a>';
 					html += federatedCloudSharingDoc.replace('{docLink}',
 						oc_appconfig.core.federatedCloudShareDoc);
 				}
