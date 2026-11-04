@@ -253,12 +253,22 @@ $(document).ready(function () {
 		return true;
 	}
 
+	// Gastseiten (abgelaufener oder ungültiger Link, Passwortabfrage, Anmeldung)
+	// haben weder Dateiliste noch Freigabe-Token – die Konfiguration käme dort nur mit 401.
+	if ($('#body-login').length > 0) {
+		return true;
+	}
+
 	if ($('html').is('.ie8')) {
 		return true; //deactivate in IE8
 	}
 
 	window.galleryFileAction.scrollContainer = $('#app-content');
 	if ($('#isPublic').val()) {
+		// Öffentlich gibt es die Konfiguration nur mit Freigabe-Token.
+		if (!$('#sharingToken').val()) {
+			return true;
+		}
 		window.galleryFileAction.scrollContainer = $(window);
 	}
 
@@ -269,7 +279,10 @@ $(document).ready(function () {
 	// The list of media files is retrieved when the user clicks on a row
 	var url = window.galleryFileAction.buildGalleryUrl('config', '', {extramediatypes: 1});
 	$.getJSON(url).then(function (config) {
-		window.galleryFileAction.buildFeaturesList(config.features);
+		if (!config || !config.mediatypes) {
+			return;
+		}
+		window.galleryFileAction.buildFeaturesList(config.features || []);
 		window.galleryFileAction.register(config.mediatypes);
 	});
 });
