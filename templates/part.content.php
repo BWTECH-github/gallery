@@ -41,7 +41,6 @@ script(
 script(
 	'files',
 	[
-		'upload',
 		'file-upload',
 		'jquery.fileupload',
 	]

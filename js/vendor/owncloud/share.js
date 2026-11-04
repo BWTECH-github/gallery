@@ -147,7 +147,7 @@
 					permissions: permissions
 				}
 			}).fail(function () {
-				OC.dialogs.alert(t('core', 'Error while changing permissions'),
+				OC.dialogs.alert(t('gallery', 'Error while changing permissions'),
 					t('core', 'Error'));
 			});
 		},
@@ -208,9 +208,9 @@
 					}
 				});
 
-				var sharePlaceholder = t('core', 'Share with users or groups …');
+				var sharePlaceholder = t('gallery', 'Share with users or groups …');
 				if (oc_appconfig.core.remoteShareAllowed) {
-					sharePlaceholder = t('core', 'Share with users, groups or remote users …');
+					sharePlaceholder = t('gallery', 'Share with users, groups or remote users …');
 				}
 
 				html += '<label for="shareWith" class="hidden-visually">' + t('core', 'Share') +
@@ -237,7 +237,7 @@
 					html +=
 						'<input type="checkbox" class="checkbox checkbox--right" ' +
 						'name="linkCheckbox" id="linkCheckbox" value="1" />' +
-						'<label for="linkCheckbox">' + t('core', 'Share link') + '</label>';
+						'<label for="linkCheckbox">' + t('gallery', 'Share link') + '</label>';
 					html += '<br />';
 
 					var defaultExpireMessage = '';
@@ -256,12 +256,12 @@
 						'<input type="checkbox" class="checkbox checkbox--right" ' +
 						'name="showPassword" id="showPassword" value="1" />' +
 						'<label for="showPassword" style="display:none;">' +
-						t('core', 'Password protect') + '</label>';
+						t('gallery', 'Password protect') + '</label>';
 					html += '<div id="linkPass">';
 					html += '<label for="linkPassText" class="hidden-visually">' +
 						t('core', 'Password') + '</label>';
 					html += '<input id="linkPassText" type="password" placeholder="' +
-						t('core', 'Choose a password for the public link') + '" />';
+						t('gallery', 'Choose a password for the public link') + '" />';
 					html += '<span class="icon-loading-small hidden"></span>';
 					html += '</div>';
 
@@ -273,7 +273,7 @@
 							'<input type="checkbox" class="checkbox checkbox--right" value="1" name="allowPublicUpload" id="sharingDialogAllowPublicUpload"' +
 							((allowPublicUploadStatus) ? 'checked="checked"' : '') + ' />';
 						html += '<label for="sharingDialogAllowPublicUpload">' +
-						t('core', 'Allow editing') + '</label>';
+						t('gallery', 'Allow editing') + '</label>';
 						html += '</div>';
 					}
 
@@ -285,7 +285,7 @@
 							t('core', 'Email link to person') + '" type="text" />';
 						html +=
 							'<input id="emailButton" style="display:none;" type="submit" value="' +
-							t('core', 'Send') + '" />';
+							t('gallery', 'Send') + '" />';
 						html += '</form>';
 					}
 				}
@@ -295,11 +295,11 @@
 					'<input type="checkbox" class="checkbox checkbox--right" ' +
 					'name="expirationCheckbox" id="expirationCheckbox" value="1" />' +
 					'<label for="expirationCheckbox">' +
-					t('core', 'Set expiration date') + '</label>';
+					t('gallery', 'Set expiration date') + '</label>';
 				html += '<label for="expirationDate" class="hidden-visually">' +
 					t('core', 'Expiration') + '</label>';
 				html += '<input id="expirationDate" type="text" placeholder="' +
-					t('core', 'Expiration date') + '" style="display:none; width:90%;" />';
+					t('gallery', 'Expiration date') + '" style="display:none; width:90%;" />';
 				html += '<em id="defaultExpireMessage">' + defaultExpireMessage + '</em>';
 				html += '</div>';
 				dropDownEl = $(html);
@@ -378,7 +378,7 @@
 							}
 						}).fail(function () {
 							$('#dropdown').find('.shareWithLoading').addClass('hidden');
-							OC.Notification.show(t('core', 'An error occured. Please try again'));
+							OC.Notification.show(t('gallery', 'An error occured. Please try again'));
 							window.setTimeout(OC.Notification.hide, 5000);
 						});
 					},
@@ -421,7 +421,7 @@
 						var $input = $(this);
 						var $loading = $dropDown.find('.shareWithLoading');
 						$loading.removeClass('hidden');
-						$input.val(t('core', 'Adding user...'));
+						$input.val(t('gallery', 'Adding user...'));
 						$input.prop('disabled', true);
 						Gallery.Share.share(
 							itemSource,
@@ -452,7 +452,7 @@
 					if (item.value.shareType === Gallery.Share.SHARE_TYPE_GROUP) {
 						text = text + ' (' + t('core', 'group') + ')';
 					} else if (item.value.shareType === Gallery.Share.SHARE_TYPE_REMOTE) {
-						text = text + ' (' + t('core', 'remote') + ')';
+						text = text + ' (' + t('gallery', 'remote') + ')';
 					}
 					insert.text(text);
 					if (item.value.shareType === Gallery.Share.SHARE_TYPE_GROUP) {
@@ -494,7 +494,7 @@
 
 			} else {
 				html += '<input id="shareWith" type="text" placeholder="' +
-					t('core', 'Resharing is not allowed') +
+					t('gallery', 'Resharing is not allowed') +
 					'" style="width:90%;" disabled="disabled"/>';
 				html += '</div>';
 				dropDownEl = $(html);
@@ -698,7 +698,7 @@
 				shareWithDisplayName = shareWithDisplayName + " (" + t('core', 'group') + ')';
 			}
 			if (shareType === this.SHARE_TYPE_REMOTE) {
-				shareWithDisplayName = shareWithDisplayName + " (" + t('core', 'remote') + ')';
+				shareWithDisplayName = shareWithDisplayName + " (" + t('gallery', 'remote') + ')';
 			}
 			if (!this.itemShares[shareType]) {
 				this.itemShares[shareType] = [];
@@ -988,7 +988,7 @@ $(document).ready(function () {
 		if (this.checked) {
 			// Reset password placeholder
 			$('#linkPassText').attr('placeholder',
-				t('core', 'Choose a password for the public link'));
+				t('gallery', 'Choose a password for the public link'));
 			// Reset link
 			$('#linkText').val('');
 			$('#showPassword').prop('checked', false);
@@ -1097,7 +1097,7 @@ $(document).ready(function () {
 			}).done(function () {
 				$loading.addClass('hidden');
 				$('#linkPassText').attr('placeholder',
-					t('core', 'Choose a password for the public link'));
+					t('gallery', 'Choose a password for the public link'));
 			});
 		} else {
 			$('#linkPassText').focus();
@@ -1126,7 +1126,7 @@ $(document).ready(function () {
 					function (data) {
 						$loading.addClass('hidden');
 						linkPassText.val('');
-						linkPassText.attr('placeholder', t('core', 'Password protected'));
+						linkPassText.attr('placeholder', t('gallery', 'Password protected'));
 						Gallery.Share.showLink(data.id, data.token, "password set");
 					},
 					function (result) {
@@ -1148,7 +1148,7 @@ $(document).ready(function () {
 			}).done(function () {
 				$loading.addClass('hidden');
 				linkPassText.val('');
-				linkPassText.attr('placeholder', t('core', 'Password protected'));
+				linkPassText.attr('placeholder', t('gallery', 'Password protected'));
 			}).fail(function (xhr) {
 				// OCS v2 meldet den Grund unter ocs.meta.message; result.data gibt
 				// es dort nicht, der Zugriff warf einen TypeError.
@@ -1179,7 +1179,7 @@ $(document).ready(function () {
 					$('#defaultExpireMessage').slideDown(OC.menuSpeed);
 				}
 			}).fail(function () {
-				OC.dialogs.alert(t('core', 'Error unsetting expiration date'),
+				OC.dialogs.alert(t('gallery', 'Error unsetting expiration date'),
 					t('core', 'Error'));
 			});
 		}
@@ -1207,7 +1207,7 @@ $(document).ready(function () {
 			var expirationDateField = $('#dropdown #expirationDate');
 			if (result && !result.ocs.meta.message) {
 				expirationDateField.attr('original-title',
-					t('core', 'Error setting expiration date'));
+					t('gallery', 'Error setting expiration date'));
 			} else {
 				expirationDateField.attr('original-title', result.ocs.meta.message);
 			}
@@ -1231,7 +1231,7 @@ $(document).ready(function () {
 		}
 		if (email != '') {
 			$('#email').prop('disabled', true);
-			$('#email').val(t('core', 'Sending ...'));
+			$('#email').val(t('gallery', 'Sending ...'));
 			$('#emailButton').prop('disabled', true);
 
 			$.post(OC.filePath('core', 'ajax', 'share.php'), {
@@ -1247,7 +1247,7 @@ $(document).ready(function () {
 					$('#email').prop('disabled', false);
 					$('#emailButton').prop('disabled', false);
 					if (result && result.status == 'success') {
-						$('#email').css('font-weight', 'bold').val(t('core', 'Email sent'));
+						$('#email').css('font-weight', 'bold').val(t('gallery', 'Email sent'));
 						setTimeout(function () {
 							$('#email').css('font-weight', 'normal').val('');
 						}, 2000);
@@ -1278,7 +1278,7 @@ $(document).ready(function () {
 			itemType: itemType
 		}, function (result) {
 			if (result.status !== 'success') {
-				OC.dialogs.alert(t('core', result.data.message), t('core', 'Warning'));
+				OC.dialogs.alert(t('core', result.data.message), t('gallery', 'Warning'));
 			}
 		});
 

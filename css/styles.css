@@ -207,7 +207,10 @@ a.row-element > .image-label {
 	height: 100%;
 	transition: opacity 200ms linear;
 	opacity: 1;
-	background-image: linear-gradient(rgba(0,0,0,0) 65%,rgba(0,0,0,0.35));
+	/* Weiße Schrift muss auch über hellen Fotos mindestens 4,5:1 erreichen
+	   (WCAG 1.4.3): ab 55 % der Kachelhöhe mindestens 60 % Schwarz, das ergibt
+	   über reinem Weiß rund 5,7:1, am unteren Rand 75 % (rund 8:1). */
+	background-image: linear-gradient(rgba(0,0,0,0) 25%, rgba(0,0,0,0.6) 55%, rgba(0,0,0,0.75));
 }
 
 /* Album- und Bildnamen brechen um und wachsen von unten nach oben in die
@@ -219,6 +222,8 @@ a.row-element > .album-label .title {
 	box-sizing: border-box;
 	padding: 0 6px;
 	color: #fff;
+	/* Lichthof für mehrzeilige Namen, die über den dunklen Teil hinausreichen */
+	text-shadow: 0 0 2px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.9);
 	text-align: center;
 	font-size: 13px;
 	line-height: normal;

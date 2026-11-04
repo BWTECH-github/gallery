@@ -357,7 +357,8 @@ class Environment {
 	private function getResourceFromFolderAndId($folder, $resourceId) {
 		$resourcesArray = $folder->getById($resourceId);
 
-		if ($resourcesArray[0] === null) {
+		// getById() liefert bei unbekannter ID ein leeres Feld (PHP 8: Warnung bei [0])
+		if (empty($resourcesArray) || $resourcesArray[0] === null) {
 			throw new NotFoundEnvException('Could not locate node linked to ID: ' . $resourceId);
 		}
 
