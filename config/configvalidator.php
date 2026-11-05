@@ -69,7 +69,8 @@ class ConfigValidator {
 	private function isDesignColourSafe($parsedConfigItem, $safe) {
 		if (\array_key_exists('background', $parsedConfigItem)) {
 			$background = $parsedConfigItem['background'];
-			$safe = $safe && \ctype_xdigit(\substr($background, 1));
+			// Eine Liste oder ein leerer Wert ist keine Farbe (substr() bricht an einer Liste ab)
+			$safe = $safe && \is_scalar($background) && \ctype_xdigit(\substr((string)$background, 1));
 		}
 
 		return $safe;

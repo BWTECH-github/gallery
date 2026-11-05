@@ -284,11 +284,80 @@ class ConfigParserTest extends \Test\GalleryUnitTest {
 		$this->assertEquals($expectedResult, $response);
 	}
 
+	/**
+	 * Inhalte einer gallery.cnf, die keine Einstellungen ergeben. Unter PHP 8 brach die
+	 * Auswertung hier mit einem TypeError ab, das Album lieferte HTTP 500.
+	 */
+	public function providesConfigWithoutSettingsData() {
+		return [
+			'leere Datei' => [''],
+			'nur Kopf und Kommentar' => ["---\n# Gallery configuration file\n"],
+			'nur Text' => ["Urlaub\n"],
+		];
+	}
+
+	/**
+	 * @dataProvider providesConfigWithoutSettingsData
+	 *
+	 * @param string $content content of the configuration file
+	 */
+	public function testGetFeaturesListWithoutSettings($content) {
+		$folder = $this->mockFolderWithRawConfig($content);
+
+		$response = $this->configParser->getFeaturesList($folder, $this->configName);
+
+		$this->assertEquals([], $response);
+	}
+
+	public function testGetFeaturesListWithFeaturesAsText() {
+		$folder = $this->mockFolderWithRawConfig("features: yes\n");
+
+		$response = $this->configParser->getFeaturesList($folder, $this->configName);
+
+		$this->assertEquals([], $response);
+	}
+
+	public function providesFolderConfigWithoutUsableSectionsData() {
+		return \array_merge($this->providesConfigWithoutSettingsData(), [
+			'sorting als Text' => ["sorting: name\n"],
+			'design als Text' => ["design: '#ff9f00'\n"],
+			'information als Text' => ["information: Urlaub\n"],
+			'Hintergrund als Liste' => ["design:\n  background: [255, 159, 0]\n"],
+		]);
+	}
+
+	/**
+	 * Was keine verwendbare Einstellung ist, wird übergangen, statt abzubrechen
+	 *
+	 * @dataProvider providesFolderConfigWithoutUsableSectionsData
+	 *
+	 * @param string $content content of the configuration file
+	 */
+	public function testGetFolderConfigWithoutUsableSections($content) {
+		$folder = $this->mockFolderWithRawConfig($content);
+		$nothingCompleted = ['design' => false, 'information' => false, 'sorting' => false];
+
+		$response = $this->configParser->getFolderConfig(
+			$folder,
+			$this->configName,
+			[],
+			$nothingCompleted,
+			0
+		);
+
+		$this->assertEquals([[], $nothingCompleted], $response);
+	}
+
 	private function mockFolderWithConfig($config, $bom = false) {
-		$file = $this->mockFile(212121);
 		$yaml = new Dumper();
 		$content = $yaml->dump($config);
 		$content = $bom ? \chr(239) . \chr(187) . \chr(191) . $content : $content;
+
+		return $this->mockFolderWithRawConfig($content);
+	}
+
+	private function mockFolderWithRawConfig($content) {
+		$file = $this->mockFile(212121);
 		$file->method('getContent')
 			 ->willReturn($content);
 		$folder = $this->mockFolder('home::user', 121212, [$file]);
