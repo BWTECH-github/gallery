@@ -101,7 +101,9 @@ class ConfigParser {
 
 			//\OC::$server->getLogger()->debug("rawConfig : {path}", ['path' => $rawConfig]);
 
-			return $parsedConfig;
+			// Eine leere Datei, nur Kommentare oder nur Text ergeben keine Einstellungen;
+			// unter PHP 8 brach die weitere Auswertung daran mit einem TypeError ab
+			return \is_array($parsedConfig) ? $parsedConfig : [];
 		} catch (\Exception  $exception) {
 			$errorMessage = "Problem while reading or parsing the configuration file";
 			throw new ConfigException($errorMessage);
@@ -117,6 +119,10 @@ class ConfigParser {
 	 * @return array
 	 */
 	private function parseFeatures($featuresList) {
+		// „features: yes“ statt einer Liste schaltet nichts ein
+		if (!\is_array($featuresList)) {
+			return [];
+		}
 		$parsedFeatures = $featuresList;
 		if (!empty($parsedFeatures)) {
 			$parsedFeatures = \array_keys($featuresList, 'yes');
@@ -158,7 +164,8 @@ class ConfigParser {
 		foreach ($completionStatus as $key => $complete) {
 			if (!$this->isConfigItemComplete($key, $parsedConfig, $complete)) {
 				$parsedConfigItem = $parsedConfig[$key];
-				if ($this->isConfigUsable($key, $parsedConfigItem, $level)) {
+				// Ein Abschnitt ohne Schlüssel (etwa „sorting: name“) ist nicht verwendbar
+				if (\is_array($parsedConfigItem) && $this->isConfigUsable($key, $parsedConfigItem, $level)) {
 					list($configItem, $itemComplete) =
 						$this->addConfigItem($key, $parsedConfigItem, $level);
 					$currentConfig = \array_merge($currentConfig, $configItem);

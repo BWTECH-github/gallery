@@ -102,6 +102,13 @@ class ConfigValidatorTest extends \Test\GalleryUnitTest {
 			],
 			[
 				'design', $evilDesignColourConfig, false
+			],
+			// Eine Liste oder ein leerer Wert ist keine Farbe
+			[
+				'design', ['background' => [255, 159, 0]], false
+			],
+			[
+				'design', ['background' => null], false
 			]
 		];
 	}
