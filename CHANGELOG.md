@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [16.1.12] - 2026-11-09
+
+### Security
+
+- Sicherheit verbessert.
+
+### Fixed
+
+- Fehler behoben.
+
 ## [16.1.11] - 2026-11-05
 
 ### Fixed
