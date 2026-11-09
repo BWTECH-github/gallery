@@ -18,7 +18,7 @@
   "dependencies": {
     "eventsource-polyfill": "~0.*",
     "github-markdown-css": "~2.*",
-    "dompurify": "~0.7.0",
+    "dompurify": "~3.4.17",
     "commonmark": "~0.22.0"
   }
 }
