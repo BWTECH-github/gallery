@@ -72,6 +72,7 @@
 			try {
 				content = this._parseMarkdown(content);
 			} catch (exception) {
+				// Fehlertext als Platzhalter, damit t() ihn maskiert
 				content = t('gallery',
 					'Could not load the description: {message}', {message: exception.message});
 			}
@@ -88,10 +89,12 @@
 		 * @private
 		 */
 		_parseMarkdown: function (content) {
-			return DOMPurify.sanitize(this.htmlWriter.render(this.markdownReader.parse(content), {
-				smart: true,
-				safe: true
-			}), {
+			// commonmark liest Optionen nur im Konstruktor von HtmlRenderer; die früher an
+			// render() übergebenen Optionen „smart“ und „safe“ wirkten nie. Rohes HTML in
+			// Beschreibungen ist gewollt (sup, sub, strike, b), deshalb bleibt „safe“ aus.
+			// Einziger Schutz ist DOMPurify: jede Ausgabe läuft hier durch die Tag-Liste,
+			// das Schema-Prüfen für Links erledigt Gallery.utility.addDomPurifyHooks().
+			return DOMPurify.sanitize(this.htmlWriter.render(this.markdownReader.parse(content)), {
 				ALLOWED_TAGS: ['p', 'b', 'em', 'i', 'pre', 'sup', 'sub', 'strong', 'strike', 'br',
 					'hr', 'h1', 'h2', 'h3', 'li', 'ul', 'ol', 'a', 'img', 'blockquote', 'code'
 				]
