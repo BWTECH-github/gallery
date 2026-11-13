@@ -101,8 +101,8 @@ GalleryButton.place = function (fileList, warten) {
 GalleryButton.toggleButton = function (visible) {
 	"use strict";
 
-	if (GalleryButton.button && typeof GalleryButton.button.toggle === 'function') {
-		GalleryButton.button.toggle(!!visible);
+	if (GalleryButton.button && typeof GalleryButton.button.prop === 'function') {
+		GalleryButton.button.prop('hidden', !visible);
 	}
 };
 
@@ -164,7 +164,7 @@ $(document).ready(function () {
 					'</div>');
 			GalleryButton.button.attr('aria-label', t('gallery', 'Gallery view'));
 			GalleryButton.button.attr('title', t('gallery', 'Gallery view'));
-			GalleryButton.button.hide();
+			GalleryButton.button.prop('hidden', true);
 
 			GalleryButton.button.on('click keydown', function (event) {
 				if (event.type === 'keydown' &&

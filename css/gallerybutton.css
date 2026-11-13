@@ -194,14 +194,21 @@ body.oco-shell .oco-list-head #gallery-button,
 	flex: 0 0 auto;
 	order: 10;
 	box-sizing: border-box;
-	width: 36px;
-	height: 36px;
+	width: 32px;
+	height: 32px;
 	margin: 0 0 0 auto;
 	padding: 0;
-	border: 1px solid var(--oco-border-control);
-	border-radius: var(--oco-radius-button);
-	background: var(--oco-surface);
+	border: 0;
+	border-radius: var(--oco-radius-pill);
+	box-shadow: none;
+	background: transparent;
 	cursor: pointer;
+}
+
+/* Gegenregel zu display: inline-flex – das hidden-Attribut schaltet den Knopf */
+body.oco-shell .oco-list-head #gallery-button[hidden],
+#body-public #controls #gallery-button[hidden] {
+	display: none;
 }
 
 /* Steht der Zieh-Hinweis oder der Neu-Knopf im Kopf, schiebt schon er nach
@@ -214,8 +221,12 @@ body.oco-shell .oco-list-head:has(.oco-hint-chip) #gallery-button,
 
 body.oco-shell .oco-list-head #gallery-button:hover,
 #body-public #controls #gallery-button:hover {
-	border-color: var(--oco-border-hover);
-	background: var(--oco-surface-hover);
+	background: var(--oco-surface-muted);
+}
+
+body.oco-shell .oco-list-head #gallery-button:hover img,
+#body-public #controls #gallery-button:hover img {
+	opacity: 1;
 }
 
 body.oco-shell .oco-list-head #gallery-button:focus-visible,
@@ -228,7 +239,7 @@ body.oco-shell .oco-list-head #gallery-button img,
 #body-public #controls #gallery-button img {
 	width: 16px;
 	height: 16px;
-	opacity: .8;
+	opacity: .55;
 }
 
 body.oco-shell .oco-list-head #gallery-button #button-loading,
