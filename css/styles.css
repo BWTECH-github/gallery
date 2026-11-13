@@ -34,11 +34,6 @@ div.crumb.last a {
 	padding-right: 8px;
 }
 
-#controls .button {
-	margin-top: 5px;
-	width: 40px;
-}
-
 #controls > .right {
 	float: right;
 }
@@ -262,10 +257,12 @@ a.row-element > .album > img {
 	margin: 1px;
 }
 
-/* make focus visible for keyboard users */
-a.row-element:focus,
-a.row-element > .album:focus {
-	opacity: .5;
+/* Kacheln stehen dicht und #gallery schneidet ab: der zentrale Fokusring
+   liegt innen (MASSSTAB 5), die Krumen ebenso (#breadcrumbs rollt
+   waagerecht und schneidet oben und unten ab). */
+#gallery a.row-element,
+#breadcrumbs .crumb a {
+	--oco-focus-offset: var(--oco-focus-offset-feld);
 }
 
 a.row-element .image > img {
@@ -403,6 +400,9 @@ http://www.bypeople.com/author/comatosed/*/
    gerechneten Reihen wären um seine Breite zu breit. */
 body.oco-shell #content.app-gallery {
 	display: block;
+	/* Seitenrand wie auf der Linkseite (public.css): die Fotowand ist keine
+	   Karte, stieß aber ohne Rand an die Seitenleiste */
+	padding: var(--oco-space-6);
 	overflow-x: hidden;
 	overflow-y: auto;
 	scrollbar-gutter: stable;
@@ -488,18 +488,27 @@ body.oco-shell .oco-main > #controls .actions .button.new {
 	align-items: center;
 	justify-content: center;
 	box-sizing: border-box;
-	width: 40px;
-	height: 36px;
+	width: 32px;
+	height: 32px;
+	min-height: 0;
 	padding: 0;
-	border: 1px solid var(--oco-border-control);
-	border-radius: 3px;
-	background: var(--oco-surface);
+	border: 0;
+	border-radius: var(--oco-radius-pill);
+	background: transparent;
+}
+
+body.oco-shell .oco-main > #controls .actions .button.new:hover {
+	background: var(--oco-surface-muted);
 }
 
 body.oco-shell .oco-main > #controls .actions .button.new img {
 	width: 16px;
 	height: 16px;
-	opacity: .8;
+	opacity: .55;
+}
+
+body.oco-shell .oco-main > #controls .actions .button.new:hover img {
+	opacity: 1;
 }
 
 /* Albuminfo und Freigabe öffnen unter ihrer Leiste, rechtsbündig mit deren
@@ -517,6 +526,10 @@ body.oco-shell .oco-main > #controls #dropdown {
 }
 
 @media only screen and (max-width: 767px) {
+	body.oco-shell #content.app-gallery {
+		padding: var(--oco-space-4);
+	}
+
 	body.oco-shell .oco-main > #controls {
 		gap: var(--oco-space-1);
 		padding: var(--oco-space-2) var(--oco-space-4);

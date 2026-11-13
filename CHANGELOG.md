@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [17.0.11] - 2026-11-13
+
+### Behoben
+- Galerieleiste: Sortieren, Neu, Teilen, Albuminfo und Dateiliste als runde Symbolknöpfe; die gewählte Sortierung ist als gedrückt erkennbar, die Tab-Reihenfolge folgt der Anzeige.
+- Fotowand mit Seitenrand; Fokusring an Kacheln und Brotkrume nicht mehr abgeschnitten.
+- Diashow: weißer Fokusring auf dem dunklen Grund, am Fensterrand nicht abgeschnitten; Rückfragen erscheinen über der Diashow; nach dem Schließen steht der Fokus wieder auf dem Bild, auch wenn es mit der Maus geöffnet wurde.
+
 ## [17.0.10] - 2026-11-13
 
 ### Behoben

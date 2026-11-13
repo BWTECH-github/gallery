@@ -1,164 +1,98 @@
-/* Rahmenfarbe der Bedienelemente: WCAG 1.4.11 verlangt für die Begrenzung
-   eines Bedienelements 3:1 gegen die Umgebung. Die Töne rgba(240,240,240,.9)
-   und rgba(216,216,216,.9) kamen auf 1,06 bzw. 1,23 – die Knöpfe hatten damit
-   praktisch keine sichtbare Kante. --oco-border-control (#78899F) trägt
-   3,57:1 auf Weiß und ist der Rahmenton des Entwurfs. Flächen bleiben
-   unberührt. Gemessen am 09.09.2026. */
-/* Gallery buttons design  */
+/* ==========================================================================
+ * Redesign (owncloud.online 11.1) – Knöpfe der Galerieleiste (#controls),
+ * angemeldet und auf der Linkseite: runde Symbolknöpfe nach MASSSTAB 3.1
+ * (32 × 32, ohne Kante, Symbol 16 mit Deckkraft .55, Hover als Fläche).
+ * Die alte Leiste (Kanten, graue Flächen, Knopfpaar mit eckigen Innenseiten)
+ * ist gelöscht. Die Sortierknöpfe stehen in DOM-Reihenfolge – vorher drehte
+ * float: right die Reihenfolge um, und Tab lief gegen die Leserichtung.
+ * ========================================================================== */
 #controls .left {
-	float: left;
+	display: inline-flex;
+	align-items: center;
+	gap: var(--oco-space-1);
 }
 
-#controls .button.view-switcher {
-	float: right;
-	margin-top: 5px;
-	font-weight: normal;
-	width: 40px;
-	padding: 6px 11px;
-	background-color: transparent;
-	border: 1px solid transparent;
-}
-
-#controls .button.view-switcher img{
-	opacity: .7;
-}
-
-#controls .button.view-switcher.gallery {
+#controls :is(#sort-date-button, #sort-name-button, #share-button, #album-info-button, #filelist-button) {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
 	float: none;
-	margin-right: 4px;
-	padding: 7px 11px;
-	background-color: rgba(240, 240, 240, .9);
+	box-sizing: border-box;
+	width: 32px;
+	height: 32px;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	border: 1px solid transparent;
+	border-radius: var(--oco-radius-pill);
+	background: transparent;
+	box-shadow: none;
+	cursor: pointer;
 }
 
-#controls .button.view-switcher.gallery img{
-	opacity: .8;
+#controls :is(#sort-date-button, #sort-name-button, #share-button, #album-info-button, #filelist-button) img {
+	width: 16px;
+	height: 16px;
+	opacity: .55;
 }
 
-#controls .button.sorting {
-	padding: 8px 7px;
-	-webkit-perspective: 1000px;
-	-moz-perspective: 1000px;
-	perspective: 1000px;
+#controls :is(#sort-date-button, #sort-name-button, #share-button, #album-info-button, #filelist-button):hover {
+	background: var(--oco-surface-muted);
 }
 
-#controls .button.left-switch-button,
-#controls .button.left-switch-button:hover {
-	float: right;
-	display: inline;
-	border-radius: 3px 0 0 3px;
-	margin-left: 3px;
-	margin-right: 0;
-	border-right: 0;
-	border-right: 1px solid var(--oco-border-control, #78899F);
+#controls :is(#sort-date-button, #sort-name-button, #share-button, #album-info-button, #filelist-button):hover img {
+	opacity: 1;
 }
 
-#controls .button.right-switch-button {
-	float: right;
-	display: inline;
-	border-radius: 0 3px 3px 0;
-	margin-left: -1px;
+/* gewählte Sortierung: wie ein gedrückter Symbolknopf (aria-pressed) */
+#controls :is(#sort-date-button, #sort-name-button).active-button {
+	background: var(--oco-teal-surface);
+	border-color: var(--oco-teal-border);
 }
 
-#share-button img,
-.button.left-switch-button img,
-.button.right-switch-button img {
-	vertical-align: -3px;
-	opacity: 0.8;
+#controls :is(#sort-date-button, #sort-name-button).active-button img {
+	opacity: 1;
 }
 
 #controls .disabled-button {
 	pointer-events: none;
-	background-color: rgba(230, 230, 230, .9);
-	border: 1px solid rgba(230, 230, 230, .9);
 }
 
 #controls .disabled-button img {
-	opacity: 0.25;
+	opacity: .25;
 }
 
-#controls .disabled-button:hover,
-#controls .disabled-button:focus,
-#controls .disabled-button a:focus,
-#controls .disabled-button.loading {
-	background-color: rgba(255, 255, 255, .9);
-	color: #111;
-	border: 1px solid var(--oco-border-control, #78899F);
-}
-
-#controls .button.view-switcher:hover {
-	background-color: rgba(255, 255, 255, .9);
-	color: #111;
-	border: 1px solid var(--oco-border-control, #78899F);
-}
-
-#controls .button.sorting.active-button {
-	background-color: rgba(255, 255, 255, .9);
-	color: #111;
-	border: 1px solid var(--oco-border-control, #78899F);
-	border-right-color: var(--oco-border-control, #78899F);
-}
-
-#controls .button.sorting.active-button:hover {
-	background-color: rgba(255, 255, 255, .9);
-	color: #111;
-	border: 1px solid var(--oco-border-control, #78899F);
-	border-right-color: var(--oco-border-control, #78899F);
-}
-
-/* Original Flip CSS by David Walsh
-http://davidwalsh.name/css-flip*/
-
-/* Wrapping both sort images */
+/* Sortierknopf: Vorder- und Rückseite zeigen auf- und absteigend; beim Hover
+   über der gewählten Sortierung dreht er die Seite (ohne Übergang). */
 #controls .button.sorting .flipper {
-	-webkit-transform: perspective(1000px);
-	-moz-transform: perspective(1000px);
-	transform: perspective(1000px);
-
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-
-	-webkit-transition: 0.3s;
-	-moz-transition: 0.3s;
-	transition: 0.3s;
-
 	position: relative;
+	width: 16px;
+	height: 16px;
+	transform-style: preserve-3d;
 }
 
 #controls .button.sorting .front,
 #controls .button.sorting .back {
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	backface-visibility: hidden;
-
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-
-	-webkit-transition: 0.3s;
-	-moz-transition: 0.3s;
-	transition: 0.3s;
-
 	position: absolute;
 	top: 0;
 	left: 0;
-	padding: 2px 1px;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
 }
 
 #controls .button.sorting .front,
 #controls .button.sorting.active-button.hover .back {
 	z-index: 2;
-
-	-webkit-transform: rotateX(0deg);
-	-moz-transform: rotateX(0deg);
 	transform: rotateX(0deg);
 }
 
 #controls .button.sorting .back {
-	filter: alpha(opacity=0); /* Hide this class in IE<10 */
+	transform: rotateX(180deg);
+}
 
-	-webkit-transform: rotateX(180deg);
-	-moz-transform: rotateX(180deg);
+#controls .button.sorting.active-button.hover .front {
 	transform: rotateX(180deg);
 }
 
@@ -167,14 +101,6 @@ http://davidwalsh.name/css-flip*/
 	width: 24px;
 	height: 24px;
 	background-size: 24px 24px;
-	margin-left: -4px;
-	margin-top: -3px;
-}
-
-#controls .button.sorting.active-button.hover .front {
-	-webkit-transform: rotateX(180deg);
-	-moz-transform: rotateX(180deg);
-	transform: rotateX(180deg);
 }
 
 /* ==========================================================================

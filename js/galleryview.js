@@ -577,6 +577,8 @@
 			var button = $('#sort-' + sortType + '-button');
 			// Removing all the classes which control the image in the button
 			button.removeClass('active-button');
+			// Zustand nicht nur über die Fläche: gewählte Sortierung als gedrückt
+			button.attr('aria-pressed', active ? 'true' : 'false');
 			button.find('img').removeClass('front');
 			button.find('img').removeClass('back');
 

@@ -191,6 +191,9 @@
 		 */
 		_openImage: function (event) {
 			event.stopPropagation();
+			// jQuery-UI-draggable verhindert beim Klick den Fokus auf der Kachel;
+			// die Diashow merkt sich beim Öffnen den Fokus als Rücksprungziel
+			event.currentTarget.focus({preventScroll: true});
 			// click function for future use.
 		}
 	};
