@@ -131,7 +131,7 @@ class PageController extends Controller {
 	 *
 	 * @return TemplateResponse
 	 */
-	public function errorPage($code) {
+	public function errorPage($code = 404) {
 		$appName = $this->appName;
 		$message = $this->request->getCookie('galleryErrorMessage');
 		$params = [
