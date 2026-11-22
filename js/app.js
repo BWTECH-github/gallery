@@ -1,7 +1,12 @@
 /* global OC, $, _, Gallery, SlideShow */
 $(document).ready(function () {
 	"use strict";
-	$('#controls').insertBefore($('#content-wrapper'));
+	// Angemeldet bleibt die Leiste in #content und haftet dort oben (styles.css):
+	// erst nach dem ersten Zeichnen umgehängt, schob sie die ganze Fläche um
+	// ihre Höhe nach unten (Layout-Verschiebung 0,06–0,10).
+	if (!document.body.classList.contains('oco-shell')) {
+		$('#controls').insertBefore($('#content-wrapper'));
+	}
 	Gallery.utility = new Gallery.Utility();
 	Gallery.view = new Gallery.View();
 	Gallery.token = Gallery.utility.getPublicToken();

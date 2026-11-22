@@ -409,17 +409,22 @@ body.oco-shell #content.app-gallery {
 	-webkit-overflow-scrolling: touch;
 }
 
-/* Die Werkzeugleiste. app.js hängt #controls vor #content-wrapper, im
-   Redesign steht sie damit als eigenes Flex-Kind in .oco-main zwischen
-   Kopfleiste und Fotowand und rollt nicht mit. position: relative ist der
-   Anker für Albuminfo und Freigabe-Aufklapper – ohne ihn hingen beide am
-   Fenster, 43 px unter dessen Oberkante und damit über der Kopfleiste. */
-body.oco-shell .oco-main > #controls {
-	position: relative;
-	/* core/css/styles.css setzt top: 45px für die einst feste Leiste; als
-	   relative Verschiebung rückte sie die Leiste 45 px über die Fotowand. */
-	top: auto;
-	flex: 0 0 auto;
+/* core/css/apps.css gibt #app height: 100%. Die Fotowand ragt darüber hinaus,
+   und mit dem Ende von #app gäbe die haftende Leiste beim Rollen nach. */
+body.oco-shell #content.app-gallery > #app {
+	height: auto;
+}
+
+/* Die Werkzeugleiste steht schon im ausgelieferten HTML oben in #content und
+   haftet dort (sticky): sie rollt nicht mit, und app.js muss sie nicht erst
+   nach dem ersten Zeichnen umhängen. Die negativen Ränder heben das Polster
+   von #content auf, damit sie bündig an Kopfleiste und Seitenleiste stößt.
+   sticky ist zugleich der Anker für Albuminfo und Freigabe-Aufklapper. */
+body.oco-shell #content.app-gallery #controls {
+	position: sticky;
+	/* Chrome rechnet die Haftkante ab der Innenkante des Polsters von #content */
+	top: calc(-1 * var(--oco-space-6));
+	margin: calc(-1 * var(--oco-space-6)) calc(-1 * var(--oco-space-6)) var(--oco-space-6);
 	display: flex;
 	/* Reicht die Zeile nicht für Krumen und Knöpfe, bekommen die Krumen eine
 	   eigene Zeile (bei 320 px blieben sonst 52 px und der Albumname fehlte). */
@@ -437,7 +442,7 @@ body.oco-shell .oco-main > #controls {
    zweite Zeile um und verdoppelten deren Höhe. Als Flex-Zeile bleiben sie
    einreihig. Was dann noch nicht passt, rollt waagerecht in der Leiste,
    statt abgeschnitten zu werden. */
-body.oco-shell .oco-main > #controls #breadcrumbs {
+body.oco-shell #content.app-gallery #controls #breadcrumbs {
 	float: none;
 	display: flex;
 	flex: 1 1 12rem;
@@ -450,11 +455,11 @@ body.oco-shell .oco-main > #controls #breadcrumbs {
 
 /* .left bleibt ein Block: die beiden Sortierknöpfe darin sind über float
    angeordnet (gallerybutton.css) und bilden nur so ihr Knopfpaar. */
-body.oco-shell .oco-main > #controls .left {
+body.oco-shell #content.app-gallery #controls .left {
 	flex: 0 0 auto;
 }
 
-body.oco-shell .oco-main > #controls > .right {
+body.oco-shell #content.app-gallery #controls > .right {
 	display: flex;
 	align-items: center;
 	gap: var(--oco-space-2);
@@ -463,7 +468,7 @@ body.oco-shell .oco-main > #controls > .right {
 
 /* margin-top: 5px zentrierte die Knöpfe in der alten 44-px-Leiste; in der
    Flex-Leiste schöbe es sie nach unten. */
-body.oco-shell .oco-main > #controls .button {
+body.oco-shell #content.app-gallery #controls .button {
 	margin-top: 0;
 	margin-bottom: 0;
 }
@@ -473,17 +478,17 @@ body.oco-shell .oco-main > #controls .button {
    Kopfleiste führt – die Galerie hat dort keinen. Den Upload-Fortschritt
    zeigt die Schale in ihrem eigenen Upload-Panel (owncloud-online-screens.js
    hört dafür am Dokument); der alte Balken bliebe eine zweite Anzeige. */
-body.oco-shell .oco-main > #controls .actions.creatable {
+body.oco-shell #content.app-gallery #controls .actions.creatable {
 	display: flex;
 	align-items: center;
 	flex: 0 0 auto;
 }
 
-body.oco-shell .oco-main > #controls .actions #uploadprogresswrapper {
+body.oco-shell #content.app-gallery #controls .actions #uploadprogresswrapper {
 	display: none;
 }
 
-body.oco-shell .oco-main > #controls .actions .button.new {
+body.oco-shell #content.app-gallery #controls .actions .button.new {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -497,24 +502,24 @@ body.oco-shell .oco-main > #controls .actions .button.new {
 	background: transparent;
 }
 
-body.oco-shell .oco-main > #controls .actions .button.new:hover {
+body.oco-shell #content.app-gallery #controls .actions .button.new:hover {
 	background: var(--oco-surface-muted);
 }
 
-body.oco-shell .oco-main > #controls .actions .button.new img {
+body.oco-shell #content.app-gallery #controls .actions .button.new img {
 	width: 16px;
 	height: 16px;
 	opacity: .55;
 }
 
-body.oco-shell .oco-main > #controls .actions .button.new:hover img {
+body.oco-shell #content.app-gallery #controls .actions .button.new:hover img {
 	opacity: 1;
 }
 
 /* Albuminfo und Freigabe öffnen unter ihrer Leiste, rechtsbündig mit deren
    Innenrand. */
-body.oco-shell .oco-main > #controls .album-info-container,
-body.oco-shell .oco-main > #controls #dropdown {
+body.oco-shell #content.app-gallery #controls .album-info-container,
+body.oco-shell #content.app-gallery #controls #dropdown {
 	top: calc(100% + 4px);
 	right: var(--oco-space-6);
 	box-sizing: border-box;
@@ -530,17 +535,19 @@ body.oco-shell .oco-main > #controls #dropdown {
 		padding: var(--oco-space-4);
 	}
 
-	body.oco-shell .oco-main > #controls {
+	body.oco-shell #content.app-gallery #controls {
+		top: calc(-1 * var(--oco-space-4));
+		margin: calc(-1 * var(--oco-space-4)) calc(-1 * var(--oco-space-4)) var(--oco-space-4);
 		gap: var(--oco-space-1);
 		padding: var(--oco-space-2) var(--oco-space-4);
 	}
 
-	body.oco-shell .oco-main > #controls > .right {
+	body.oco-shell #content.app-gallery #controls > .right {
 		gap: var(--oco-space-1);
 	}
 
-	body.oco-shell .oco-main > #controls .album-info-container,
-	body.oco-shell .oco-main > #controls #dropdown {
+	body.oco-shell #content.app-gallery #controls .album-info-container,
+	body.oco-shell #content.app-gallery #controls #dropdown {
 		right: var(--oco-space-4);
 		max-width: calc(100% - 2 * var(--oco-space-4));
 	}

@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [17.0.12] - 2026-11-22
+
+### Behoben
+- Galerie: Beim Öffnen springt die Fläche nicht mehr nach unten; die Galerieleiste steht sofort an ihrem Platz und bleibt beim Rollen oben.
+
 ## [17.0.11] - 2026-11-13
 
 ### Behoben
