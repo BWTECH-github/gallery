@@ -907,6 +907,18 @@ $(document).ready(function () {
 		}
 	});
 
+	// Escape schließt den Aufklapper und gibt den Fokus an den Teilen-Knopf
+	// zurück. Eine offene Vorschlagsliste oder ein offener Kalender schließen
+	// zuerst selbst (jQuery UI ruft dabei preventDefault).
+	$(document).on('keydown', function (event) {
+		if (event.key !== 'Escape' || event.isDefaultPrevented() || !Gallery.Share.droppedDown) {
+			return;
+		}
+		Gallery.Share.hideDropDown(function () {
+			$('#share-button').focus();
+		});
+	});
+
 	$(document).on('click', '#dropdown .showCruds', function () {
 		$(this).closest('li').find('.cruds').toggle();
 		return false;

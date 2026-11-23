@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [17.0.13] - 2026-11-23
+
+### Fixed
+- Teilen: Escape schließt den Aufklapper und setzt den Fokus zurück auf „Teilen“.
+
 ## [17.0.12] - 2026-11-22
 
 ### Behoben
