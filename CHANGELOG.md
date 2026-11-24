@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [17.0.14] - 2026-11-24
+
+### Fixed
+- Teilen: Der Knopf meldet Sprachausgaben, ob das Teilen-Feld offen ist.
+
 ## [17.0.13] - 2026-11-23
 
 ### Fixed

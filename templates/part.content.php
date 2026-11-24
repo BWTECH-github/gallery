@@ -105,7 +105,7 @@ style(
 	<span class="right">
 		<!-- sharing button -->
 		<div id="share-button" class="button"
-			 role="button" tabindex="0" aria-label="<?php p($l->t('Share')); ?>">
+			 role="button" tabindex="0" aria-expanded="false" aria-label="<?php p($l->t('Share')); ?>">
 			<img class="svg" src="<?php print_unescaped(
 	image_path('core', 'actions/share.svg')
 ); ?>" alt="<?php p($l->t("Share")); ?>"/>

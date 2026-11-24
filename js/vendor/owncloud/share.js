@@ -501,6 +501,8 @@
 				dropDownEl.appendTo(appendTo);
 			}
 			dropDownEl.attr('data-item-source-name', filename);
+			// Der Knopf meldet den offenen Bereich (WCAG 4.1.2)
+			$('#share-button').attr('aria-expanded', 'true');
 			$('#dropdown').slideDown(OC.menuSpeed, function () {
 				Gallery.Share.droppedDown = true;
 			});
@@ -515,6 +517,7 @@
 		 */
 		hideDropDown: function (callback) {
 			this.currentShares = null;
+			$('#share-button').attr('aria-expanded', 'false');
 			$('#dropdown').slideUp(OC.menuSpeed, function () {
 				Gallery.Share.droppedDown = false;
 				$('#dropdown').remove();
