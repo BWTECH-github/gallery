@@ -63,6 +63,31 @@
 	padding-bottom: 0;
 }
 
+/* Fußzeile ohne Rollen sichtbar, wo der Inhalt es erlaubt (P-12): Die
+   Galerieleiste steht auf der Linkseite zwischen Kopfleiste und
+   #content-wrapper. Dessen Untergrenze aus dem Kern (Fensterhöhe minus
+   Kopfleiste) rechnet die Leiste nicht mit, die Fußzeile lag um deren Höhe
+   unter dem Fensterboden, auch bei wenigen Bildern. Als Spalte über das
+   Fenster füllt der Inhaltsbereich nur den Rest. body wächst dabei mit dem
+   Inhalt (height: auto statt der 100 % aus core/css/styles.css). */
+body#body-public {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	min-height: 100vh;
+}
+
+@supports (height: 100dvh) {
+	body#body-public {
+		min-height: 100dvh;
+	}
+}
+
+body#body-public > #content-wrapper {
+	flex: 1 0 auto;
+	min-height: 0;
+}
+
 /* ==========================================================================
  * Redesign (owncloud.online 11.1) – öffentliche Galerie
  * ========================================================================== */
