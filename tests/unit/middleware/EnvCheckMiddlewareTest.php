@@ -719,4 +719,67 @@ class EnvCheckMiddlewareTest extends \Test\GalleryUnitTest {
 						   ->with($share, $password)
 						   ->willReturn($result);
 	}
+
+	/**
+	 * Hochlade-Link (Briefkasten): ohne Leserecht kein Zugriff auf Bilder, auch
+	 * nicht über den Download- oder Vorschauweg der Galerie
+	 *
+	 * @PublicPage
+	 */
+	public function testBeforeControllerWithUploadOnlyShareIsRejected() {
+		$this->reflector->reflect(__CLASS__, __FUNCTION__);
+
+		$token = 'aaaabbbbccccdddd';
+		$this->mockGetTokenAndPasswordParams($token, null);
+		$share = $this->mockShare(
+			'folder',
+			'tester',
+			'shared1',
+			Share::SHARE_TYPE_LINK,
+			null,
+			Constants::PERMISSION_CREATE,
+			null
+		);
+		$this->mockShareManagerGetShareByToken($token, $share);
+		$this->environment->expects($this->never())
+						  ->method('setTokenBasedEnv');
+
+		try {
+			$this->middleware->beforeController(__CLASS__, __FUNCTION__);
+			$this->fail('Upload-only share must not open the gallery');
+		} catch (CheckException $exception) {
+			$this->assertSame(Http::STATUS_NOT_FOUND, $exception->getCode());
+		}
+	}
+
+	/**
+	 * Die Linkseite eines Briefkastens fragt die Konfiguration ab (Medientypen);
+	 * das bleibt ohne Fehler
+	 *
+	 * @PublicPage
+	 */
+	public function testConfigOfUploadOnlyShareStaysReachable() {
+		$this->reflector->reflect(__CLASS__, __FUNCTION__);
+
+		$token = 'aaaabbbbccccdddd';
+		$this->mockGetTokenAndPasswordParams($token, null);
+		$share = $this->mockShare(
+			'folder',
+			'tester',
+			'shared1',
+			Share::SHARE_TYPE_LINK,
+			null,
+			Constants::PERMISSION_CREATE,
+			null
+		);
+		$this->mockShareManagerGetShareByToken($token, $share);
+		$this->environment->expects($this->once())
+						  ->method('setTokenBasedEnv')
+						  ->with($share);
+
+		$controller = $this->getMockBuilder(\OCA\Gallery\Controller\ConfigPublicController::class)
+						   ->disableOriginalConstructor()
+						   ->getMock();
+		$this->assertNull($this->middleware->beforeController($controller, __FUNCTION__));
+	}
 }

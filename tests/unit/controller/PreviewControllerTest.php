@@ -266,6 +266,34 @@ class PreviewControllerTest extends \Test\GalleryUnitTest {
 		);
 	}
 
+	/**
+	 * Ein animiertes GIF geht sonst als Original hinaus. Ohne Download-Recht
+	 * (Freigabe mit „Download nicht erlaubt“) gibt es nur eine berechnete Vorschau.
+	 */
+	public function testGetPreviewOfViewOnlyGifIsRenderedNotTheOriginal() {
+		$fileId = 1234;
+		$width = 1024;
+		$height = 768;
+
+		/** @type File $file */
+		$file = $this->mockAnimatedGifFile($fileId);
+		$this->mockGetFile($this->previewService, $fileId, $file);
+		$this->mockIsPreviewRequired($file, true, false);
+		$this->downloadService->expects($this->once())
+							  ->method('isDownloadAllowed')
+							  ->with($this->equalTo($file))
+							  ->willReturn(false);
+		$this->downloadService->expects($this->never())
+							  ->method('downloadFile');
+		$previewData = $this->mockPreviewData($file, true);
+		$this->mockCreatePreview($file, $width, $height, true, false, $previewData);
+
+		/** @type ImageResponse $response */
+		$response = $this->controller->getPreview($fileId, $width, $height);
+
+		$this->assertEquals(Http::STATUS_OK, $response->getStatus());
+	}
+
 	public function testGetPreviewWithWrongId() {
 		$fileId = 99999;
 		$width = 1024;
@@ -338,6 +366,8 @@ class PreviewControllerTest extends \Test\GalleryUnitTest {
 				$previewData
 			);
 		} else {
+			$this->downloadService->method('isDownloadAllowed')
+								  ->willReturn(true);
 			$this->mockDownloadFile($file, $base64Encode, $previewData);
 		}
 

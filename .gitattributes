@@ -1,0 +1,20 @@
+# Nicht ins Paket (git archive)
+/.drone.star export-ignore
+/.gitattributes export-ignore
+/.github export-ignore
+/.gitignore export-ignore
+/.gitmodules export-ignore
+/.php-cs-fixer.dist.php export-ignore
+/.scrutinizer.yml export-ignore
+/CONTRIBUTING.md export-ignore
+/Makefile export-ignore
+/build export-ignore
+/codeception.yml export-ignore
+/documentation export-ignore
+/phpdoc.xml export-ignore
+/phpunit.xml export-ignore
+/tests export-ignore
+/vendor-bin export-ignore
+/js/.bowerrc export-ignore
+/js/.jshintrc export-ignore
+/js/bower.json export-ignore

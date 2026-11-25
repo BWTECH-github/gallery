@@ -23,6 +23,29 @@ class DownloadService extends Service {
 	use Base64Encode;
 
 	/**
+	 * Darf das Original ausgeliefert werden? Nicht bei einer empfangenen Freigabe
+	 * mit „Download nicht erlaubt“ (Attribut permissions.download) – dieselbe
+	 * Regel wie im Kern (files_sharing ViewOnly, WebDAV ViewOnlyPlugin).
+	 *
+	 * @param File $file
+	 *
+	 * @return bool
+	 */
+	public function isDownloadAllowed($file) {
+		$storage = $file->getStorage();
+		if ($storage === null || !$storage->instanceOfStorage('OCA\Files_Sharing\SharedStorage')) {
+			return true;
+		}
+		/** @var \OCA\Files_Sharing\SharedStorage $storage */
+		$attributes = $storage->getShare()->getAttributes();
+		if ($attributes === null) {
+			return true;
+		}
+
+		return $attributes->getAttribute('permissions', 'download') !== false;
+	}
+
+	/**
 	 * Downloads the requested file
 	 *
 	 * @param File $file

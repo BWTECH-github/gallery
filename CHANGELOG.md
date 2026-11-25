@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [17.0.16] - 2026-11-25
+
+### Security
+- Sicherheit verbessert
+
 ## [17.0.15] - 2026-11-25
 
 ### Fixed

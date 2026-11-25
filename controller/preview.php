@@ -181,7 +181,10 @@ trait Preview {
 		$base64Encode
 	) {
 		$status = Http::STATUS_OK;
-		if ($this->previewService->isPreviewRequired($file, $animatedPreview)) {
+		// Ohne Download-Recht nie das Original, sondern eine berechnete Vorschau
+		if ($this->previewService->isPreviewRequired($file, $animatedPreview)
+			|| !$this->downloadService->isDownloadAllowed($file)
+		) {
 			$preview = $this->previewService->createPreview(
 				$file,
 				$width,

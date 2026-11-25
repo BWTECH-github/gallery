@@ -24,6 +24,7 @@ use OCA\Gallery\Service\SearchFolderService;
 use OCA\Gallery\Service\ConfigService;
 use OCA\Gallery\Service\SearchMediaService;
 use OCA\Gallery\Service\DownloadService;
+use OCA\Gallery\Service\ForbiddenServiceException;
 
 /**
  * Trait Files
@@ -143,6 +144,9 @@ trait Files {
 		/** @type File $file */
 		$file = $this->downloadService->getFile($fileId);
 		$this->configService->validateMimeType($file->getMimeType());
+		if (!$this->downloadService->isDownloadAllowed($file)) {
+			throw new ForbiddenServiceException('Download is not allowed for this file');
+		}
 		$download = $this->downloadService->downloadFile($file);
 		if ($filename === null) {
 			$filename = $file->getName();

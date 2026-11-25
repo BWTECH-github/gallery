@@ -147,6 +147,26 @@ class FilesControllerTest extends \Test\GalleryUnitTest {
 		$this->assertEquals($download['preview'], $response->render());
 	}
 
+	public function testDownloadOfViewOnlyShareIsForbidden() {
+		$fileId = 1234;
+		$file = $this->mockJpgFile($fileId);
+		$this->mockGetFile($this->downloadService, $fileId, $file);
+		$this->downloadService->expects($this->once())
+							  ->method('isDownloadAllowed')
+							  ->with($this->equalTo($file))
+							  ->willReturn(false);
+		$this->downloadService->expects($this->never())
+							  ->method('downloadFile');
+		$redirectUrl = '/index.php/app/error';
+		$this->mockUrlToErrorPage(Http::STATUS_FORBIDDEN, $redirectUrl);
+
+		/** @type RedirectResponse $response */
+		$response = $this->controller->download($fileId, null);
+
+		$this->assertEquals($redirectUrl, $response->getRedirectURL());
+		$this->assertEquals(Http::STATUS_SEE_OTHER, $response->getStatus());
+	}
+
 	public function testDownloadWithWrongId() {
 		$fileId = 99999;
 		$filename = null;
@@ -384,6 +404,8 @@ class FilesControllerTest extends \Test\GalleryUnitTest {
 	 */
 	private function mockGetDownload($fileId, $file, $filename) {
 		$this->mockGetFile($this->downloadService, $fileId, $file);
+		$this->downloadService->method('isDownloadAllowed')
+							  ->willReturn(true);
 
 		$download = $this->mockDownloadData($file, $filename);
 

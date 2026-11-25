@@ -29,7 +29,9 @@ use OCP\Security\IHasher;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Utility\IControllerMethodReflector;
 
+use OCA\Gallery\Controller\ConfigPublicController;
 use OCA\Gallery\Environment\Environment;
+use OCP\Constants;
 use OCP\Share\IManager;
 
 /**
@@ -111,7 +113,7 @@ class EnvCheckMiddleware extends CheckMiddleware {
 		}
 		$isPublicPage = $this->reflector->hasAnnotation('PublicPage');
 		if ($isPublicPage) {
-			$this->validateAndSetTokenBasedEnv();
+			$this->validateAndSetTokenBasedEnv($controller);
 		} else {
 			$this->environment->setStandardEnv();
 		}
@@ -121,9 +123,11 @@ class EnvCheckMiddleware extends CheckMiddleware {
 	 * Checks that we have a token and an optional password giving access to a
 	 * valid resource. Sets the token based environment after that
 	 *
+	 * @param object|string $controller
+	 *
 	 * @throws CheckException
 	 */
-	private function validateAndSetTokenBasedEnv() {
+	private function validateAndSetTokenBasedEnv($controller) {
 		$token = $this->request->getParam('token');
 		if (!$token) {
 			throw new CheckException(
@@ -135,6 +139,7 @@ class EnvCheckMiddleware extends CheckMiddleware {
 			$password = $this->request->getParam('password');
 			// Let's see if the user needs to provide a password
 			$this->checkAuthorisation($share, $password);
+			$this->checkReadPermission($share, $controller);
 
 			$this->environment->setTokenBasedEnv($share);
 		}
@@ -196,6 +201,30 @@ class EnvCheckMiddleware extends CheckMiddleware {
 			$message = 'No item type set for share id: ' . $share->getId();
 			throw new CheckException($message, Http::STATUS_NOT_FOUND);
 		}
+	}
+
+	/**
+	 * Ein Hochlade-Link (Briefkasten, ohne Leserecht) gibt keine Dateien heraus –
+	 * weder Liste noch Original noch Vorschau. Wie öffentliches WebDAV im Kern.
+	 * Nur die Konfiguration (Medientypen) bleibt erreichbar: Die Linkseite des
+	 * Briefkastens fragt sie ab, Dateien liefert sie nicht.
+	 *
+	 * @param IShare $share
+	 * @param object|string $controller
+	 *
+	 * @throws CheckException
+	 */
+	private function checkReadPermission($share, $controller) {
+		if (($share->getPermissions() & Constants::PERMISSION_READ) === Constants::PERMISSION_READ) {
+			return;
+		}
+		if ($controller instanceof ConfigPublicController) {
+			return;
+		}
+		throw new CheckException(
+			'Share without read permission for share id: ' . $share->getId(),
+			Http::STATUS_NOT_FOUND
+		);
 	}
 
 	/**
